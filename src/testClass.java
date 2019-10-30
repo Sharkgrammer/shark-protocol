@@ -8,11 +8,9 @@ public class testClass {
         System.out.println("shark test start");
 
         ServerHolder server = new ServerHolder();
-        server.setPort(6000);
-        server.setIP("localhost");
-
+        server.setPort(139);
+        server.setIP("35.234.148.116");
         //server(server);
-
         client(server);
 
         System.out.println("shark test end");
@@ -20,26 +18,22 @@ public class testClass {
 
     static void server(ServerHolder s){
         ServerHandler server = new ServerHandler(s);
-
         server.start();
-
-
         server.stop();
-
-
     }
 
     static void client(ServerHolder s){
-        MessageHandler message = new MessageHandler(s);
+        MessageHandler client = new MessageHandler(s);
 
-        message.start();
+        client.start();
 
-        message.send("Hello");
-        message.send("How are you");
-        message.send("You cool?");
-        message.send("Fu");
+        client.send("Hello");
+        client.send("How are you");
+        client.send("You cool?");
+        client.send("Fu");
+        client.send("I'm a shark");
 
-        message.stop();
+        client.stop();
 
     }
 }
