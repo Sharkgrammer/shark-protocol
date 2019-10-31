@@ -34,6 +34,10 @@ public class ServerHandler implements ResultHandler {
         con.sendMessage(message, ToAll, Pos);
     }
 
+    public void sendMessage(String message, Socket socket){
+        con.sendMessage(message, socket);
+    }
+
 
 
     @Override

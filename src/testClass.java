@@ -8,8 +8,9 @@ public class testClass {
         System.out.println("shark test start");
 
         ServerHolder server = new ServerHolder();
-        server.setPort(139);
+        server.setPort(6000);
         server.setIP("35.234.148.116");
+
         //server(server);
         client(server);
 
@@ -33,7 +34,7 @@ public class testClass {
         client.send("Fu");
         client.send("I'm a shark");
 
-        client.stop();
+        //client.stop();
 
     }
 }

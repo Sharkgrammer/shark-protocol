@@ -71,11 +71,15 @@ public class ConnectionHandler {
             return;
         }
 
+        sendMessage(message, receivers.get(connection).returnListenerSocket());
+    }
+
+    public void sendMessage(String message, Socket socket) {
         try {
             System.out.println("Sending message " + message);
-            PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(receivers.get(connection).returnListenerSocket().getOutputStream())), true);
+            PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-            sendOut.print(message);
+            sendOut.println(message);
             sendOut.flush();
 
             System.out.println("Message sent");
