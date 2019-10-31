@@ -5,20 +5,20 @@ import util.ServerHolder;
 
 import java.net.Socket;
 
-public class MessageHandler implements ResultHandler {
+public class MessageHandler {
 
     private ClientHandler con;
 
-    public MessageHandler(ServerHolder server){
-        con = new ClientHandler(server, this);
+    public MessageHandler(ServerHolder server, ResultHandler listener){
+        con = new ClientHandler(server, listener);
     }
 
-    public MessageHandler(String IP, int Port){
+    public MessageHandler(String IP, int Port, ResultHandler listener){
         ServerHolder server = new ServerHolder();
         server.setPort(Port);
         server.setIP(IP);
 
-        con = new ClientHandler(server, this);
+        con = new ClientHandler(server, listener);
     }
 
     public void start(){
@@ -31,12 +31,6 @@ public class MessageHandler implements ResultHandler {
 
     public void send(String message){
         con.sendMessage(message);
-    }
-
-    @Override
-    public void messageReceived(String message, Socket socket) {
-        System.out.println("Message from server: " + message);
-        //System.out.println("Message from server: I am: " + socket.toString());
     }
 
 }
