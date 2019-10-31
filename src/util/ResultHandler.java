@@ -4,7 +4,6 @@ import java.net.Socket;
 
 public interface ResultHandler{
 
-    void messageReceived(String message);
-    void socketReceived(Socket socket);
+    void messageReceived(String message, Socket socket);
 
 }

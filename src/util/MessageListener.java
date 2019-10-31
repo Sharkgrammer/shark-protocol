@@ -46,8 +46,7 @@ public class MessageListener implements Runnable {
                 message = readIn.readLine();
 
                 if (!message.equals("")) {
-                    listener.messageReceived(message);
-                    listener.socketReceived(socket);
+                    listener.messageReceived(message, socket);
                 }
             }
 

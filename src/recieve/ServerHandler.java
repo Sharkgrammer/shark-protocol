@@ -41,12 +41,9 @@ public class ServerHandler implements ResultHandler {
 
 
     @Override
-    public void messageReceived(String message) {
+    public void messageReceived(String message, Socket socket) {
         System.out.println("Message from client: " + message);
-    }
 
-    @Override
-    public void socketReceived(Socket socket) {
-        System.out.println("Message from client from: " + socket.toString());
+        sendMessage("Received, thank you for: " + message, socket);
     }
 }
