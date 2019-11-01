@@ -62,9 +62,8 @@ public class DataHolder {
 
     public Socket getClientSocket(int pos) {
 
-        if (sockets.isEmpty()){
+        if (sockets.isEmpty() || sockets.get(pos).getClient() == null){
             setClientSocket();
-            pos = 0;
         }
 
         return sockets.get(pos).getClient();
@@ -103,7 +102,7 @@ public class DataHolder {
     }
 
     public int noOfSockets(){
-        return sockets.size();
+        return sockets.size() - 1;
     }
 
     public String getUserName(int pos) {
@@ -149,7 +148,7 @@ public class DataHolder {
 
     private Integer findPosByUserID(byte[] ID){
 
-        for (int x = 0; x < sockets.size(); x++){
+        for (int x = 1; x < sockets.size(); x++){
 
             byte[] user = sockets.get(x).getUserID();
 

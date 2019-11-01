@@ -3,6 +3,9 @@ import send.MessageHandler;
 import util.ResultHandler;
 import util.DataHolder;
 
+import java.net.Socket;
+import java.util.IdentityHashMap;
+
 public class testClass {
 
     public static void main(String[] args) {
@@ -12,8 +15,8 @@ public class testClass {
         server.setPort(6000);
         server.setIP("35.234.148.116");
 
-        //new Server().run(server);
-        new Client().run(server);
+        new Server().run(server);
+        //new Client().run(server);
 
         System.out.println("shark test end");
     }
@@ -32,13 +35,15 @@ class Server implements ResultHandler{
     }
 
     @Override
-    public void messageReceived(String messageData, DataHolder data) {
+    public void messageReceived(String messageData, Socket socket, DataHolder data) {
         String[] messageArr = messageData.split("&space&");
-        String IDFrom = messageArr[2];
-        String message = messageArr[2];
+        String IDFrom = messageArr[0];
+        String message = messageArr[1];
         String IDTo = messageArr[2];
 
-        System.out.println("Message from client " + IDFrom + " : " + message + " sending to client "  + IDTo);
+        data.setUserID(IDFrom.getBytes(), socket);
+
+        System.out.println("Message from client " + IDFrom + " '" + message + "' sending to client "  + IDTo);
 
         server.sendMessage(message, IDTo.getBytes());
     }
@@ -68,7 +73,7 @@ class Client implements ResultHandler{
     }
 
     @Override
-    public void messageReceived(String message, DataHolder data) {
+    public void messageReceived(String message, Socket socket, DataHolder data) {
         System.out.println("Message from server: " + message);
         //System.out.println("Message from server: I am: " + socket.toString());
 
