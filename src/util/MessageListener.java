@@ -13,7 +13,7 @@ public class MessageListener implements Runnable {
     private boolean clientRunning;
     private int pos;
 
-    public MessageListener(String name, DataHolder server, ResultHandler listener, boolean clientRunning, int pos){
+    public MessageListener(String name, DataHolder server, ResultHandler listener, boolean clientRunning, int pos) {
         this.server = server;
         this.listener = listener;
         this.clientRunning = clientRunning;
@@ -21,7 +21,7 @@ public class MessageListener implements Runnable {
         this.pos = pos;
     }
 
-    public Socket returnListenerSocket(){
+    public Socket returnListenerSocket() {
         return server.getClientSocket(pos);
     }
 
@@ -32,7 +32,7 @@ public class MessageListener implements Runnable {
         }
     }
 
-    public void finish(){
+    public void finish() {
         clientRunning = false;
     }
 
@@ -50,12 +50,12 @@ public class MessageListener implements Runnable {
 
                 message = readIn.readLine();
 
-               // if (message.substring(0, 5).equals("auth:")){
+                if (message.substring(0, 5).equals("auth:")) {
                     //TODO auth
-                 //   server.setUserID(message.substring(5).getBytes(), pos);
-                //}else{Update
-                if (!message.equals(""))  listener.messageReceived(message, socket, server);
-                //}
+                    server.setUserID(message.substring(5).getBytes(), pos);
+                } else {
+                    if (!message.equals("")) listener.messageReceived(message, socket, server);
+                }
             }
 
         } catch (Exception e) {

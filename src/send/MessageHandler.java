@@ -19,6 +19,10 @@ public class MessageHandler {
         con = new ClientHandler(server, listener, userID);
     }
 
+    public void auth(){
+        con.sendAuthMessage();
+    }
+
     public void start(){
         con.startClient();
     }

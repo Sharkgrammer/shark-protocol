@@ -28,9 +28,9 @@ public class ClientHandler {
         System.out.println("Connecting to server...");
         socket = server.getClientSocket();
 
-        if (socket == null){
+        if (socket == null) {
             System.out.println("Failure to connect");
-        }else{
+        } else {
             clientAlive = true;
             System.out.println("Connected!");
         }
@@ -47,7 +47,7 @@ public class ClientHandler {
     }
 
     public void sendMessage(String message, byte[] to) {
-        if (clientAlive){
+        if (clientAlive) {
             try {
                 String toID = byteToString(to);
                 String fromID = byteToString(userID);
@@ -67,26 +67,24 @@ public class ClientHandler {
         }
     }
 
-    private void sendAuthMessage() {
-        if (clientAlive){
-            try {
-                String ID = byteToString(userID);
+    public void sendAuthMessage() {
+        try {
+            String ID = byteToString(userID);
 
-                System.out.println("Sending auth:" + ID);
-                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+            System.out.println("Sending auth:" + ID);
+            PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-                sendOut.println("auth:" + ID);
-                sendOut.flush();
+            sendOut.println("auth:" + ID);
+            sendOut.flush();
 
-                System.out.println("auth sent");
+            System.out.println("auth sent");
 
-            } catch (Exception e) {
-                System.out.println("Error in sendMessage: " + e.toString());
-            }
+        } catch (Exception e) {
+            System.out.println("Error in sendAuthMessage: " + e.toString());
         }
     }
 
-    private String byteToString(byte[] array){
+    private String byteToString(byte[] array) {
         return new String(array, StandardCharsets.UTF_8);
     }
 

@@ -15,8 +15,8 @@ public class testClass {
         server.setPort(6000);
         server.setIP("35.234.148.116");
 
-        new Server().run(server);
-        //new Client().run(server);
+        //new Server().run(server);
+        new Client().run(server);
 
         System.out.println("shark test end");
     }
@@ -58,7 +58,7 @@ class Client implements ResultHandler{
     public void run(DataHolder s){
 
         String ID = "shark1";
-        String ToID = "shark2";
+        String ToID = "shakes";
 
         System.out.println("I am " + ID);
 
@@ -66,7 +66,9 @@ class Client implements ResultHandler{
 
         client.start();
 
-        client.send("I am a shark", ToID.getBytes());
+        client.auth();
+
+        client.send("How are you friend?", ToID.getBytes());
 
         //client.stop();
 
@@ -76,8 +78,5 @@ class Client implements ResultHandler{
     public void messageReceived(String message, Socket socket, DataHolder data) {
         System.out.println("Message from server: " + message);
         //System.out.println("Message from server: I am: " + socket.toString());
-
-
-
     }
 }
