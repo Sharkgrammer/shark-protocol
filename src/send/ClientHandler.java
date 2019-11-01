@@ -32,7 +32,7 @@ public class ClientHandler {
             System.out.println("Connected!");
         }
 
-        receiver = new MessageListener("ClientListener", server, listener, clientAlive);
+        receiver = new MessageListener("ClientListener", server, listener, clientAlive, 0);
         receiver.start();
 
     }

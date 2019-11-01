@@ -102,6 +102,10 @@ public class DataHolder {
         return sockets.get(pos).getServer();
     }
 
+    public int noOfSockets(){
+        return sockets.size();
+    }
+
     public String getUserName(int pos) {
         return sockets.get(pos).getUserName();
     }

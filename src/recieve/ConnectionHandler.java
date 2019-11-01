@@ -46,8 +46,9 @@ public class ConnectionHandler {
 
                     cSocket = sSocket.accept();
                     server.setClientSocket(cSocket);
+                    int len = server.noOfSockets();
 
-                    MessageListener receiver = new MessageListener("ServerClient" + String.valueOf(receivers.size()), server, listener, true);
+                    MessageListener receiver = new MessageListener("ServerClient" + String.valueOf(len), server, listener, true, len);
                     receiver.start();
                     receivers.add(receiver);
 
@@ -61,17 +62,21 @@ public class ConnectionHandler {
         }
     }
 
-    public void sendMessage(String message, boolean ToAll, int connection) {
+    public void sendMessage(String message, boolean ToAll, int pos) {
         if (ToAll) {
 
-            for (int x = 0; x < receivers.size(); x++) {
+            for (int x = 0; x < server.noOfSockets(); x++) {
                 sendMessage(message, false, x);
             }
 
             return;
         }
 
-        sendMessage(message, receivers.get(connection).returnListenerSocket());
+        sendMessage(message, server.getClientSocket(pos));
+    }
+
+    public void sendMessage(String message, byte[] userID) {
+        sendMessage(message, server.getClientSocket(userID));
     }
 
     public void sendMessage(String message, Socket socket) {

@@ -34,6 +34,10 @@ public class ServerHandler {
         con.sendMessage(message, ToAll, Pos);
     }
 
+    public void sendMessage(String message, byte[] userID){
+        con.sendMessage(message, userID);
+    }
+
     public void sendMessage(String message, Socket socket){
         con.sendMessage(message, socket);
     }
