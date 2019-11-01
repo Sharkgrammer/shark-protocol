@@ -3,6 +3,7 @@ package util;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class MessageListener implements Runnable {
     private Thread t;
@@ -39,7 +40,7 @@ public class MessageListener implements Runnable {
     public void run() {
         String message;
 
-        Socket socket = server.getClientSocket();
+        Socket socket = server.getClientSocket(pos);
 
         System.out.println("Listener started");
         try {
@@ -49,12 +50,12 @@ public class MessageListener implements Runnable {
 
                 message = readIn.readLine();
 
-                if (message.substring(0, 5).equals("auth:")){
+               // if (message.substring(0, 5).equals("auth:")){
                     //TODO auth
-                    server.setUserID(message.substring(5).getBytes(), pos);
-                }else{
-                    listener.messageReceived(message, server);
-                }
+                 //   server.setUserID(message.substring(5).getBytes(), pos);
+                //}else{
+                if (!message.equals(""))  listener.messageReceived(message, server);
+                //}
             }
 
         } catch (Exception e) {

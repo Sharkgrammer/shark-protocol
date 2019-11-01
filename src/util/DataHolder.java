@@ -103,7 +103,7 @@ public class DataHolder {
     }
 
     public int noOfSockets(){
-        return sockets.size();
+        return sockets.size() - 1;
     }
 
     public String getUserName(int pos) {

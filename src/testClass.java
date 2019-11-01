@@ -12,8 +12,8 @@ public class testClass {
         server.setPort(6000);
         server.setIP("35.234.148.116");
 
-        //new Server().run(server);
-        new Client().run(server);
+        new Server().run(server);
+        //new Client().run(server);
 
         System.out.println("shark test end");
     }
