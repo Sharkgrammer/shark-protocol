@@ -55,9 +55,7 @@ public class ClientHandler {
                 System.out.println("Sending message " + message);
                 PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-                sendOut.println(fromID);
-                sendOut.println(message);
-                sendOut.println(toID);
+                sendOut.println(fromID + "&space&" + message + "&space&" + toID);
 
                 sendOut.flush();
 
