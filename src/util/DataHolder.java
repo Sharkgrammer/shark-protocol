@@ -2,12 +2,15 @@ package util;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DataHolder {
 
     private String IP;
     private int port;
-    private SocketHolder sockets = new SocketHolder();
+    private List<SocketHolder> sockets = new ArrayList<>();
 
     public String getIP() {
         return IP;
@@ -47,45 +50,117 @@ public class DataHolder {
     }
 
     public void setClientSocket(Socket socket) {
-        if (sockets == null) {
-            sockets = new SocketHolder();
-        }
-        sockets.setClient(socket);
+        SocketHolder s = new SocketHolder();
+        s.setClient(socket);
+
+        sockets.add(s);
     }
 
     public Socket getClientSocket() {
+        return getClientSocket(0);
+    }
 
-        if (sockets.getClient() == null){
+    public Socket getClientSocket(int pos) {
+
+        if (sockets.isEmpty()){
             setClientSocket();
+            pos = 0;
         }
 
-        return sockets.getClient();
+        return sockets.get(pos).getClient();
+    }
+
+    public Socket getClientSocket(byte[] userID) {
+        return sockets.get(findPosByUserID(userID)).getClient();
+    }
+
+    public void setServerSocket(){
+        setServerSocket(port);
     }
 
     public void setServerSocket(int port){
         try{
-            this.sockets.setServer(new ServerSocket(port));
-        }catch(Exception e){
-            System.out.println("Error in setServerSocket: " + e.toString());
-            this.sockets.setServer(null);
-        }
-    }
+            SocketHolder s = new SocketHolder();
+            s.setServer(new ServerSocket(port));
 
-    public void setServerSocket(){
-        try{
-            sockets.setServer(new ServerSocket(port));
+            sockets.add(s);
         }catch(Exception e){
             System.out.println("Error in setServerSocket: " + e.toString());
-            sockets.setServer(null);
         }
     }
 
     public ServerSocket getServerSocket(){
-        if (sockets.getServer() == null){
+        return getServerSocket(0);
+    }
+
+    public ServerSocket getServerSocket(int pos){
+        if (sockets.isEmpty()){
             setServerSocket();
+            pos = 0;
         }
 
-        return sockets.getServer();
+        return sockets.get(pos).getServer();
     }
+
+    public String getUserName(int pos) {
+        return sockets.get(pos).getUserName();
+    }
+
+    public byte[] getUserID(int pos){
+        return sockets.get(pos).getUserID();
+    }
+
+    public void setUserName(String name, int pos) {
+        sockets.get(pos).setUserName(name);
+    }
+
+    public void setUserName(String name, Socket socket) {
+        sockets.get(findPosBySocket(socket)).setUserName(name);
+    }
+
+    public void setUserID(byte[] ID, int pos){
+        sockets.get(pos).setUserID(ID);
+    }
+
+    public void setUserID(byte[] ID, Socket socket){
+        sockets.get(findPosBySocket(socket)).setUserID(ID);
+    }
+
+    private Integer findPosBySocket(Socket socket){
+
+        for (int x = 0; x < sockets.size(); x++){
+
+            Socket sock = sockets.get(x).getClient();
+
+            if (sock != null){
+                if (socket.equals(sock)){
+                    return x;
+                }
+            }
+
+        }
+
+        return null;
+    }
+
+    private Integer findPosByUserID(byte[] ID){
+
+        for (int x = 0; x < sockets.size(); x++){
+
+            byte[] user = sockets.get(x).getUserID();
+
+            if (user != null){
+                if (Arrays.equals(user, ID)){
+                    return x;
+                }
+            }
+
+        }
+
+        return null;
+    }
+
+
+
 
 }
