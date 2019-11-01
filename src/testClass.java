@@ -32,10 +32,15 @@ class Server implements ResultHandler{
     }
 
     @Override
-    public void messageReceived(String message, DataHolder data) {
+    public void messageReceived(String messageData, DataHolder data) {
+        String[] messageArr = messageData.split("&space&");
+        String IDFrom = messageArr[2];
+        String message = messageArr[2];
+        String IDTo = messageArr[2];
 
-        System.out.println("Message from client: " + message);
+        System.out.println("Message from client " + IDFrom + " : " + message + " sending to client "  + IDTo);
 
+        server.sendMessage(message, IDTo.getBytes());
     }
 
 
@@ -64,5 +69,8 @@ class Client implements ResultHandler{
     public void messageReceived(String message, DataHolder data) {
         System.out.println("Message from server: " + message);
         //System.out.println("Message from server: I am: " + socket.toString());
+
+
+
     }
 }
