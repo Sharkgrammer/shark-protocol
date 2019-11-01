@@ -53,7 +53,7 @@ public class MessageListener implements Runnable {
                // if (message.substring(0, 5).equals("auth:")){
                     //TODO auth
                  //   server.setUserID(message.substring(5).getBytes(), pos);
-                //}else{
+                //}else{Update
                 if (!message.equals(""))  listener.messageReceived(message, server);
                 //}
             }
