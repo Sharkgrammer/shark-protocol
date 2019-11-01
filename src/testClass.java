@@ -55,6 +55,8 @@ class Client implements ResultHandler{
         String ID = "shark1";
         String ToID = "shark2";
 
+        System.out.println("I am " + ID);
+
         client = new MessageHandler(s, this, ID.getBytes());
 
         client.start();
