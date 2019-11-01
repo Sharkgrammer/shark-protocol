@@ -54,12 +54,13 @@ public class MessageListener implements Runnable {
                     //TODO auth
                  //   server.setUserID(message.substring(5).getBytes(), pos);
                 //}else{Update
-                if (!message.equals(""))  listener.messageReceived(message, server);
+                if (!message.equals(""))  listener.messageReceived(message, socket, server);
                 //}
             }
 
         } catch (Exception e) {
-            System.out.println("Error in sendMessage in MessageListener: " + e.toString());
+            System.out.println("Error in listen in MessageListener: " + e.toString());
+            System.out.println(Arrays.toString(e.getStackTrace()));
         }
     }
 
