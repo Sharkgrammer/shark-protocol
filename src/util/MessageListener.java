@@ -58,7 +58,7 @@ public class MessageListener implements Runnable {
             }
 
         } catch (Exception e) {
-            System.out.println("Error in sendMessage: " + e.toString());
+            System.out.println("Error in sendMessage in MessageListener: " + e.toString());
         }
     }
 
