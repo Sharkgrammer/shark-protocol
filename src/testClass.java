@@ -3,9 +3,6 @@ import send.MessageHandler;
 import util.ResultHandler;
 import util.DataHolder;
 
-import javax.xml.crypto.Data;
-import java.net.Socket;
-
 public class testClass {
 
     public static void main(String[] args) {
@@ -38,7 +35,6 @@ class Server implements ResultHandler{
     public void messageReceived(String message, DataHolder data) {
 
         System.out.println("Message from client: " + message);
-        server.sendMessage("Received: " + message, data.getClientSocket());
 
     }
 
@@ -51,13 +47,14 @@ class Client implements ResultHandler{
 
     public void run(DataHolder s){
 
-        String ID = "";
+        String ID = "shark1";
+        String ToID = "shark2";
 
         client = new MessageHandler(s, this, ID.getBytes());
 
         client.start();
 
-        client.send("I am a shark");
+        client.send("I am a shark", ToID.getBytes());
 
         //client.stop();
 
