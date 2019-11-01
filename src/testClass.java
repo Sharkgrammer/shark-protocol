@@ -51,7 +51,9 @@ class Client implements ResultHandler{
 
     public void run(DataHolder s){
 
-        client = new MessageHandler(s, this);
+        String ID = "";
+
+        client = new MessageHandler(s, this, ID.getBytes());
 
         client.start();
 

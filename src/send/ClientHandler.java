@@ -6,6 +6,7 @@ import util.DataHolder;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -13,10 +14,12 @@ public class ClientHandler {
     private Socket socket;
     private MessageListener receiver;
     private boolean clientAlive = false;
+    private byte[] userID;
 
-    public ClientHandler(DataHolder server, ResultHandler listener) {
+    public ClientHandler(DataHolder server, ResultHandler listener, byte[] userID) {
         this.listener = listener;
         this.server = server;
+        this.userID = userID;
     }
 
     public void startClient() {
@@ -43,13 +46,19 @@ public class ClientHandler {
         receiver.finish();
     }
 
-    public void sendMessage(String message) {
+    public void sendMessage(String message, byte[] to) {
         if (clientAlive){
             try {
+                String toID = byteToString(to);
+                String fromID = byteToString(userID);
+
                 System.out.println("Sending message " + message);
                 PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
+                sendOut.println(fromID);
                 sendOut.println(message);
+                sendOut.println(toID);
+
                 sendOut.flush();
 
                 System.out.println("Message sent");
@@ -58,6 +67,29 @@ public class ClientHandler {
                 System.out.println("Error in sendMessage: " + e.toString());
             }
         }
+    }
+
+    private void sendAuthMessage() {
+        if (clientAlive){
+            try {
+                String ID = byteToString(userID);
+
+                System.out.println("Sending auth:" + ID);
+                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+
+                sendOut.println("auth:" + ID);
+                sendOut.flush();
+
+                System.out.println("auth sent");
+
+            } catch (Exception e) {
+                System.out.println("Error in sendMessage: " + e.toString());
+            }
+        }
+    }
+
+    private String byteToString(byte[] array){
+        return new String(array, StandardCharsets.UTF_8);
     }
 
 }

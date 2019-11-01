@@ -7,16 +7,16 @@ public class MessageHandler {
 
     private ClientHandler con;
 
-    public MessageHandler(DataHolder server, ResultHandler listener){
-        con = new ClientHandler(server, listener);
+    public MessageHandler(DataHolder server, ResultHandler listener, byte[] userID){
+        con = new ClientHandler(server, listener, userID);
     }
 
-    public MessageHandler(String IP, int Port, ResultHandler listener){
+    public MessageHandler(String IP, int Port, ResultHandler listener, byte[] userID){
         DataHolder server = new DataHolder();
         server.setPort(Port);
         server.setIP(IP);
 
-        con = new ClientHandler(server, listener);
+        con = new ClientHandler(server, listener, userID);
     }
 
     public void start(){
@@ -27,8 +27,8 @@ public class MessageHandler {
         con.stopClient();
     }
 
-    public void send(String message){
-        con.sendMessage(message);
+    public void send(String message, byte[] toID){
+        con.sendMessage(message, toID);
     }
 
 }
