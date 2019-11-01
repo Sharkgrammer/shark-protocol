@@ -2,7 +2,7 @@ package recieve;
 
 import util.MessageListener;
 import util.ResultHandler;
-import util.ServerHolder;
+import util.DataHolder;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionHandler {
-    private ServerHolder server;
+    private DataHolder server;
     private ResultHandler listener;
     private boolean serverRunning;
     private List<MessageListener> receivers;
 
 
-    public ConnectionHandler(ServerHolder server, ResultHandler listener) {
+    public ConnectionHandler(DataHolder server, ResultHandler listener) {
         this.listener = listener;
         this.server = server;
     }
@@ -47,7 +47,7 @@ public class ConnectionHandler {
                     cSocket = sSocket.accept();
                     server.setClientSocket(cSocket);
 
-                    MessageListener receiver = new MessageListener("ServerClient" + String.valueOf(receivers.size()), cSocket, listener, true);
+                    MessageListener receiver = new MessageListener("ServerClient" + String.valueOf(receivers.size()), server, listener, true);
                     receiver.start();
                     receivers.add(receiver);
 

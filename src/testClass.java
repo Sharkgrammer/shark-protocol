@@ -1,8 +1,9 @@
 import recieve.ServerHandler;
 import send.MessageHandler;
 import util.ResultHandler;
-import util.ServerHolder;
+import util.DataHolder;
 
+import javax.xml.crypto.Data;
 import java.net.Socket;
 
 public class testClass {
@@ -10,7 +11,7 @@ public class testClass {
     public static void main(String[] args) {
         System.out.println("shark test start");
 
-        ServerHolder server = new ServerHolder();
+        DataHolder server = new DataHolder();
         server.setPort(6000);
         server.setIP("35.234.148.116");
 
@@ -26,19 +27,19 @@ class Server implements ResultHandler{
 
     ServerHandler server;
 
-    public void run(ServerHolder s){
+    public void run(DataHolder s){
 
         server = new ServerHandler(s, this);
         server.start();
-        server.stop();
 
     }
 
     @Override
-    public void messageReceived(String message, Socket socket) {
-        System.out.println("Message from client: " + message);
+    public void messageReceived(String message, DataHolder data) {
 
-        server.sendMessage("Received, thank you for: " + message, socket);
+        System.out.println("Message from client: " + message);
+        server.sendMessage("Received: " + message, data.getClientSocket());
+
     }
 
 
@@ -48,24 +49,20 @@ class Client implements ResultHandler{
 
     MessageHandler client;
 
-    public void run(ServerHolder s){
+    public void run(DataHolder s){
 
         client = new MessageHandler(s, this);
 
         client.start();
 
-        client.send("Hello");
-        client.send("How are you");
-        client.send("You cool?");
-        client.send("Fu");
-        client.send("I'm a shark");
+        client.send("I am a shark");
 
         //client.stop();
 
     }
 
     @Override
-    public void messageReceived(String message, Socket socket) {
+    public void messageReceived(String message, DataHolder data) {
         System.out.println("Message from server: " + message);
         //System.out.println("Message from server: I am: " + socket.toString());
     }

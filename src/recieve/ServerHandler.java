@@ -1,7 +1,7 @@
 package recieve;
 
 import util.ResultHandler;
-import util.ServerHolder;
+import util.DataHolder;
 
 import java.net.Socket;
 
@@ -9,12 +9,12 @@ public class ServerHandler {
 
     private ConnectionHandler con;
 
-    public ServerHandler(ServerHolder server, ResultHandler listener){
+    public ServerHandler(DataHolder server, ResultHandler listener){
         con = new ConnectionHandler(server, listener);
     }
 
     public ServerHandler(int port, ResultHandler listener){
-        ServerHolder server = new ServerHolder();
+        DataHolder server = new DataHolder();
         server.setPort(port);
 
         con = new ConnectionHandler(server, listener);

@@ -2,19 +2,19 @@ package send;
 
 import util.MessageListener;
 import util.ResultHandler;
-import util.ServerHolder;
+import util.DataHolder;
 
 import java.io.*;
 import java.net.Socket;
 
 public class ClientHandler {
     private ResultHandler listener;
-    private ServerHolder server;
+    private DataHolder server;
     private Socket socket;
     private MessageListener receiver;
     private boolean clientAlive = false;
 
-    public ClientHandler(ServerHolder server, ResultHandler listener) {
+    public ClientHandler(DataHolder server, ResultHandler listener) {
         this.listener = listener;
         this.server = server;
     }
@@ -32,7 +32,7 @@ public class ClientHandler {
             System.out.println("Connected!");
         }
 
-        receiver = new MessageListener("ClientListener", socket, listener, clientAlive);
+        receiver = new MessageListener("ClientListener", server, listener, clientAlive);
         receiver.start();
 
     }

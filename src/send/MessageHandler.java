@@ -1,20 +1,18 @@
 package send;
 
 import util.ResultHandler;
-import util.ServerHolder;
-
-import java.net.Socket;
+import util.DataHolder;
 
 public class MessageHandler {
 
     private ClientHandler con;
 
-    public MessageHandler(ServerHolder server, ResultHandler listener){
+    public MessageHandler(DataHolder server, ResultHandler listener){
         con = new ClientHandler(server, listener);
     }
 
     public MessageHandler(String IP, int Port, ResultHandler listener){
-        ServerHolder server = new ServerHolder();
+        DataHolder server = new DataHolder();
         server.setPort(Port);
         server.setIP(IP);
 

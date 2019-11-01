@@ -6,20 +6,20 @@ import java.net.Socket;
 
 public class MessageListener implements Runnable {
     private Thread t;
-    private Socket socket;
+    private DataHolder server;
     private ResultHandler listener;
     private String name;
     private boolean clientRunning;
 
-    public MessageListener(String name, Socket socket, ResultHandler listener, boolean clientRunning){
-        this.socket = socket;
+    public MessageListener(String name, DataHolder server, ResultHandler listener, boolean clientRunning){
+        this.server = server;
         this.listener = listener;
         this.clientRunning = clientRunning;
         this.name = name;
     }
 
     public Socket returnListenerSocket(){
-        return socket;
+        return server.getClientSocket();
     }
 
     public void start() {
@@ -35,8 +35,10 @@ public class MessageListener implements Runnable {
 
     @Override
     public void run() {
-        String message = "";
-        int c;
+        String message;
+
+        Socket socket = server.getClientSocket();
+
         System.out.println("Listener started");
         try {
             BufferedReader readIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -46,7 +48,7 @@ public class MessageListener implements Runnable {
                 message = readIn.readLine();
 
                 if (!message.equals("")) {
-                    listener.messageReceived(message, socket);
+                    listener.messageReceived(message, server);
                 }
             }
 

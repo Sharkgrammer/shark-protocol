@@ -3,7 +3,7 @@ package util;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerHolder {
+public class DataHolder {
 
     private String IP;
     private int port;
