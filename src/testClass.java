@@ -6,6 +6,9 @@ import util.DataHolder;
 import java.net.Socket;
 import java.util.IdentityHashMap;
 
+//REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
+//REF based on https://stackoverflow.com/a/40100207/11480852 as well
+
 public class testClass {
 
     public static void main(String[] args) {
@@ -13,7 +16,7 @@ public class testClass {
 
         DataHolder server = new DataHolder();
         server.setPort(6000);
-        server.setIP("35.234.148.116");
+        server.setIP("35.235.49.238");
 
         //new Server().run(server);
         new Client().run(server);
@@ -57,8 +60,8 @@ class Client implements ResultHandler{
 
     public void run(DataHolder s){
 
-        String ID = "shark1";
-        String ToID = "shakes";
+        String ID = "sharkiewefwef";
+        String ToID = "jambon";
 
         System.out.println("I am " + ID);
 
@@ -68,7 +71,7 @@ class Client implements ResultHandler{
 
         client.auth();
 
-        client.send("How are you friend?", ToID.getBytes());
+        client.send("How are you boop", ToID.getBytes());
 
         //client.stop();
 
