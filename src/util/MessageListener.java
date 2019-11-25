@@ -58,13 +58,13 @@ public class MessageListener implements Runnable {
                     if (message.substring(0, 5).equals("auth:")) {
                         //TODO auth
                         server.setUserID(message.substring(5).getBytes(), pos);
+                        System.out.println("User " + message.substring(5) + " has joined");
                         auth = true;
                     }
                 }
 
                 if (!auth && !message.equals("") && message.length() > 0) {
-                    String decodedMsg = new String(Base64.getDecoder().decode(message));
-                    listener.messageReceived(decodedMsg, socket, server);
+                    listener.messageReceived(message, socket, server);
                 }
 
             }

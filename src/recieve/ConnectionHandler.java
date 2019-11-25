@@ -85,7 +85,7 @@ public class ConnectionHandler {
             System.out.println("Sending message " + message);
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-            sendOut.println(new String(Base64.getEncoder().encode(message.getBytes())));
+            sendOut.println(message);
             sendOut.flush();
 
             System.out.println("Message sent");

@@ -58,17 +58,14 @@ public class ClientHandler {
                 byte[] encodedMsg = Base64.getEncoder().encode(msg);
 
                 System.out.println("Sending message " + message);
-                OutputStream stream = socket.getOutputStream();
-                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)), true);
+                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
                 String finalMsg = fromID + spaceDel + new String(encodedMsg)+ spaceDel + toID;
                 System.out.println("FINAL MESSAGE: " + finalMsg);
 
-                stream.write(finalMsg.getBytes());
-                sendOut.println();
+                sendOut.println(finalMsg);
 
                 sendOut.flush();
-                stream.flush();
 
                 System.out.println("Message sent");
 
