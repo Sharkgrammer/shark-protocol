@@ -51,17 +51,18 @@ public class MessageListener implements Runnable {
 
             while (clientRunning) {
 
+                boolean auth = false;
                 message = readIn.readLine();
 
                 if (message.length() >= 5) {
                     if (message.substring(0, 5).equals("auth:")) {
                         //TODO auth
                         server.setUserID(message.substring(5).getBytes(), pos);
-                        return;
+                        auth = true;
                     }
                 }
 
-                if (!message.equals("") && message.length() > 0) {
+                if (!auth && !message.equals("") && message.length() > 0) {
                     String decodedMsg = new String(Base64.getDecoder().decode(message));
                     listener.messageReceived(decodedMsg, socket, server);
                 }
