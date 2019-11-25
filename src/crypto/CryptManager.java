@@ -3,6 +3,8 @@ package crypto;
 import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
@@ -11,18 +13,20 @@ import java.util.Base64;
 
 public class CryptManager {
 
-    private String cipherInstance = "RSA/ECB/PKCS1Padding";
+    private String cipherInstance = "RSA";
     private KeyPair keys = null;
 
     public void run(){
         try {
             setKeys((PublicKey) null, null);
 
-            /*System.out.println(keys.getPrivate());
+            devSaveKey();
+
+            System.out.println(keys.getPrivate());
             System.out.println(keys.getPublic());
 
             System.out.println(Arrays.toString(keys.getPrivate().getEncoded()));
-            System.out.println(Arrays.toString(keys.getPublic().getEncoded()));*/
+            System.out.println(Arrays.toString(keys.getPublic().getEncoded())); //*/
 
             String message = "Pizza boop shark you motherfuckers";
             System.out.println(message);
@@ -85,6 +89,20 @@ public class CryptManager {
         }
     }
 
+
+    public String decryptMessage(byte[] msg, byte[] pub){
+
+        try{
+
+            KeyFactory kf = KeyFactory.getInstance("RSA"); // or "EC" or whatever
+            return decryptMessage(msg, kf.generatePublic(new X509EncodedKeySpec(pub)));
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+
     public String decryptMessage(byte[] msg, PublicKey pub){
         String result = null;
 
@@ -111,6 +129,31 @@ public class CryptManager {
         }
 
         return result;
+    }
+
+    private void devSaveKey(){
+        byte[] key = keys.getPublic().getEncoded();
+        FileOutputStream keyfos = null;
+
+        try {
+            keyfos = new FileOutputStream("public");
+            keyfos.write(key);
+            keyfos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        key = keys.getPrivate().getEncoded();
+
+        try {
+            keyfos = new FileOutputStream("private");
+            keyfos.write(key);
+            keyfos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

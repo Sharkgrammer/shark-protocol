@@ -1,6 +1,7 @@
 package send;
 
 import crypto.CryptManager;
+import util.Base64Util;
 import util.MessageListener;
 import util.ResultHandler;
 import util.DataHolder;
@@ -55,7 +56,7 @@ public class ClientHandler {
 
                 CryptManager manager = server.getCurrentUser().getManager();
                 byte[] msg = manager.encryptMessage(message);
-                byte[] encodedMsg = Base64.getEncoder().encode(msg);
+                byte[] encodedMsg = (new Base64Util()).toBase64(msg);
 
                 System.out.println("Sending message " + message);
                 PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
@@ -93,7 +94,7 @@ public class ClientHandler {
     }
 
     private String byteToString(byte[] array) {
-        return new String(array, StandardCharsets.UTF_8);
+        return new String(array);
     }
 
 }

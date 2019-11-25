@@ -7,12 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/util/Base64Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/SocketHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/SocketHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/send/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,43 +32,49 @@
       <file leaf-file-name="testClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/testClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="85" column="53" lean-forward="true" selection-start-line="85" selection-start-column="53" selection-end-line="85" selection-end-column="53" />
+            <state relative-caret-position="108">
+              <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageListener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/MessageListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+            <state relative-caret-position="255">
+              <caret line="57" column="72" selection-start-line="57" selection-start-column="72" selection-end-line="57" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/send/ClientHandler.java">
+      <file leaf-file-name="Base64Util.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/Base64Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="60" column="120" selection-start-line="60" selection-start-column="120" selection-end-line="60" selection-end-column="120" />
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#106#107#0" expanded="true" />
+                <element signature="e#171#172#0" expanded="true" />
+                <element signature="e#216#217#0" expanded="true" />
+                <element signature="e#281#282#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#378#379#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataHolder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/DataHolder.java">
+      <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/send/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+            <state relative-caret-position="393">
+              <caret line="58" column="67" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
               <folding>
-                <element signature="e#3456#3457#0" expanded="true" />
-                <element signature="e#3490#3491#0" expanded="true" />
-                <element signature="e#3548#3549#0" expanded="true" />
-                <element signature="e#3594#3595#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2936#2937#0" expanded="true" />
+                <element signature="e#3000#3001#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,7 +83,7 @@
       <file leaf-file-name="ConnectionHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/recieve/ConnectionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
+            <state relative-caret-position="314">
               <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
             </state>
           </provider>
@@ -113,28 +123,31 @@
         <option value="$PROJECT_DIR$/src/util/messageListener.java" />
         <option value="$PROJECT_DIR$/src/temp/MessageClient.java" />
         <option value="$PROJECT_DIR$/src/util/ServerHolder.java" />
-        <option value="$PROJECT_DIR$/src/util/ResultHandler.java" />
         <option value="$PROJECT_DIR$/src/recieve/ServerHandler.java" />
-        <option value="$PROJECT_DIR$/src/android/DataContainer.java" />
         <option value="$PROJECT_DIR$/src/crypto/generate.java" />
         <option value="$PROJECT_DIR$/src/crypto/test.java" />
         <option value="$PROJECT_DIR$/src/crypto/manager.java" />
         <option value="$PROJECT_DIR$/src/crypto/CryptoManager.java" />
         <option value="$PROJECT_DIR$/src/crypto/CryptVerify.java" />
         <option value="$PROJECT_DIR$/src/util/UserHolder.java" />
-        <option value="$PROJECT_DIR$/src/crypto/CryptManager.java" />
         <option value="$PROJECT_DIR$/src/util/DataHolder.java" />
-        <option value="$PROJECT_DIR$/src/send/MessageHandler.java" />
         <option value="$PROJECT_DIR$/src/util/SocketHolder.java" />
-        <option value="$PROJECT_DIR$/src/testClass.java" />
-        <option value="$PROJECT_DIR$/src/util/MessageListener.java" />
         <option value="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/src/util/ResultHandler.java" />
+        <option value="$PROJECT_DIR$/src/send/MessageHandler.java" />
+        <option value="$PROJECT_DIR$/src/android/DataContainer.java" />
+        <option value="$PROJECT_DIR$/src/crypto/CryptManager.java" />
+        <option value="$PROJECT_DIR$/src/temp.java" />
+        <option value="$PROJECT_DIR$/src/util/Base64.java" />
         <option value="$PROJECT_DIR$/src/send/ClientHandler.java" />
+        <option value="$PROJECT_DIR$/src/testClass.java" />
+        <option value="$PROJECT_DIR$/src/util/Base64Util.java" />
+        <option value="$PROJECT_DIR$/src/util/MessageListener.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
+    <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
@@ -178,6 +191,18 @@
               <item name="shark-protocol" type="b2602c69:ProjectViewProjectNode" />
               <item name="shark-protocol" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shark-protocol" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shark-protocol" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shark-protocol" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shark-protocol" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="recieve" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -185,6 +210,12 @@
               <item name="shark-protocol" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="send" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shark-protocol" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shark-protocol" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shark-protocol" type="b2602c69:ProjectViewProjectNode" />
@@ -210,10 +241,20 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="shark-protocol" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gills\IdeaProjects\shark-protocol\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -363,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574708197783</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixes">
+      <created>1574709115947</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1574709115947</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -376,11 +424,12 @@
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067115" side_tool="true" weight="0.37407953" />
       <window_info anchor="right" id="Maven Projects" order="2" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.36082473" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.46391752" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3298969" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" x="270" y="12" width="389" height="814" id="Project" order="4" visible="true" weight="0.17583893" />
+      <window_info active="true" content_ui="combo" x="270" y="12" width="389" height="814" id="Project" order="4" visible="true" weight="0.16040269" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.3298969" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3298969" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
@@ -427,7 +476,8 @@
     <MESSAGE value="Crypto Work" />
     <MESSAGE value="Fix to user ID" />
     <MESSAGE value="Fix to auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix to auth" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -435,20 +485,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/testClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/MessageListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/DataHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
@@ -647,63 +683,7 @@
     <entry file="file://$PROJECT_DIR$/src/send/Message.java" />
     <entry file="file://$PROJECT_DIR$/src/send/AsyncTaskHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/recieve/MessageHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/temp/SocketHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/temp/ServerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/temp/MessageServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/temp/MessageHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="68" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/temp/MessageClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="66" column="33" lean-forward="true" selection-start-line="66" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/temp/ConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="31" column="55" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="31" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ResultHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/android.java" />
-    <entry file="file://$PROJECT_DIR$/src/android/DataContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -732,33 +712,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/crypto/CryptManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/crypto/CryptGenerate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/send/MessageHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -784,10 +741,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testClass.java">
+    <entry file="file://$PROJECT_DIR$/src/util/ResultHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="85" column="53" lean-forward="true" selection-start-line="85" selection-start-column="53" selection-end-line="85" selection-end-column="53" />
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/DataContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/send/MessageHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -804,27 +780,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/CryptManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1530">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp/MessageHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="68" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp/MessageServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp/SocketHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp/ServerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="31" column="55" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="31" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp/MessageClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/recieve/ConnectionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
+        <state relative-caret-position="314">
           <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/MessageListener.java">
+    <entry file="file://$PROJECT_DIR$/src/util/Base64Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#106#107#0" expanded="true" />
+            <element signature="e#171#172#0" expanded="true" />
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/send/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="60" column="120" selection-start-line="60" selection-start-column="120" selection-end-line="60" selection-end-column="120" />
+        <state relative-caret-position="393">
+          <caret line="58" column="67" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2936#2937#0" expanded="true" />
+            <element signature="e#3000#3001#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/MessageListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="57" column="72" selection-start-line="57" selection-start-column="72" selection-end-line="57" selection-end-column="72" />
         </state>
       </provider>
     </entry>

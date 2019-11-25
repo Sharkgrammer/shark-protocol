@@ -1,12 +1,14 @@
 import crypto.CryptManager;
 import recieve.ServerHandler;
 import send.MessageHandler;
+import util.Base64Util;
 import util.ResultHandler;
 import util.DataHolder;
 import util.UserHolder;
 
 import java.net.Socket;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.IdentityHashMap;
 
 //REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
@@ -17,12 +19,12 @@ public class testClass {
     public static void main(String[] args) {
         System.out.println("shark test start");
 
-        DataHolder server = new DataHolder();
-        server.setPort(6000);
-        server.setIP("35.235.49.238");
+        DataHolder data = new DataHolder();
+        data.setPort(6000);
+        data.setIP("35.235.49.238");
 
-        //new Server().run(server);
-        new Client().run(server);
+        //new Server().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
 
@@ -63,9 +65,11 @@ class Client implements ResultHandler{
 
     void run(DataHolder s){
 
-        String ID = "d3";
-        UserHolder user = new UserHolder(ID.getBytes(), null, null);
-        String ToID = "d4";
+        temp tempkey = new temp();
+
+        String ID = "d1";
+        UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
+        String ToID = "d2";
 
         System.out.println("I am " + new String(user.getUserID()));
 
@@ -75,7 +79,7 @@ class Client implements ResultHandler{
 
         client.auth();
 
-        client.send("hey how you", ToID.getBytes());
+        client.send("shark", ToID.getBytes());
 
         //client.stop();
 
@@ -83,7 +87,16 @@ class Client implements ResultHandler{
 
     @Override
     public void messageReceived(String message, Socket socket, DataHolder data) {
-        System.out.println("Message from server: " + message);
-        //System.out.println("Message from server: I am: " + socket.toString());
+        System.out.println("Raw from server: " + message);
+
+        temp tempkey = new temp();
+
+        byte[] base = (new Base64Util()).fromBase64(message);
+        System.out.println("Decoded from server: " + new String(base));
+
+        CryptManager man = data.getCurrentUser().getManager();
+        String hmm = man.decryptMessage(base, tempkey.pukey1);
+        System.out.println("Unencrypted from server: " + hmm);
+
     }
 }
