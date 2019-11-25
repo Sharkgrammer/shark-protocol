@@ -34,7 +34,11 @@ public class SocketHolder {
     }
 
     public void setUserID(byte[] ID){
-        user.setUserID(ID);
+        if (user == null){
+            user = new UserHolder(ID, null, null);
+        }else{
+            user.setUserID(ID);
+        }
     }
 
     public byte[] getUserID(){
