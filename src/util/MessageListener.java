@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.Arrays;
+import java.util.Base64;
 
 public class MessageListener implements Runnable {
     private Thread t;
@@ -52,12 +53,19 @@ public class MessageListener implements Runnable {
 
                 message = readIn.readLine();
 
-                if (message.substring(0, 5).equals("auth:")) {
-                    //TODO auth
-                    server.setUserID(message.substring(5).getBytes(), pos);
-                } else {
-                    if (!message.equals("")) listener.messageReceived(message, socket, server);
+                if (message.length() >= 5) {
+                    if (message.substring(0, 5).equals("auth:")) {
+                        //TODO auth
+                        server.setUserID(message.substring(5).getBytes(), pos);
+                        return;
+                    }
                 }
+
+                if (!message.equals("") && message.length() > 0) {
+                    String decodedMsg = new String(Base64.getDecoder().decode(message));
+                    listener.messageReceived(decodedMsg, socket, server);
+                }
+
             }
 
         } catch (Exception e) {

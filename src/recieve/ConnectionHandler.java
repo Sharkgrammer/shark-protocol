@@ -8,6 +8,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class ConnectionHandler {
@@ -84,7 +85,7 @@ public class ConnectionHandler {
             System.out.println("Sending message " + message);
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-            sendOut.println(message);
+            sendOut.println(new String(Base64.getEncoder().encode(message.getBytes())));
             sendOut.flush();
 
             System.out.println("Message sent");

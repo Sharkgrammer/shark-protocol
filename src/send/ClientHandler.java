@@ -4,12 +4,11 @@ import crypto.CryptManager;
 import util.MessageListener;
 import util.ResultHandler;
 import util.DataHolder;
-import util.UserHolder;
 
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.Base64;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -56,14 +55,17 @@ public class ClientHandler {
 
                 CryptManager manager = server.getCurrentUser().getManager();
                 byte[] msg = manager.encryptMessage(message);
+                byte[] encodedMsg = Base64.getEncoder().encode(msg);
 
                 System.out.println("Sending message " + message);
                 OutputStream stream = socket.getOutputStream();
                 PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)), true);
 
-                sendOut.print(fromID + spaceDel);
-                sendOut.print(new String(msg));
-                sendOut.println(spaceDel + toID);
+                String finalMsg = fromID + spaceDel + new String(encodedMsg)+ spaceDel + toID;
+                System.out.println("FINAL MESSAGE: " + finalMsg);
+
+                stream.write(finalMsg.getBytes());
+                sendOut.println();
 
                 sendOut.flush();
                 stream.flush();
