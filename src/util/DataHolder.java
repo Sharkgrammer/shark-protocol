@@ -2,6 +2,7 @@ package util;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.KeyPair;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +12,7 @@ public class DataHolder {
     private String IP;
     private int port;
     private List<SocketHolder> sockets = new ArrayList<>();
+    private UserHolder currentUser;
 
     public String getIP() {
         return IP;
@@ -105,20 +107,8 @@ public class DataHolder {
         return sockets.size() - 1;
     }
 
-    public String getUserName(int pos) {
-        return sockets.get(pos).getUserName();
-    }
-
     public byte[] getUserID(int pos){
         return sockets.get(pos).getUserID();
-    }
-
-    public void setUserName(String name, int pos) {
-        sockets.get(pos).setUserName(name);
-    }
-
-    public void setUserName(String name, Socket socket) {
-        sockets.get(findPosBySocket(socket)).setUserName(name);
     }
 
     public void setUserID(byte[] ID, int pos){
@@ -164,6 +154,11 @@ public class DataHolder {
     }
 
 
+    public UserHolder getCurrentUser() {
+        return currentUser;
+    }
 
-
+    public void setCurrentUser(UserHolder currentUser) {
+        this.currentUser = currentUser;
+    }
 }

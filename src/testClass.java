@@ -1,9 +1,12 @@
+import crypto.CryptManager;
 import recieve.ServerHandler;
 import send.MessageHandler;
 import util.ResultHandler;
 import util.DataHolder;
+import util.UserHolder;
 
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.IdentityHashMap;
 
 //REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
@@ -21,6 +24,8 @@ public class testClass {
         //new Server().run(server);
         new Client().run(server);
 
+        //new CryptManager().run();
+
         System.out.println("shark test end");
     }
 
@@ -28,7 +33,7 @@ public class testClass {
 
 class Server implements ResultHandler{
 
-    ServerHandler server;
+    private ServerHandler server ;
 
     public void run(DataHolder s){
 
@@ -56,22 +61,21 @@ class Server implements ResultHandler{
 
 class Client implements ResultHandler{
 
-    MessageHandler client;
+    void run(DataHolder s){
 
-    public void run(DataHolder s){
+        String ID = "d3";
+        UserHolder user = new UserHolder(ID.getBytes(), null, null);
+        String ToID = "d4";
 
-        String ID = "sharkiewefwef";
-        String ToID = "jambon";
+        System.out.println("I am " + new String(user.getUserID()));
 
-        System.out.println("I am " + ID);
-
-        client = new MessageHandler(s, this, ID.getBytes());
+        MessageHandler client = new MessageHandler(s, this, user);
 
         client.start();
 
         client.auth();
 
-        client.send("How are you boop", ToID.getBytes());
+        client.send("hey how you", ToID.getBytes());
 
         //client.stop();
 

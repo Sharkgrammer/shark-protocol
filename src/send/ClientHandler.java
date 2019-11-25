@@ -1,12 +1,15 @@
 package send;
 
+import crypto.CryptManager;
 import util.MessageListener;
 import util.ResultHandler;
 import util.DataHolder;
+import util.UserHolder;
 
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -14,12 +17,10 @@ public class ClientHandler {
     private Socket socket;
     private MessageListener receiver;
     private boolean clientAlive = false;
-    private byte[] userID;
 
-    public ClientHandler(DataHolder server, ResultHandler listener, byte[] userID) {
+    public ClientHandler(DataHolder server, ResultHandler listener) {
         this.listener = listener;
         this.server = server;
-        this.userID = userID;
     }
 
     public void startClient() {
@@ -50,14 +51,22 @@ public class ClientHandler {
         if (clientAlive) {
             try {
                 String toID = byteToString(to);
-                String fromID = byteToString(userID);
+                String fromID = byteToString(server.getCurrentUser().getUserID());
+                String spaceDel = "&space&";
+
+                CryptManager manager = server.getCurrentUser().getManager();
+                byte[] msg = manager.encryptMessage(message);
 
                 System.out.println("Sending message " + message);
-                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+                OutputStream stream = socket.getOutputStream();
+                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream)), true);
 
-                sendOut.println(fromID + "&space&" + message + "&space&" + toID);
+                sendOut.print(fromID + spaceDel);
+                sendOut.print(new String(msg));
+                sendOut.println(spaceDel + toID);
 
                 sendOut.flush();
+                stream.flush();
 
                 System.out.println("Message sent");
 
@@ -69,7 +78,7 @@ public class ClientHandler {
 
     public void sendAuthMessage() {
         try {
-            String ID = byteToString(userID);
+            String ID = byteToString(server.getCurrentUser().getUserID());
 
             System.out.println("Sending auth:" + ID);
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);

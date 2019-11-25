@@ -7,7 +7,7 @@ public class SocketHolder {
 
     private Socket client = null;
     private ServerSocket server = null;
-    private UserHolder user = new UserHolder();
+    private UserHolder user;
 
     public Socket getClient() {
         return client;
@@ -25,19 +25,19 @@ public class SocketHolder {
         this.server = server;
     }
 
-    public String getUserName() {
-        return user.getName();
+    public UserHolder getUser() {
+        return user;
     }
 
-    public byte[] getUserID(){
-        return user.getUserID();
-    }
-
-    public void setUserName(String name) {
-        user.setName(name);
+    public void setUser(UserHolder user) {
+        this.user = user;
     }
 
     public void setUserID(byte[] ID){
         user.setUserID(ID);
+    }
+
+    public byte[] getUserID(){
+        return user.getUserID();
     }
 }

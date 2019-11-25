@@ -1,16 +1,23 @@
 package util;
 
+import crypto.CryptManager;
+
+import java.security.PublicKey;
+
 public class UserHolder {
 
-    private String name;
     private byte[] userID;
+    private CryptManager manager;
 
-    public String getName() {
-        return name;
-    }
+    public UserHolder(byte[] ID, byte[] publicKey, byte[] privateKey){
+        this.userID = ID;
 
-    public void setName(String name) {
-        this.name = name;
+        manager  = new CryptManager();
+        if (publicKey == null){
+            manager.setKeys((PublicKey) null, null);
+        }else{
+            manager.setKeys(publicKey, privateKey);
+        }
     }
 
     public byte[] getUserID() {
@@ -19,5 +26,13 @@ public class UserHolder {
 
     public void setUserID(byte[] userID) {
         this.userID = userID;
+    }
+
+    public CryptManager getManager() {
+        return manager;
+    }
+
+    public void setManager(CryptManager manager) {
+        this.manager = manager;
     }
 }

@@ -2,21 +2,26 @@ package send;
 
 import util.ResultHandler;
 import util.DataHolder;
+import util.UserHolder;
 
 public class MessageHandler {
 
     private ClientHandler con;
 
-    public MessageHandler(DataHolder server, ResultHandler listener, byte[] userID){
-        con = new ClientHandler(server, listener, userID);
+    public MessageHandler(DataHolder server, ResultHandler listener, UserHolder user){
+        server.setCurrentUser(user);
+
+        con = new ClientHandler(server, listener);
     }
 
-    public MessageHandler(String IP, int Port, ResultHandler listener, byte[] userID){
+    public MessageHandler(String IP, int Port, ResultHandler listener, UserHolder user){
         DataHolder server = new DataHolder();
         server.setPort(Port);
         server.setIP(IP);
 
-        con = new ClientHandler(server, listener, userID);
+        server.setCurrentUser(user);
+
+        con = new ClientHandler(server, listener);
     }
 
     public void auth(){
