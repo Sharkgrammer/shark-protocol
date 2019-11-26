@@ -13,6 +13,7 @@ public class DataHolder {
     private int port;
     private List<SocketHolder> sockets = new ArrayList<>();
     private UserHolder currentUser;
+    private Base64Handler base64;
 
     public String getIP() {
         return IP;
@@ -160,5 +161,13 @@ public class DataHolder {
 
     public void setCurrentUser(UserHolder currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public Base64Handler getBase64() {
+        return base64;
+    }
+
+    public void setBase64(Base64Handler base64) {
+        this.base64 = base64;
     }
 }

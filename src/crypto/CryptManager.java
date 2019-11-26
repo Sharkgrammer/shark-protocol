@@ -13,7 +13,7 @@ import java.util.Base64;
 
 public class CryptManager {
 
-    private String cipherInstance = "RSA";
+    private String cipherInstance = "RSA/ECB/PKCS1Padding";
     private KeyPair keys = null;
 
     public void run(){
@@ -109,7 +109,7 @@ public class CryptManager {
         try{
             Cipher cipher = Cipher.getInstance(cipherInstance);
             cipher.init(Cipher.DECRYPT_MODE, pub);
-            result = new String(cipher.doFinal(msg));
+            result = new String(cipher.doFinal(msg), "utf-8");
         }catch (Exception e){
             System.out.println(e.toString());
         }

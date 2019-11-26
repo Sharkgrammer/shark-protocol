@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.stream.Collectors;
 
 public class MessageListener implements Runnable {
     private Thread t;
@@ -53,10 +52,7 @@ public class MessageListener implements Runnable {
             while (clientRunning) {
 
                 boolean auth = false;
-
-                //REF https://stackoverflow.com/questions/28977308/read-all-lines-with-bufferedreader#40412945
-                message =  readIn.lines().collect(Collectors.joining());
-
+                message = readIn.readLine();
                 if (message.length() >= 5) {
                     if (message.substring(0, 5).equals("auth:")) {
                         //TODO auth
@@ -66,8 +62,14 @@ public class MessageListener implements Runnable {
                     }
                 }
 
-                if (!auth && !message.equals("") && message.length() > 0) {
-                    listener.messageReceived(message, socket, server);
+                if (!auth) {
+
+                    if (!message.equals("") && message.length() > 0) {
+
+
+                        listener.messageReceived(message, socket, server);
+                    }
+
                 }
 
             }
