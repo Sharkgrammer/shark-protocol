@@ -13,13 +13,6 @@ public class ServerHandler {
         con = new ConnectionHandler(server, listener);
     }
 
-    public ServerHandler(int port, ResultHandler listener){
-        DataHolder server = new DataHolder();
-        server.setPort(port);
-
-        con = new ConnectionHandler(server, listener);
-    }
-
     public void start(){
         con.startServer();
     }

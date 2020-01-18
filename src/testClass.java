@@ -1,10 +1,7 @@
 import crypto.CryptManager;
 import recieve.ServerHandler;
 import send.MessageHandler;
-import util.Base64Util;
-import util.ResultHandler;
-import util.DataHolder;
-import util.UserHolder;
+import util.*;
 
 import java.net.Socket;
 import java.util.Arrays;
@@ -19,16 +16,18 @@ public class testClass {
     public static void main(String[] args) {
         System.out.println("shark test start");
 
-        DataHolder data = new DataHolder();
+        DataHolder data = new DataHolder(null, null);
         data.setPort(6000);
-        data.setIP("35.235.49.238");
+        data.setIP("localhost");
 
         //new Server().run(data);
-        new Client().run(data);
+        //new Client().run(data);
 
         //new CryptManager().run();
 
         System.out.println("shark test end");
+
+        ServerListHandler handler = new ServerListHandler();
     }
 
 }
@@ -69,7 +68,7 @@ class Client implements ResultHandler{
 
         String ID = "d3";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d44";
+        String ToID = "d2";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);

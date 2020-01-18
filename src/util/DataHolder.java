@@ -1,8 +1,11 @@
 package util;
 
+import crypto.CryptManager;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.KeyPair;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +17,16 @@ public class DataHolder {
     private List<SocketHolder> sockets = new ArrayList<>();
     private UserHolder currentUser;
     private Base64Handler base64;
+    private CryptManager manager;
+
+    public DataHolder(byte[] publicKey, byte[] privateKey){
+        manager  = new CryptManager();
+        if (publicKey == null){
+            manager.setKeys((PublicKey) null, null);
+        }else{
+            manager.setKeys(publicKey, privateKey);
+        }
+    }
 
     public String getIP() {
         return IP;
@@ -169,5 +182,13 @@ public class DataHolder {
 
     public void setBase64(Base64Handler base64) {
         this.base64 = base64;
+    }
+
+    public CryptManager getManager() {
+        return manager;
+    }
+
+    public void setManager(CryptManager manager) {
+        this.manager = manager;
     }
 }
