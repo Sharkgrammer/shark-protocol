@@ -7,23 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Work towards multiserver and proper key support">
+      <change afterPath="$PROJECT_DIR$/src/recieve/MessageDecompiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypto/CryptGenerate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptGenerate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/send/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/temp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DataHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DefualtURLFecher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/URLUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/JSONDataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSONDataHolder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/ServerListHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ServerListHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/URLFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/URLHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/URLUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/URLUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="185" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,12 +38,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>stopClient</find>
-      <find>st</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,7 +92,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="crypto.*" />
+          <option name="PATTERN" value="recieve.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579363306493</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Work towards multiserver and proper key support">
+      <created>1579529826489</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1579529826489</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -270,10 +277,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="623" y="51" width="599" height="613" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1579358405327" />
-    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1579365414229">
+    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1579529958997">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1579365414229" />
+    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1579529958997" />
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579529142668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -282,10 +289,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1579358354009" />
-    <state x="334" y="0" key="CommitChangelistDialog2" timestamp="1579363305421">
+    <state x="248" y="20" width="697" height="708" key="CommitChangelistDialog2" timestamp="1579546527268">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="334" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579363305421" />
+    <state x="248" y="20" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579546527268" />
     <state x="417" y="125" key="EnvironmentVariablesDialog" timestamp="1578933113618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -294,30 +301,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579358424189" />
-    <state width="1323" height="220" key="GridCell.Tab.0.bottom" timestamp="1579527206589">
+    <state width="1323" height="303" key="GridCell.Tab.0.bottom" timestamp="1579546426171">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="220" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579527206589" />
-    <state width="1323" height="220" key="GridCell.Tab.0.center" timestamp="1579527206589">
+    <state width="1323" height="303" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579546426171" />
+    <state width="1323" height="303" key="GridCell.Tab.0.center" timestamp="1579546426171">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="220" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579527206589" />
-    <state width="1323" height="220" key="GridCell.Tab.0.left" timestamp="1579527206589">
+    <state width="1323" height="303" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579546426171" />
+    <state width="1323" height="303" key="GridCell.Tab.0.left" timestamp="1579546426171">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="220" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579527206589" />
-    <state width="1323" height="220" key="GridCell.Tab.0.right" timestamp="1579527206589">
+    <state width="1323" height="303" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579546426171" />
+    <state width="1323" height="303" key="GridCell.Tab.0.right" timestamp="1579546426171">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="220" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579527206589" />
+    <state width="1323" height="303" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579546426171" />
+    <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1579535888913">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="222" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579535888913" />
+    <state width="1323" height="222" key="GridCell.Tab.1.center" timestamp="1579535888913">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="222" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579535888913" />
+    <state width="1323" height="222" key="GridCell.Tab.1.left" timestamp="1579535888913">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="222" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579535888913" />
+    <state width="1323" height="222" key="GridCell.Tab.1.right" timestamp="1579535888913">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="222" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579535888913" />
     <state x="326" y="0" key="SettingsEditor" timestamp="1579358575159">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1579358575159" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1579363315443">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1579529828210">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579363315443" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579529828210" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1575051428258">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -326,9 +349,16 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="380" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1578932847299" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1579364221078">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1579546008170">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1579364221078" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1579546008170" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1579543309705">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1579543309705" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/shark_protocol$testClass.ic" NAME="testClass Coverage Results" MODIFIED="1579537078224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

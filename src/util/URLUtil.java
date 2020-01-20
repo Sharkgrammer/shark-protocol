@@ -27,7 +27,7 @@ public class URLUtil implements URLHandler {
         String innerStr;
         try{
             while ((innerStr = in.readLine()) != null){
-                System.out.println(innerStr);
+                //System.out.println(innerStr);
                 JSONStr.append(innerStr);
             }
             in.close();

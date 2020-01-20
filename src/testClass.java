@@ -4,6 +4,7 @@ import send.MessageHandler;
 import util.*;
 
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 //REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
 //REF based on https://stackoverflow.com/a/40100207/11480852 as well
@@ -18,10 +19,10 @@ public class testClass {
         data.setIP("localhost");
 
         //new Server().run(data);
-        //new Client().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
-        new ServerListHandler().run();
+        //new ServerListHandler(data, 0).run();
 
         System.out.println("shark test end");
 
@@ -62,6 +63,8 @@ class Client implements ResultHandler{
     void run(DataHolder s){
 
         temp tempkey = new temp();
+
+        System.out.println(new String(s.getBase64().toBase64(tempkey.pukey1), StandardCharsets.UTF_8));
 
         String ID = "d3";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);

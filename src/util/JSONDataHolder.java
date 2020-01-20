@@ -29,8 +29,8 @@ public class JSONDataHolder {
         this.ip = ip;
     }
 
-    public String getKey() {
-        return key;
+    public byte[] getKey(Base64Handler handler) {
+        return handler.fromBase64(key);
     }
 
     public void setKey(String key) {
