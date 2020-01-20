@@ -40,6 +40,7 @@ public class ServerListHandler {
     private List<JSONDataHolder> returnNumRandServers() {
         List<JSONDataHolder> list = readJSONFromURL(), newList = new ArrayList<JSONDataHolder>();
         ServerListFull = list;
+        JSONDataHolder temp;
         int sizeInt = list.size(), randInt, pastInt = 0;
         Random rand = new Random();
 
@@ -49,7 +50,9 @@ public class ServerListHandler {
             if (pastInt == randInt) {
                 x++;
             } else {
-                newList.add(list.get(randInt));
+                temp = list.get(randInt);
+                temp.createSocket();
+                newList.add(temp);
                 pastInt = randInt;
             }
         }

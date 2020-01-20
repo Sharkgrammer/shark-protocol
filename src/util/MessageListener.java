@@ -1,5 +1,7 @@
 package util;
 
+import recieve.ConnectionHandler;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
@@ -51,18 +53,36 @@ public class MessageListener implements Runnable {
 
             while (clientRunning) {
 
-                boolean auth = false;
+                boolean auth = false, user = false;
                 message = readIn.readLine();
+
                 if (message.length() >= 5) {
                     if (message.substring(0, 5).equals("auth:")) {
                         //TODO auth
                         server.setUserID(message.substring(5).getBytes(), pos);
-                        System.out.println("User " + message.substring(5) + " has joined");
+                        System.out.println("User " + message.substring(5) + " has authenticated");
                         auth = true;
+                    }
+
+                    if (message.substring(0, 5).equals("user:")) {
+                        //TODO user search
+                        String newUserID = message.substring(5);
+                        System.out.println("User " + newUserID + " searched for");
+
+                        user = server.isUserHere(newUserID.getBytes());
+                        ConnectionHandler handler = new ConnectionHandler(server, listener);
+
+                        if (user){
+                            System.out.println("User " + newUserID + " found");
+                            handler.sendMessage("user:found", server.getClientSocket(pos));
+                        }else{
+                            System.out.println("User " + newUserID + " failed");
+                            handler.sendMessage("user:failed", server.getClientSocket(pos));
+                        }
                     }
                 }
 
-                if (!auth) {
+                if (!auth && !user) {
 
                     if (!message.equals("") && message.length() > 0) {
 

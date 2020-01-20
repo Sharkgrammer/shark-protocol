@@ -2,6 +2,8 @@ package util;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.net.Socket;
+
 public class JSONDataHolder {
 
     @SerializedName("id")
@@ -12,6 +14,8 @@ public class JSONDataHolder {
 
     @SerializedName("key")
     private String key;
+
+    private Socket socket;
 
     public String getId() {
         return id;
@@ -35,5 +39,23 @@ public class JSONDataHolder {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void createSocket() {
+        String[] address = ip.split(":");
+
+        try {
+            int port = Integer.parseInt(address[address.length - 1]);
+            String lastIP = ip.replace(":" + port, "");
+
+            socket = new Socket(lastIP, port);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            socket = null;
+        }
     }
 }

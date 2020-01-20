@@ -129,6 +129,10 @@ public class DataHolder {
         return sockets.get(pos).getUserID();
     }
 
+    public boolean isUserHere(byte[] ID) {
+        return findPosByUserID(ID) != null;
+    }
+
     public void setUserID(byte[] ID, int pos) {
         sockets.get(pos).setUserID(ID);
     }

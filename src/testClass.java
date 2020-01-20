@@ -19,10 +19,10 @@ public class testClass {
         data.setIP("localhost");
 
         //new Server().run(data);
-        new Client().run(data);
+        //new Client().run(data);
 
         //new CryptManager().run();
-        //new ServerListHandler(data, 0).run();
+        new ServerListHandler(data, 0).run();
 
         System.out.println("shark test end");
 
