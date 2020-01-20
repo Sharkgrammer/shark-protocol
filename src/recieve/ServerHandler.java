@@ -27,7 +27,8 @@ public class ServerHandler {
         con.sendMessage(message, ToAll, Pos);
     }
 
-    public void sendMessage(String message, byte[] userID){
+    public void sendMessage(String message, byte[] userID, String fromID){
+        message = fromID + "&space&" + message;
         con.sendMessage(message, userID);
     }
 

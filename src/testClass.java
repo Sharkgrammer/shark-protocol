@@ -36,6 +36,12 @@ class Server implements ResultHandler{
 
     public void run(DataHolder s){
 
+        temp tempkey = new temp();
+
+        CryptManager manager = new CryptManager();
+        manager.setKeys(tempkey.pukey1, tempkey.prkey1);
+        s.setManager(manager);
+
         server = new ServerHandler(s, this);
         server.start();
 
@@ -52,7 +58,7 @@ class Server implements ResultHandler{
 
         System.out.println("Message from client " + IDFrom + " '" + message + "' sending to client "  + IDTo);
 
-        server.sendMessage(message, IDTo.getBytes());
+        server.sendMessage(message, IDTo.getBytes(), IDFrom);
     }
 
 
