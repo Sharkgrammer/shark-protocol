@@ -3,40 +3,58 @@ package util;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ServerListHandler {
 
     private final String URL = "http://www.sharkie.ie/servers.JSON";
-    private URLFetcher fetcher;
+    private URLHandler fetcher;
 
-    public ServerListHandler(){
-        fetcher = new DefualtURLFecher();
-        readJSONFromURL();
+    public ServerListHandler() {
+        fetcher = new URLUtil();
     }
 
-    public ServerListHandler(URLFetcher fetcher){
-        this.fetcher = fetcher;
-        readJSONFromURL();
+    public ServerListHandler(DataHolder data) {
+        this.fetcher = data.getUrl();
     }
 
-    private List<JSONDataHolder> readJSONFromURL(){
-        StringBuilder JSONStr = fetcher.returnStringBuilder(URL);
 
-        Type collectionType = new TypeToken<List<JSONDataHolder>>(){}.getType();
-        List<JSONDataHolder> JSONList = new Gson().fromJson(JSONStr.toString(), collectionType);
+    public void run(){
+        List<JSONDataHolder> JSONList = returnNumRandServers(3);
 
-        for (int x = 0; x < JSONList.size(); x++){
+        for (int x = 0; x < JSONList.size(); x++) {
             System.out.println(JSONList.get(x).getIp());
         }
+    }
 
-        return JSONList;
+    private List<JSONDataHolder> readJSONFromURL() {
+        StringBuilder JSONStr = fetcher.returnStringBuilder(URL);
+
+        Type collectionType = new TypeToken<List<JSONDataHolder>>() {
+        }.getType();
+
+        return new Gson().fromJson(JSONStr.toString(), collectionType);
+    }
+
+    public List<JSONDataHolder> returnNumRandServers(int num) {
+        List<JSONDataHolder> list = readJSONFromURL(), newList = new ArrayList<JSONDataHolder>();
+        int sizeInt = list.size(), randInt, pastInt = 0;
+        Random rand = new Random();
+
+        for (int x = num; x > 0; x--) {
+            randInt = rand.nextInt(sizeInt);
+
+            if (pastInt == randInt) {
+                x++;
+            } else {
+                newList.add(list.get(randInt));
+                pastInt = randInt;
+            }
+        }
+
+        return newList;
     }
 }

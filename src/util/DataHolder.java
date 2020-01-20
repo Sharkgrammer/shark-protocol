@@ -17,7 +17,10 @@ public class DataHolder {
     private List<SocketHolder> sockets = new ArrayList<>();
     private UserHolder currentUser;
     private Base64Handler base64;
+    private URLHandler url;
     private CryptManager manager;
+
+    public DataHolder(){}
 
     public DataHolder(byte[] publicKey, byte[] privateKey){
         manager  = new CryptManager();
@@ -190,5 +193,13 @@ public class DataHolder {
 
     public void setManager(CryptManager manager) {
         this.manager = manager;
+    }
+
+    public URLHandler getUrl() {
+        return url;
+    }
+
+    public void setUrl(URLHandler url) {
+        this.url = url;
     }
 }

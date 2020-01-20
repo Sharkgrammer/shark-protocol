@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class DefualtURLFecher implements URLFetcher {
+public class URLUtil implements URLHandler {
 
     @Override
     public StringBuilder returnStringBuilder(String URL) {

@@ -1,5 +1,5 @@
 package util;
 
-public interface URLFetcher{
+public interface URLHandler {
     StringBuilder returnStringBuilder(String URL);
 }

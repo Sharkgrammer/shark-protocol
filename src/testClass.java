@@ -4,9 +4,6 @@ import send.MessageHandler;
 import util.*;
 
 import java.net.Socket;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.IdentityHashMap;
 
 //REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
 //REF based on https://stackoverflow.com/a/40100207/11480852 as well
@@ -24,10 +21,10 @@ public class testClass {
         //new Client().run(data);
 
         //new CryptManager().run();
+        new ServerListHandler().run();
 
         System.out.println("shark test end");
 
-        ServerListHandler handler = new ServerListHandler();
     }
 
 }
@@ -97,7 +94,7 @@ class Client implements ResultHandler{
         System.out.println("Decoded from server: " + new String(base));
 
         CryptManager man = data.getCurrentUser().getManager();
-        String hmm = man.decryptMessage(base, tempkey.pukey1);
+        String hmm = man.decryptMessagePub(base, tempkey.pukey1);
         System.out.println("Unencrypted from server: " + hmm);
 
     }

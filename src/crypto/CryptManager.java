@@ -1,47 +1,17 @@
 package crypto;
 
-import sun.misc.BASE64Encoder;
-
 import javax.crypto.Cipher;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Arrays;
-import java.util.Base64;
 
 public class CryptManager {
 
     private String cipherInstance = "RSA/ECB/PKCS1Padding";
     private KeyPair keys = null;
-
-    public void run(){
-        try {
-            setKeys((PublicKey) null, null);
-
-            devSaveKey();
-
-            System.out.println(keys.getPrivate());
-            System.out.println(keys.getPublic());
-
-            System.out.println(Arrays.toString(keys.getPrivate().getEncoded()));
-            System.out.println(Arrays.toString(keys.getPublic().getEncoded())); //*/
-
-            String message = "Pizza boop shark you motherfuckers";
-            System.out.println(message);
-            byte[] msg = encryptMessage(message);
-
-            System.out.println(msg);
-            System.out.println(Arrays.toString(msg));
-
-            String ans =  decryptMessage(msg, keys.getPublic());
-            System.out.println(ans);
-
-        } catch (Exception e) {
-            System.err.println("Caught exception " + e.toString());
-        }
-    }
 
     public void setKeys(byte[] pub, byte[] priv){
         PrivateKey privateKey = null;
@@ -90,12 +60,11 @@ public class CryptManager {
     }
 
 
-    public String decryptMessage(byte[] msg, byte[] pub){
-
+    public String decryptMessagePub(byte[] msg, byte[] pub){
         try{
 
-            KeyFactory kf = KeyFactory.getInstance("RSA"); // or "EC" or whatever
-            return decryptMessage(msg, kf.generatePublic(new X509EncodedKeySpec(pub)));
+            KeyFactory kf = KeyFactory.getInstance(cipherInstance);
+            return decryptMessagePub(msg, kf.generatePublic(new X509EncodedKeySpec(pub)));
 
         }catch (Exception e){
             System.out.println(e.toString());
@@ -103,13 +72,13 @@ public class CryptManager {
         }
     }
 
-    public String decryptMessage(byte[] msg, PublicKey pub){
+    public String decryptMessagePub(byte[] msg, PublicKey pub){
         String result = null;
 
         try{
             Cipher cipher = Cipher.getInstance(cipherInstance);
             cipher.init(Cipher.DECRYPT_MODE, pub);
-            result = new String(cipher.doFinal(msg), "utf-8");
+            result = new String(cipher.doFinal(msg), StandardCharsets.UTF_8);
         }catch (Exception e){
             System.out.println(e.toString());
         }
@@ -117,7 +86,34 @@ public class CryptManager {
         return result;
     }
 
-    public byte[] encryptMessage(String msg){
+    public String decryptMessagePriv(byte[] msg, byte[] priv){
+
+        try{
+
+            KeyFactory kf = KeyFactory.getInstance(cipherInstance);
+            return decryptMessagePriv(msg, kf.generatePrivate(new PKCS8EncodedKeySpec(priv)));
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+
+    public String decryptMessagePriv(byte[] msg, PrivateKey priv){
+        String result = null;
+
+        try{
+            Cipher cipher = Cipher.getInstance(cipherInstance);
+            cipher.init(Cipher.DECRYPT_MODE, priv);
+            result = new String(cipher.doFinal(msg), StandardCharsets.UTF_8);
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        return result;
+    }
+
+    public byte[] encryptMessagePriv(String msg){
         byte[] result = null;
 
         try{
@@ -129,6 +125,59 @@ public class CryptManager {
         }
 
         return result;
+    }
+
+    public String encryptMessagePub(String msg, byte[] pub){
+        try{
+
+            KeyFactory kf = KeyFactory.getInstance(cipherInstance);
+            return encryptMessagePub(msg.getBytes(), kf.generatePublic(new X509EncodedKeySpec(pub)));
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+
+    public String encryptMessagePub(byte[] msg, PublicKey pub){
+        String result = null;
+
+        try{
+            Cipher cipher = Cipher.getInstance(cipherInstance);
+            cipher.init(Cipher.ENCRYPT_MODE, pub);
+            result = new String(cipher.doFinal(msg));
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        return result;
+    }
+
+    public void run(){
+        try {
+            setKeys((PublicKey) null, null);
+
+            devSaveKey();
+
+            System.out.println(keys.getPrivate());
+            System.out.println(keys.getPublic());
+
+            System.out.println(Arrays.toString(keys.getPrivate().getEncoded()));
+            System.out.println(Arrays.toString(keys.getPublic().getEncoded())); //*/
+
+            String message = "Pizza boop shark";
+            System.out.println(message);
+            byte[] msg = encryptMessagePriv(message);
+
+            System.out.println(msg);
+            System.out.println(Arrays.toString(msg));
+
+            String ans =  decryptMessagePub(msg, keys.getPublic());
+            System.out.println(ans);
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
     }
 
     private void devSaveKey(){
