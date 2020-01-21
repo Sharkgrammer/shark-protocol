@@ -6,14 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="User searching code complete">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Ready for multiserver testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ServerHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recieve/MessageDecompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/MessageDecompiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recieve/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/temp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/JSONDataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSONDataHolder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579551859564</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Ready for multiserver testing">
+      <created>1579555232061</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1579555232061</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -267,7 +278,8 @@
     <MESSAGE value="Work towards multiserver and proper key support" />
     <MESSAGE value="Data package compilation and encryption finished" />
     <MESSAGE value="User searching code complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="User searching code complete" />
+    <MESSAGE value="Ready for multiserver testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready for multiserver testing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578933148272">
@@ -298,10 +310,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1579358354009" />
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1579551858706">
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1579555231049">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579551858706" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579555231049" />
     <state x="417" y="125" key="EnvironmentVariablesDialog" timestamp="1578933113618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -310,22 +322,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579358424189" />
-    <state width="1323" height="303" key="GridCell.Tab.0.bottom" timestamp="1579551353016">
+    <state width="1323" height="220" key="GridCell.Tab.0.bottom" timestamp="1579605469207">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="303" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579551353016" />
-    <state width="1323" height="303" key="GridCell.Tab.0.center" timestamp="1579551353016">
+    <state width="1323" height="220" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579605469207" />
+    <state width="1323" height="220" key="GridCell.Tab.0.center" timestamp="1579605469207">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="303" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579551353016" />
-    <state width="1323" height="303" key="GridCell.Tab.0.left" timestamp="1579551353016">
+    <state width="1323" height="220" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579605469207" />
+    <state width="1323" height="220" key="GridCell.Tab.0.left" timestamp="1579605469207">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="303" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579551353016" />
-    <state width="1323" height="303" key="GridCell.Tab.0.right" timestamp="1579551353016">
+    <state width="1323" height="220" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579605469207" />
+    <state width="1323" height="220" key="GridCell.Tab.0.right" timestamp="1579605469207">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="303" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579551353016" />
+    <state width="1323" height="220" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579605469207" />
     <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1579535888913">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -346,10 +358,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1579554554715" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1579551862608">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1579555236950">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579551862608" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579555236950" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1575051428258">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

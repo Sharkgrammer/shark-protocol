@@ -5,6 +5,7 @@ import util.*;
 
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 //REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
 //REF based on https://stackoverflow.com/a/40100207/11480852 as well
@@ -15,16 +16,43 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6000);
+        data.setPort(6002);
         data.setIP("localhost");
 
         //new Server().run(data);
-        //new Client().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
-        new ServerListHandler(data, 0).run();
+        //new ServerListHandler(data, 0).run();
+
+        //base64test();
 
         System.out.println("shark test end");
+
+    }
+
+
+
+    private static void base64test(){
+        temp tempkey = new temp();
+
+        Base64Handler handler = new Base64Util();
+
+        byte[] pubkey = tempkey.pukey1;
+
+        byte[] temp = handler.toBase64(pubkey);
+
+        String tempString = new String(temp, StandardCharsets.UTF_8);
+        System.out.println(tempString);
+
+        //byte[] pubkey2 = handler.fromBase64(temp);
+        byte[] pubkey2 = handler.fromBase64(tempString.getBytes());
+
+
+        System.out.println(Arrays.equals(pubkey, pubkey2));
+
+        System.out.println(Arrays.toString(pubkey));
+        System.out.println(Arrays.toString(pubkey2));
 
     }
 
@@ -41,6 +69,8 @@ class Server implements ResultHandler{
         CryptManager manager = new CryptManager();
         manager.setKeys(tempkey.pukey1, tempkey.prkey1);
         s.setManager(manager);
+
+        System.out.println("I am " + s.getIP() + ":" + s.getPort());
 
         server = new ServerHandler(s, this);
         server.start();
@@ -70,9 +100,7 @@ class Client implements ResultHandler{
 
         temp tempkey = new temp();
 
-        System.out.println(new String(s.getBase64().toBase64(tempkey.pukey1), StandardCharsets.UTF_8));
-
-        String ID = "d3";
+        String ID = "d1";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
         String ToID = "d2";
 

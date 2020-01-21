@@ -72,15 +72,23 @@ public class MessageListener implements Runnable {
                         String newUserID = message.substring(5);
                         System.out.println("User " + newUserID + " searched for");
 
-                        user = data.isUserHere(newUserID.getBytes());
+                        try{
+                            user = data.isUserHere(newUserID.getBytes());
+                        }catch (Exception e){
+                            user = false;
+                        }
+
+                        Socket tempSocket = data.getClientSocket(pos);
 
                         if (user) {
                             System.out.println("User " + newUserID + " found");
-                            handler.sendMessage("user:found", data.getClientSocket(pos));
+                            handler.sendMessage("user:found", tempSocket);
                         } else {
                             System.out.println("User " + newUserID + " failed");
-                            handler.sendMessage("user:failed", data.getClientSocket(pos));
+                            handler.sendMessage("user:failed", tempSocket);
                         }
+
+                        tempSocket.close();
                     }
                 }
 
@@ -114,6 +122,8 @@ public class MessageListener implements Runnable {
 
                                 String tempStr = msgStr.split(spaceDel)[1];
                                 handler.sendMessage(new String(base64.toBase64(tempStr)), socketInternal);
+
+                                socketInternal.close();
                             } catch (Exception e) {
                                 System.out.println(e.toString());
                             }

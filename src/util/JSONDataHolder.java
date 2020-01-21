@@ -3,6 +3,7 @@ package util;
 import com.google.gson.annotations.SerializedName;
 
 import java.net.Socket;
+import java.util.Arrays;
 
 public class JSONDataHolder {
 
@@ -34,6 +35,12 @@ public class JSONDataHolder {
     }
 
     public byte[] getKey(Base64Handler handler) {
+
+        System.out.println(key);
+        System.out.println(new String(handler.fromBase64(key)));
+        System.out.println(Arrays.toString(handler.fromBase64(key)));
+
+
         return handler.fromBase64(key);
     }
 

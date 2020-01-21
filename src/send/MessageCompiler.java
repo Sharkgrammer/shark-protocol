@@ -35,21 +35,21 @@ public class MessageCompiler {
         PrintWriter sendOut;
         BufferedReader readIn;
 
-        for (JSONDataHolder data : list){
+        for (JSONDataHolder data : list) {
             Socket socketInternal = data.getSocket();
 
             try {
                 System.out.println("Searching: " + to);
-                sendOut= new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketInternal.getOutputStream())), true);
+                sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketInternal.getOutputStream())), true);
 
                 sendOut.println("user:" + to);
                 sendOut.flush();
 
-                System.out.println("search sent");
+                System.out.println("search sent to " + data.getIp());
 
                 readIn = new BufferedReader(new InputStreamReader(socketInternal.getInputStream()));
                 String serverResponse = readIn.readLine();
-                if (serverResponse.equals("user:found")){
+                if (serverResponse.equals("user:found")) {
                     result = data;
 
                     System.out.println("search finished");
@@ -86,7 +86,7 @@ public class MessageCompiler {
         System.out.println(msgBytes.length);
 
         for (JSONDataHolder holder : list) {
-            tempBytes = addByteArrays((lastHolder.getIp() + spaceDel).getBytes(),  msgBytes);
+            tempBytes = addByteArrays((lastHolder.getIp() + spaceDel).getBytes(), msgBytes);
 
             System.out.println(holder.getIp());
             msgBytes = manager.encryptMessagePub(tempBytes, holder.getKey(base64));
