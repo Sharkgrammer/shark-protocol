@@ -88,7 +88,8 @@ public class MessageListener implements Runnable {
                             handler.sendMessage("user:failed", tempSocket);
                         }
 
-                        tempSocket.close();
+                        user = true;
+                        //tempSocket.close();
                     }
                 }
 
@@ -101,31 +102,46 @@ public class MessageListener implements Runnable {
                         if (key == null) {
                             listener.messageReceived(message, socket, data);
                         } else {
+                            System.out.println(message);
+
                             Base64Handler base64 = data.getBase64();
                             byte[] base = base64.fromBase64(message);
                             byte[] msg = manager.decryptMessagePriv(base, key);
                             String msgStr = new String(msg, StandardCharsets.UTF_8);
 
+                            System.out.println(msgStr);
+
                             try {
                                 String spaceDel = "&space&";
                                 String type = msgStr.split(spaceDel)[0];
 
-                                Socket socketInternal = data.getClientSocket(type.getBytes());
+                                System.out.println(type);
+
+                                Socket socketInternal;
+                                try{
+                                    socketInternal = data.getClientSocket(type.getBytes());
+                                }catch (Exception e){
+                                    socketInternal = null;
+                                }
 
                                 if (socketInternal == null) {
-                                    String IP = type.split(";")[0];
-                                    String Port = type.split(";")[1];
+                                    String IP = type.split(":")[0];
+                                    String Port = type.split(":")[1];
 
                                     socketInternal = new Socket(IP, Integer.parseInt(Port));
 
                                 }
 
                                 String tempStr = msgStr.split(spaceDel)[1];
-                                handler.sendMessage(new String(base64.toBase64(tempStr)), socketInternal);
+                                String finalStr = new String(base64.toBase64(tempStr), StandardCharsets.UTF_8);
+
+                                System.out.println("Sending " + finalStr);
+
+                                handler.sendMessage(finalStr, socketInternal);
 
                                 socketInternal.close();
                             } catch (Exception e) {
-                                System.out.println(e.toString());
+                                System.out.println(Arrays.toString(e.getStackTrace()));
                             }
 
                         }

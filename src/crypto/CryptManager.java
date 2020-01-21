@@ -99,7 +99,7 @@ public class CryptManager {
             PrivateKey privKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));
 
             //REF https://stackoverflow.com/a/16268737/11480852
-            int lenBytes = returnMaxBytes((RSAKey) privKey);
+            int lenBytes = returnMaxBytes((RSAKey) privKey, false);
             System.out.println("lenBytes: " + lenBytes);
 
             return decryptMessagePriv(msg, privKey);
@@ -111,7 +111,7 @@ public class CryptManager {
     }
 
     public byte[] decryptMessagePriv(byte[] msg, PrivateKey privKey) {
-        int lenBytes = returnMaxBytes((RSAKey) privKey);
+        int lenBytes = returnMaxBytes((RSAKey) privKey, false);
 
         System.out.println("lenBytes: " + lenBytes);
 
@@ -138,8 +138,6 @@ public class CryptManager {
 
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream(len);
         for (byte[] inMsg : msgList){
-            System.out.println("inMsg: " + inMsg.length);
-            System.out.println("inMsg: " + Arrays.toString(inMsg));
             try {
                 Cipher cipher = Cipher.getInstance(cipherInstance);
                 cipher.init(Cipher.DECRYPT_MODE, priv);
@@ -187,7 +185,7 @@ public class CryptManager {
             PublicKey pubKey = kf.generatePublic(new X509EncodedKeySpec(pub));
 
             //REF https://stackoverflow.com/a/16268737/11480852
-            int lenBytes = returnMaxBytes((RSAKey) pubKey);
+            int lenBytes = returnMaxBytes((RSAKey) pubKey, true);
             System.out.println("lenBytes: " + lenBytes);
 
             return encryptMessagePub(msg, pubKey, lenBytes);
@@ -233,8 +231,8 @@ public class CryptManager {
         return resultBytes;
     }
 
-    private int returnMaxBytes(RSAKey key){
-        return ((key.getModulus().bitLength() + 7) / 8) - 11;
+    private int returnMaxBytes(RSAKey key, boolean encrpt){
+        return ((key.getModulus().bitLength() + 7) / 8) - (encrpt ? 11 : 0);
     }
 
     public void run() {

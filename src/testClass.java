@@ -16,7 +16,7 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6002);
+        data.setPort(6000);
         data.setIP("localhost");
 
         //new Server().run(data);
@@ -91,7 +91,6 @@ class Server implements ResultHandler{
         server.sendMessage(message, IDTo.getBytes(), IDFrom);
     }
 
-
 }
 
 class Client implements ResultHandler{
@@ -102,7 +101,7 @@ class Client implements ResultHandler{
 
         String ID = "d1";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d2";
+        String ToID = "d3";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);

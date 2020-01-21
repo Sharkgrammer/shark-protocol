@@ -5,6 +5,7 @@ import util.*;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -53,7 +54,6 @@ public class ClientHandler {
                 sendOut.flush();
 
                 System.out.println("Message sent");
-
             } catch (Exception e) {
                 System.out.println("Error in sendMessage: " + e.toString());
             }
