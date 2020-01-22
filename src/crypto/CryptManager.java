@@ -64,46 +64,13 @@ public class CryptManager {
         }
     }
 
-
-    public String decryptMessagePub(byte[] msg, byte[] pub) {
-        try {
-
-            KeyFactory kf = KeyFactory.getInstance(keyInstance);
-            return decryptMessagePub(msg, kf.generatePublic(new X509EncodedKeySpec(pub)));
-
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            return null;
-        }
-    }
-
-    public String decryptMessagePub(byte[] msg, PublicKey pub) {
-        String result = null;
-
-        try {
-            Cipher cipher = Cipher.getInstance(cipherInstance);
-            cipher.init(Cipher.DECRYPT_MODE, pub);
-            result = new String(cipher.doFinal(msg), StandardCharsets.UTF_8);
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-
-        return result;
-    }
-
     public byte[] decryptMessagePriv(byte[] msg, byte[] priv) {
 
         try {
-
             KeyFactory kf = KeyFactory.getInstance(keyInstance);
-            PrivateKey privKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));
-
-            //REF https://stackoverflow.com/a/16268737/11480852
-            int lenBytes = returnMaxBytes((RSAKey) privKey, false);
-            System.out.println("lenBytes: " + lenBytes);
+            PrivateKey privKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));;
 
             return decryptMessagePriv(msg, privKey);
-
         } catch (Exception e) {
             System.out.println(e.toString());
             return null;
@@ -120,8 +87,6 @@ public class CryptManager {
 
 
     public byte[] decryptMessagePriv(byte[] msg, PrivateKey priv, int maxLen) {
-        String result = null;
-
         int len = msg.length, tempSize = 0;
         List<byte[]> msgList = new ArrayList<>();
 
@@ -132,12 +97,15 @@ public class CryptManager {
                 tempSize += maxLen;
             }
 
+            System.out.println("inMsg/bytelist: " + tempSize + " " + maxLen + " " + lenCounter + " " + len);
+
             byte[] tempArr = Arrays.copyOfRange(msg, lenCounter, tempSize);
             msgList.add(tempArr);
         }
 
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream(len);
         for (byte[] inMsg : msgList){
+            System.out.println("inMsg/outputstream: " + inMsg.length);
             try {
                 Cipher cipher = Cipher.getInstance(cipherInstance);
                 cipher.init(Cipher.DECRYPT_MODE, priv);
@@ -154,24 +122,6 @@ public class CryptManager {
         return resultBytes;
     }
 
-    public byte[] encryptMessagePriv(String msg) {
-        byte[] result = null;
-
-        System.out.println("encryptMessagePub/string: " + msg.getBytes().length);
-
-        try {
-            Cipher cipher = Cipher.getInstance(cipherInstance);
-            cipher.init(Cipher.ENCRYPT_MODE, keys.getPrivate());
-            result = cipher.doFinal(msg.getBytes());
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-
-        System.out.println("encryptMessagePub/final/string: " + result.length);
-
-        return result;
-    }
-
     public byte[] encryptMessagePub(String msg, byte[] pub) {
         return encryptMessagePub(msg.getBytes(), pub);
     }
@@ -184,11 +134,24 @@ public class CryptManager {
             KeyFactory kf = KeyFactory.getInstance(keyInstance);
             PublicKey pubKey = kf.generatePublic(new X509EncodedKeySpec(pub));
 
+            return encryptMessagePub(msg, pubKey);
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+
+    public byte[] encryptMessagePub(byte[] msg, PublicKey pub) {
+        try {
+
+            System.out.println("encryptMessagePub/bytes: " + msg.length);
+
             //REF https://stackoverflow.com/a/16268737/11480852
-            int lenBytes = returnMaxBytes((RSAKey) pubKey, true);
+            int lenBytes = returnMaxBytes((RSAKey) pub, true);
             System.out.println("lenBytes: " + lenBytes);
 
-            return encryptMessagePub(msg, pubKey, lenBytes);
+            return encryptMessagePub(msg, pub, lenBytes);
 
         } catch (Exception e) {
             System.out.println(e.toString());
@@ -231,8 +194,8 @@ public class CryptManager {
         return resultBytes;
     }
 
-    private int returnMaxBytes(RSAKey key, boolean encrpt){
-        return ((key.getModulus().bitLength() + 7) / 8) - (encrpt ? 11 : 0);
+    private int returnMaxBytes(RSAKey key, boolean encrypt){
+        return ((key.getModulus().bitLength() + 7) / 8) - (encrypt ? 11 : 0);
     }
 
     public void run() {
@@ -249,13 +212,13 @@ public class CryptManager {
 
             String message = "Pizza boop shark";
             System.out.println(message);
-            byte[] msg = encryptMessagePriv(message);
+           /* byte[] msg = encryptMessagePriv(message);
 
             System.out.println(msg);
             System.out.println(Arrays.toString(msg));
 
             String ans = decryptMessagePub(msg, keys.getPublic());
-            System.out.println(ans);
+            System.out.println(ans);*/
 
         } catch (Exception e) {
             System.err.println("Caught exception " + e.toString());

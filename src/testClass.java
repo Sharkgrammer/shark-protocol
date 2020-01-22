@@ -16,7 +16,7 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6000);
+        data.setPort(6002);
         data.setIP("localhost");
 
         //new Server().run(data);
@@ -69,6 +69,7 @@ class Server implements ResultHandler{
         CryptManager manager = new CryptManager();
         manager.setKeys(tempkey.pukey1, tempkey.prkey1);
         s.setManager(manager);
+        s.setServer(true);
 
         System.out.println("I am " + s.getIP() + ":" + s.getPort());
 
@@ -99,12 +100,17 @@ class Client implements ResultHandler{
 
         temp tempkey = new temp();
 
-        String ID = "d1";
+        String ID = "d2";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d3";
+        String ToID = "d1";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);
+        s.setServer(false);
+
+        CryptManager manager = new CryptManager();
+        manager.setKeys(tempkey.pukey1, tempkey.prkey1);
+        s.setManager(manager);
 
         System.out.println("I am " + new String(user.getUserID()));
 
@@ -124,14 +130,28 @@ class Client implements ResultHandler{
     public void messageReceived(String message, Socket socket, DataHolder data) {
         System.out.println("Raw from server: " + message);
 
+        Base64Handler base64 = data.getBase64();
+        byte[] base = base64.fromBase64(message);
+
+        System.out.println("Decoded from server: " + Arrays.toString(base));
+
         temp tempkey = new temp();
 
-        byte[] base = (new Base64Util()).fromBase64(message);
-        System.out.println("Decoded from server: " + new String(base));
-
         CryptManager man = data.getCurrentUser().getManager();
-        String hmm = man.decryptMessagePub(base, tempkey.pukey1);
-        System.out.println("Unencrypted from server: " + hmm);
+        byte[] finalBytes = man.decryptMessagePriv(base, tempkey.prkey1);
+
+        String finalString = new String(finalBytes);
+
+        System.out.println("Unencrypted from server: " + finalString);
+
+        try{
+            String fromID = finalString.split("&space&")[0];
+            String msg = finalString.split("&space&")[1];
+
+            System.out.println(fromID + " says " + msg);
+        }catch(Exception e){
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
 
     }
 }

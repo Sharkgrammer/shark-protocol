@@ -58,90 +58,103 @@ public class MessageListener implements Runnable {
                 boolean auth = false, user = false;
                 message = readIn.readLine();
 
-                ConnectionHandler handler = new ConnectionHandler(data, listener);
+                if (message != null) {
+                    ConnectionHandler handler = new ConnectionHandler(data, listener);
 
-                if (message.length() >= 5) {
-                    if (message.substring(0, 5).equals("auth:")) {
-                        //TODO auth
-                        data.setUserID(message.substring(5).getBytes(), pos);
-                        System.out.println("User " + message.substring(5) + " has authenticated");
-                        auth = true;
-                    }
-
-                    if (message.substring(0, 5).equals("user:")) {
-                        String newUserID = message.substring(5);
-                        System.out.println("User " + newUserID + " searched for");
-
-                        try{
-                            user = data.isUserHere(newUserID.getBytes());
-                        }catch (Exception e){
-                            user = false;
+                    if (message.length() >= 5) {
+                        if (message.substring(0, 5).equals("auth:")) {
+                            //TODO auth
+                            data.setUserID(message.substring(5).getBytes(), pos);
+                            System.out.println("User " + message.substring(5) + " has authenticated");
+                            auth = true;
                         }
 
-                        Socket tempSocket = data.getClientSocket(pos);
+                        if (message.substring(0, 5).equals("user:")) {
+                            String newUserID = message.substring(5);
+                            System.out.println("User " + newUserID + " searched for");
 
-                        if (user) {
-                            System.out.println("User " + newUserID + " found");
-                            handler.sendMessage("user:found", tempSocket);
-                        } else {
-                            System.out.println("User " + newUserID + " failed");
-                            handler.sendMessage("user:failed", tempSocket);
+                            try {
+                                user = data.isUserHere(newUserID.getBytes());
+                            } catch (Exception e) {
+                                user = false;
+                            }
+
+                            Socket tempSocket = data.getClientSocket(pos);
+
+                            if (user) {
+                                System.out.println("User " + newUserID + " found");
+                                handler.sendMessage("user:found", tempSocket);
+                            } else {
+                                System.out.println("User " + newUserID + " failed");
+                                handler.sendMessage("user:failed", tempSocket);
+                            }
+
+                            user = true;
+                            //tempSocket.close();
                         }
-
-                        user = true;
-                        //tempSocket.close();
                     }
-                }
 
-                if (!auth && !user) {
+                    if (!auth && !user) {
 
-                    if (!message.equals("") && message.length() > 0) {
-                        CryptManager manager = data.getManager();
-                        PrivateKey key = manager.getPrivateKey();
+                        if (!message.equals("") && message.length() > 0) {
 
-                        if (key == null) {
-                            listener.messageReceived(message, socket, data);
-                        } else {
+                            CryptManager manager = data.getManager();
+                            PrivateKey key = manager.getPrivateKey();
                             System.out.println(message);
 
                             Base64Handler base64 = data.getBase64();
                             byte[] base = base64.fromBase64(message);
+
+                            System.out.println(Arrays.toString(base));
+                            System.out.println(new String(base, StandardCharsets.UTF_8));
+
+                            System.out.println("Message Decryption started");
                             byte[] msg = manager.decryptMessagePriv(base, key);
                             String msgStr = new String(msg, StandardCharsets.UTF_8);
+                            System.out.println("Message Decryption finished");
 
                             System.out.println(msgStr);
 
-                            try {
-                                String spaceDel = "&space&";
-                                String type = msgStr.split(spaceDel)[0];
+                            if (!data.isServer()) {
+                                listener.messageReceived(message, socket, data);
+                            } else {
 
-                                System.out.println(type);
+                                try {
+                                    String spaceDel = "&space&";
+                                    String type = msgStr.split(spaceDel)[0];
 
-                                Socket socketInternal;
-                                try{
-                                    socketInternal = data.getClientSocket(type.getBytes());
-                                }catch (Exception e){
-                                    socketInternal = null;
+                                    System.out.println(type);
+
+                                    Socket socketInternal;
+                                    try {
+                                        socketInternal = data.getClientSocket(type.getBytes());
+                                    } catch (Exception e) {
+                                        socketInternal = null;
+                                    }
+
+                                    if (socketInternal == null) {
+                                        String IP = type.split(":")[0];
+                                        String Port = type.split(":")[1];
+
+                                        socketInternal = new Socket(IP, Integer.parseInt(Port));
+                                    }
+
+                                    byte[] tempBytes = (type + spaceDel).getBytes();
+                                    int tempBytesLen = tempBytes.length;
+
+                                    byte[] reformatedBytes = Arrays.copyOfRange(msg, tempBytesLen, msg.length);
+
+                                    String finalStr = new String(base64.toBase64(reformatedBytes), StandardCharsets.UTF_8);
+
+                                    System.out.println("Sending " + finalStr);
+
+                                    handler.sendMessage(finalStr, socketInternal);
+
+                                    socketInternal.close();
+                                } catch (Exception e) {
+                                    System.out.println(Arrays.toString(e.getStackTrace()));
                                 }
 
-                                if (socketInternal == null) {
-                                    String IP = type.split(":")[0];
-                                    String Port = type.split(":")[1];
-
-                                    socketInternal = new Socket(IP, Integer.parseInt(Port));
-
-                                }
-
-                                String tempStr = msgStr.split(spaceDel)[1];
-                                String finalStr = new String(base64.toBase64(tempStr), StandardCharsets.UTF_8);
-
-                                System.out.println("Sending " + finalStr);
-
-                                handler.sendMessage(finalStr, socketInternal);
-
-                                socketInternal.close();
-                            } catch (Exception e) {
-                                System.out.println(Arrays.toString(e.getStackTrace()));
                             }
 
                         }

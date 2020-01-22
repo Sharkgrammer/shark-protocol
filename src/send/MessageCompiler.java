@@ -18,7 +18,6 @@ public class MessageCompiler {
     private String spaceDel = "&space&";
     private ServerListHandler serverHandler;
 
-
     public MessageCompiler(String message, byte[] to, DataHolder data, Socket socket) {
         this.message = message;
         this.to = byteToString(to);
@@ -67,8 +66,6 @@ public class MessageCompiler {
         JSONDataHolder lastHolder;
         byte[] msgBytes, tempBytes;
 
-        System.out.println(byteToString(encryptedMsg));
-
         System.out.println("encryptedMsg: " + encryptedMsg.length);
 
         Base64Handler base64 = data.getBase64();
@@ -77,11 +74,12 @@ public class MessageCompiler {
 
         JSONDataHolder userServer = findUserOnNetwork();
 
-        tempMessage = to + spaceDel + msg;
+        tempBytes = addByteArrays((to + spaceDel).getBytes(), encryptedMsg);
+        //tempMessage = to + spaceDel + msg;
 
-        System.out.println(tempMessage);
+        ///System.out.println(tempMessage);
 
-        msgBytes = manager.encryptMessagePub(tempMessage, userServer.getKey(base64));
+        msgBytes = manager.encryptMessagePub(tempBytes, userServer.getKey(base64));
 
         lastHolder = userServer;
 
@@ -90,11 +88,7 @@ public class MessageCompiler {
         for (JSONDataHolder holder : list) {
             tempBytes = addByteArrays((lastHolder.getIp() + spaceDel).getBytes(), msgBytes);
 
-            System.out.println(byteToString(tempBytes));
-
             msgBytes = manager.encryptMessagePub(tempBytes, holder.getKey(base64));
-
-            System.out.println(msg.getBytes().length);
 
             lastHolder = holder;
         }
@@ -112,37 +106,14 @@ public class MessageCompiler {
 
         System.out.println("Base message sting: " + baseMessage.getBytes().length);
 
-        byte[] msg = manager.encryptMessagePriv(baseMessage);
+        temp keys = new temp();
+        byte[] msg = manager.encryptMessagePub(baseMessage.getBytes(), keys.pukey1);
+
+        //msg = baseMessage.getBytes();
 
         byte[] compiledMsg = compileDataPackage(msg);
+
         byte[] encodedMsg = data.getBase64().toBase64(compiledMsg);
-
-        temp temp = new temp();
-        System.out.println("FINAL MESSAGE: DECRYPT TEST");
-
-        byte[] decodedmsg = data.getBase64().fromBase64(encodedMsg);
-
-        System.out.println(Arrays.equals(compiledMsg, decodedmsg));
-
-        byte[] msg2 = manager.decryptMessagePriv(decodedmsg, temp.prkey1);
-
-        try{
-
-            System.out.println("Client test for decoded IP");
-            String str = byteToString(msg2);
-            System.out.println(str.split("&space&")[0]);
-            System.out.println(str);
-            System.out.println("Client test for decoded IP end");
-
-
-        }catch (Exception e){
-
-        }
-
-
-
-
-        System.out.println(byteToString(msg2));
 
         String finalMsg = byteToString(encodedMsg);
         System.out.println("FINAL MESSAGE: " + finalMsg);

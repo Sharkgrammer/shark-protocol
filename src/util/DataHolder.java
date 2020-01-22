@@ -19,6 +19,7 @@ public class DataHolder {
     private Base64Handler base64;
     private URLHandler url;
     private CryptManager manager;
+    private boolean isServer;
 
     public DataHolder() {
     }
@@ -212,5 +213,13 @@ public class DataHolder {
 
     public void setUrl(URLHandler url) {
         this.url = url;
+    }
+
+    public boolean isServer() {
+        return isServer;
+    }
+
+    public void setServer(boolean server) {
+        isServer = server;
     }
 }
