@@ -100,9 +100,9 @@ class Client implements ResultHandler{
 
         temp tempkey = new temp();
 
-        String ID = "d2";
+        String ID = "d1";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d1";
+        String ToID = "d2";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);
@@ -128,25 +128,11 @@ class Client implements ResultHandler{
 
     @Override
     public void messageReceived(String message, Socket socket, DataHolder data) {
-        System.out.println("Raw from server: " + message);
-
-        Base64Handler base64 = data.getBase64();
-        byte[] base = base64.fromBase64(message);
-
-        System.out.println("Decoded from server: " + Arrays.toString(base));
-
-        temp tempkey = new temp();
-
-        CryptManager man = data.getCurrentUser().getManager();
-        byte[] finalBytes = man.decryptMessagePriv(base, tempkey.prkey1);
-
-        String finalString = new String(finalBytes);
-
-        System.out.println("Unencrypted from server: " + finalString);
+        System.out.println("Unencrypted from server: " + message);
 
         try{
-            String fromID = finalString.split("&space&")[0];
-            String msg = finalString.split("&space&")[1];
+            String fromID = message.split("&space&")[0];
+            String msg = message.split("&space&")[1];
 
             System.out.println(fromID + " says " + msg);
         }catch(Exception e){

@@ -116,7 +116,7 @@ public class MessageListener implements Runnable {
                             System.out.println(msgStr);
 
                             if (!data.isServer()) {
-                                listener.messageReceived(message, socket, data);
+                                listener.messageReceived(msgStr, socket, data);
                             } else {
 
                                 try {
