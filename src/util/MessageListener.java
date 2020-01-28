@@ -120,6 +120,7 @@ public class MessageListener implements Runnable {
                             } else {
 
                                 try {
+                                    boolean toUser = false;
                                     String spaceDel = "&space&";
                                     String type = msgStr.split(spaceDel)[0];
 
@@ -128,6 +129,7 @@ public class MessageListener implements Runnable {
                                     Socket socketInternal;
                                     try {
                                         socketInternal = data.getClientSocket(type.getBytes());
+                                        toUser = true;
                                     } catch (Exception e) {
                                         socketInternal = null;
                                     }
@@ -150,7 +152,7 @@ public class MessageListener implements Runnable {
 
                                     handler.sendMessage(finalStr, socketInternal);
 
-                                    socketInternal.close();
+                                    if (!toUser) socketInternal.close();
                                 } catch (Exception e) {
                                     System.out.println(Arrays.toString(e.getStackTrace()));
                                 }

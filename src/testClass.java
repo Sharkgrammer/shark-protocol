@@ -17,7 +17,7 @@ public class testClass {
 
         DataHolder data = new DataHolder(null, null);
         data.setPort(6002);
-        data.setIP("localhost");
+        data.setIP("192.168.43.233");
 
         //new Server().run(data);
         new Client().run(data);
@@ -100,9 +100,9 @@ class Client implements ResultHandler{
 
         temp tempkey = new temp();
 
-        String ID = "d1";
+        String ID = "d3";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d2";
+        String ToID = "d1";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);
