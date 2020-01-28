@@ -17,10 +17,10 @@ public class testClass {
 
         DataHolder data = new DataHolder(null, null);
         data.setPort(6002);
-        data.setIP("192.168.43.233");
+        data.setIP("192.168.43.53");
 
-        //new Server().run(data);
-        new Client().run(data);
+        new Server().run(data);
+        //new Client().run(data);
 
         //new CryptManager().run();
         //new ServerListHandler(data, 0).run();
