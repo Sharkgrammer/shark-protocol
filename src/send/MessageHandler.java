@@ -14,16 +14,6 @@ public class MessageHandler {
         con = new ClientHandler(server, listener);
     }
 
-    public MessageHandler(String IP, int Port, ResultHandler listener, UserHolder user){
-        DataHolder server = new DataHolder();
-        server.setPort(Port);
-        server.setIP(IP);
-
-        server.setCurrentUser(user);
-
-        con = new ClientHandler(server, listener);
-    }
-
     public void auth(){
         con.sendAuthMessage();
     }

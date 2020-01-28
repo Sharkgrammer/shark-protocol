@@ -5,6 +5,7 @@ import util.*;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -45,26 +46,14 @@ public class ClientHandler {
     public void sendMessage(String message, byte[] to) {
         if (clientAlive) {
             try {
-                String toID = byteToString(to);
-                String fromID = byteToString(data.getCurrentUser().getUserID());
-                String spaceDel = "&space&";
-
-                CryptManager manager = data.getCurrentUser().getManager();
-                byte[] msg = manager.encryptMessage(message);
-                byte[] encodedMsg = data.getBase64().toBase64(msg);
-
-                System.out.println("Sending message " + message);
-                PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-
-                String finalMsg = fromID + spaceDel + new String(encodedMsg)+ spaceDel + toID;
-                System.out.println("FINAL MESSAGE: " + finalMsg);
+                MessageCompiler compiler = new MessageCompiler(message, to, data, socket);
+                String finalMsg = compiler.returnMessage();
+                PrintWriter sendOut = compiler.returnWriter();
 
                 sendOut.println(finalMsg);
-
                 sendOut.flush();
 
                 System.out.println("Message sent");
-
             } catch (Exception e) {
                 System.out.println("Error in sendMessage: " + e.toString());
             }

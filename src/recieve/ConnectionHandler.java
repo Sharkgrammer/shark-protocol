@@ -49,7 +49,7 @@ public class ConnectionHandler {
                     server.setClientSocket(cSocket);
                     int len = server.noOfSockets();
 
-                    MessageListener receiver = new MessageListener("ServerClient" + String.valueOf(len), server, listener, true, len);
+                    MessageListener receiver = new MessageListener("ServerClient" + len, server, listener, true, len);
                     receiver.start();
                     receivers.add(receiver);
 

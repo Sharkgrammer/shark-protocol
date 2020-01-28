@@ -7,7 +7,7 @@ public class CryptGenerate {
     public KeyPair genKeys(Integer size, String mode){
         KeyPair pair = null;
         if (size == null){
-            size = 1024;
+            size = 2048;
         }
 
         if (mode == null){

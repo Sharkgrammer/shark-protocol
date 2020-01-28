@@ -13,13 +13,6 @@ public class ServerHandler {
         con = new ConnectionHandler(server, listener);
     }
 
-    public ServerHandler(int port, ResultHandler listener){
-        DataHolder server = new DataHolder();
-        server.setPort(port);
-
-        con = new ConnectionHandler(server, listener);
-    }
-
     public void start(){
         con.startServer();
     }
@@ -34,7 +27,8 @@ public class ServerHandler {
         con.sendMessage(message, ToAll, Pos);
     }
 
-    public void sendMessage(String message, byte[] userID){
+    public void sendMessage(String message, byte[] userID, String fromID){
+        message = fromID + "&space&" + message;
         con.sendMessage(message, userID);
     }
 

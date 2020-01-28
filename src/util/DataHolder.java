@@ -1,8 +1,11 @@
 package util;
 
+import crypto.CryptManager;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.KeyPair;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +17,21 @@ public class DataHolder {
     private List<SocketHolder> sockets = new ArrayList<>();
     private UserHolder currentUser;
     private Base64Handler base64;
+    private URLHandler url;
+    private CryptManager manager;
+    private boolean isServer;
+
+    public DataHolder() {
+    }
+
+    public DataHolder(byte[] publicKey, byte[] privateKey) {
+        manager = new CryptManager();
+        if (publicKey == null) {
+            manager.setKeys((PublicKey) null, null);
+        } else {
+            manager.setKeys(publicKey, privateKey);
+        }
+    }
 
     public String getIP() {
         return IP;
@@ -65,7 +83,7 @@ public class DataHolder {
 
     public Socket getClientSocket(int pos) {
 
-        if (sockets.isEmpty() || sockets.get(pos).getClient() == null){
+        if (sockets.isEmpty() || sockets.get(pos).getClient() == null) {
             setClientSocket();
         }
 
@@ -76,27 +94,27 @@ public class DataHolder {
         return sockets.get(findPosByUserID(userID)).getClient();
     }
 
-    public void setServerSocket(){
+    public void setServerSocket() {
         setServerSocket(port);
     }
 
-    public void setServerSocket(int port){
-        try{
+    public void setServerSocket(int port) {
+        try {
             SocketHolder s = new SocketHolder();
             s.setServer(new ServerSocket(port));
 
             sockets.add(s);
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Error in setServerSocket: " + e.toString());
         }
     }
 
-    public ServerSocket getServerSocket(){
+    public ServerSocket getServerSocket() {
         return getServerSocket(0);
     }
 
-    public ServerSocket getServerSocket(int pos){
-        if (sockets.isEmpty()){
+    public ServerSocket getServerSocket(int pos) {
+        if (sockets.isEmpty()) {
             setServerSocket();
             pos = 0;
         }
@@ -104,30 +122,34 @@ public class DataHolder {
         return sockets.get(pos).getServer();
     }
 
-    public int noOfSockets(){
+    public int noOfSockets() {
         return sockets.size() - 1;
     }
 
-    public byte[] getUserID(int pos){
+    public byte[] getUserID(int pos) {
         return sockets.get(pos).getUserID();
     }
 
-    public void setUserID(byte[] ID, int pos){
+    public boolean isUserHere(byte[] ID) {
+        return findPosByUserID(ID) != null;
+    }
+
+    public void setUserID(byte[] ID, int pos) {
         sockets.get(pos).setUserID(ID);
     }
 
-    public void setUserID(byte[] ID, Socket socket){
+    public void setUserID(byte[] ID, Socket socket) {
         sockets.get(findPosBySocket(socket)).setUserID(ID);
     }
 
-    private Integer findPosBySocket(Socket socket){
+    private Integer findPosBySocket(Socket socket) {
 
-        for (int x = 0; x < sockets.size(); x++){
+        for (int x = 0; x < sockets.size(); x++) {
 
             Socket sock = sockets.get(x).getClient();
 
-            if (sock != null){
-                if (socket.equals(sock)){
+            if (sock != null) {
+                if (socket.equals(sock)) {
                     return x;
                 }
             }
@@ -137,14 +159,14 @@ public class DataHolder {
         return null;
     }
 
-    private Integer findPosByUserID(byte[] ID){
+    private Integer findPosByUserID(byte[] ID) {
 
-        for (int x = 1; x < sockets.size(); x++){
+        for (int x = 1; x < sockets.size(); x++) {
 
             byte[] user = sockets.get(x).getUserID();
 
-            if (user != null){
-                if (Arrays.equals(user, ID)){
+            if (user != null) {
+                if (Arrays.equals(user, ID)) {
                     return x;
                 }
             }
@@ -164,10 +186,40 @@ public class DataHolder {
     }
 
     public Base64Handler getBase64() {
+        if (base64 == null) {
+            base64 = new Base64Util();
+        }
         return base64;
     }
 
     public void setBase64(Base64Handler base64) {
         this.base64 = base64;
+    }
+
+    public CryptManager getManager() {
+        return manager;
+    }
+
+    public void setManager(CryptManager manager) {
+        this.manager = manager;
+    }
+
+    public URLHandler getUrl() {
+        if (url == null) {
+            url = new URLUtil();
+        }
+        return url;
+    }
+
+    public void setUrl(URLHandler url) {
+        this.url = url;
+    }
+
+    public boolean isServer() {
+        return isServer;
+    }
+
+    public void setServer(boolean server) {
+        isServer = server;
     }
 }
