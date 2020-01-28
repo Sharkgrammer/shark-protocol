@@ -19,8 +19,8 @@ public class testClass {
         data.setPort(6002);
         data.setIP("192.168.43.53");
 
-        new Server().run(data);
-        //new Client().run(data);
+        //new Server().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
         //new ServerListHandler(data, 0).run();
@@ -100,9 +100,9 @@ class Client implements ResultHandler{
 
         temp tempkey = new temp();
 
-        String ID = "d3";
+        String ID = "d32";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d1";
+        String ToID = "d3";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);

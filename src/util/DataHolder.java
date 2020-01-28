@@ -222,4 +222,13 @@ public class DataHolder {
     public void setServer(boolean server) {
         isServer = server;
     }
+
+    public void removeSocket(Socket socket){
+        for (SocketHolder s : sockets){
+            if (s.getClient().equals(socket)){
+                sockets.remove(s);
+                break;
+            }
+        }
+    }
 }
