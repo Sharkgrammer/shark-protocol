@@ -1,8 +1,9 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="shark-protocol:jar">
+  <artifact type="jar" build-on-make="true" name="shark-protocol.jar">
     <output-path>$PROJECT_DIR$/out/artifacts/shark_protocol_jar</output-path>
     <root id="archive" name="shark-protocol.jar">
       <element id="module-output" name="shark-protocol" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gson-2.8.6.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

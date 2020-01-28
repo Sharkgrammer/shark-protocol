@@ -51,7 +51,7 @@ public class ClientHandler {
                 PrintWriter sendOut = compiler.returnWriter();
 
                 sendOut.println(finalMsg);
-                sendOut.flush();
+                //sendOut.flush();
 
                 System.out.println("Message sent");
             } catch (Exception e) {
