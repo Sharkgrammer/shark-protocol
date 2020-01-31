@@ -21,7 +21,7 @@ public class MessageListener implements Runnable {
     public MessageListener(String name, DataHolder data, ResultHandler listener, boolean clientRunning, int pos) {
         this.data = data;
         this.listener = listener;
-        this.clientRunning = clientRunning;
+        this.setClientRunning(clientRunning);
         this.name = name;
         this.pos = pos;
     }
@@ -39,9 +39,9 @@ public class MessageListener implements Runnable {
         }
     }
 
-    public void finish() {
-        clientRunning = false;
-        System.out.println("Listener finished");
+    public void finish(String place) {
+        //clientRunning = false;
+        System.out.println("Listener finished: " + place);
     }
 
     @Override
@@ -51,12 +51,13 @@ public class MessageListener implements Runnable {
         Socket socket = data.getClientSocket(pos);
 
         System.out.println("Listener started: " + name);
+        boolean auth = false, user = false, toUser = false;
+
         try {
-            BufferedReader readIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader readIn;
 
-            while (clientRunning) {
-
-                boolean auth = false, user = false, toUser = false;
+            do {
+                readIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 message = readIn.readLine();
 
                 if (message != null) {
@@ -68,9 +69,7 @@ public class MessageListener implements Runnable {
                             data.setUserID(message.substring(5).getBytes(), pos);
                             System.out.println("User " + message.substring(5) + " has authenticated");
                             auth = true;
-                        }
-
-                        if (message.substring(0, 5).equals("user:")) {
+                        } else if (message.substring(0, 5).equals("user:")) {
                             String newUserID = message.substring(5);
                             System.out.println("User " + newUserID + " searched for");
 
@@ -80,7 +79,13 @@ public class MessageListener implements Runnable {
                                 user = false;
                             }
 
-                            Socket tempSocket = data.getClientSocket(pos);
+                            Socket tempSocket = data.getClientSocket(pos), tempSocketCheck;
+
+                            try {
+                                tempSocketCheck = data.getClientSocket(newUserID.getBytes());
+                            } catch (Exception e) {
+                                tempSocketCheck = null;
+                            }
 
                             if (user) {
                                 System.out.println("User " + newUserID + " found");
@@ -92,7 +97,7 @@ public class MessageListener implements Runnable {
 
                             user = true;
                             //tempSocket.close();
-                            finish();
+                            if (tempSocketCheck == null) finish("Sent user message");
                         }
                     }
 
@@ -155,7 +160,7 @@ public class MessageListener implements Runnable {
 
                                     if (!toUser) {
                                         socketInternal.close();
-                                        finish();
+                                        finish("Sent to another server");
                                     }
 
                                 } catch (Exception e) {
@@ -168,16 +173,27 @@ public class MessageListener implements Runnable {
 
                     }
 
+                } else {
+                    if (!auth) finish("Null message");
                 }
 
-            }
+                //System.out.println("Message Null? " + (message == null));
+
+            } while (clientRunning);
 
         } catch (Exception e) {
             System.out.println("Error in listen in MessageListener: " + e.toString());
             System.out.println(Arrays.toString(e.getStackTrace()));
         }
 
-        if (data.isServer()) data.removeSocket(socket);
+        System.out.println("Thread closed");
     }
 
+    public boolean isClientRunning() {
+        return clientRunning;
+    }
+
+    public void setClientRunning(boolean clientRunning) {
+        this.clientRunning = clientRunning;
+    }
 }

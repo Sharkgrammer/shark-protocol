@@ -225,7 +225,12 @@ public class DataHolder {
 
     public void removeSocket(Socket socket){
         for (SocketHolder s : sockets){
-            if (s.getClient().equals(socket)){
+
+            Socket clientSocket = s.getClient();
+            if (clientSocket == null){
+                sockets.remove(s);
+                break;
+            }else if (clientSocket.equals(socket)){
                 sockets.remove(s);
                 break;
             }

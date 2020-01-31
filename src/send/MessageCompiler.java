@@ -32,29 +32,32 @@ public class MessageCompiler {
         PrintWriter sendOut;
         BufferedReader readIn;
 
-        for (JSONDataHolder data : list) {
-            Socket socketInternal = data.getSocket();
+        for (JSONDataHolder JSONData : list) {
+            Socket socketInternal = JSONData.getSocket();
 
             try {
-                System.out.println("Searching: " + to);
+                System.out.print("Searching: " + to);
+                System.out.println(JSONData.getIp() + " " + JSONData.getId());
+                System.out.println(": " + socketInternal.getInetAddress() + " " + socketInternal.getPort());
+
                 sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketInternal.getOutputStream())), true);
 
                 sendOut.println("user:" + to);
                 sendOut.flush();
 
-                System.out.println("search sent to " + data.getIp());
+                System.out.println("search sent to " + JSONData.getIp());
 
                 readIn = new BufferedReader(new InputStreamReader(socketInternal.getInputStream()));
                 String serverResponse = readIn.readLine();
                 if (serverResponse.equals("user:found")) {
-                    result = data;
+                    result = JSONData;
 
                     System.out.println("search finished");
                     break;
                 }
 
             } catch (Exception e) {
-                System.out.println("Error in findUserOnNetwork: " + e.toString());
+                System.out.println("Error in findUserOnNetwork: " + e.toString() + " " + Arrays.toString(e.getStackTrace()));
             }
         }
 
@@ -62,7 +65,6 @@ public class MessageCompiler {
     }
 
     private byte[] compileDataPackage(byte[] encryptedMsg) {
-        String msg = byteToString(encryptedMsg), tempMessage = "";
         JSONDataHolder lastHolder;
         byte[] msgBytes, tempBytes;
 
@@ -123,6 +125,7 @@ public class MessageCompiler {
 
     public PrintWriter returnWriter() {
         try {
+            System.out.println(socket.getInetAddress() + ":" + socket.getPort());
             return new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
         } catch (Exception e) {
             System.out.println(e.toString());

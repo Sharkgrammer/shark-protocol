@@ -49,6 +49,9 @@ public class JSONDataHolder {
     }
 
     public Socket getSocket() {
+        if (socket == null){
+            createSocket();
+        }
         return socket;
     }
 

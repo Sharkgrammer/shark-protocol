@@ -81,7 +81,7 @@ public class ServerListHandler {
 
         for (int x = 0; x < JSONList.size(); x++) {
             System.out.println(JSONList.get(x).getIp());
-            System.out.println(Arrays.toString(JSONList.get(x).getKey(base64)));
+            //System.out.println(Arrays.toString(JSONList.get(x).getKey(base64)));
         }
     }
 }
