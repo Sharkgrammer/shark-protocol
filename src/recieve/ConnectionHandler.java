@@ -8,7 +8,6 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class ConnectionHandler {
         System.out.println("Server stopped!");
         serverRunning = false;
         for (MessageListener lis : receivers) {
-            lis.finish("Stop server");
+            lis.finish(true);
         }
     }
 
@@ -41,34 +40,31 @@ public class ConnectionHandler {
             ServerSocket sSocket = server.getServerSocket();
             System.out.println("Turning on server...");
             Socket cSocket;
+            int socketCounter = 1;
 
             while (serverRunning) {
                 try {
-                    System.out.println("Running... Waiting for client to connect");
+                    System.out.println("Running...");
+
+                    System.out.println("OPEN THREADS: " + Thread.activeCount());
+                    int temp = 1;
+                    for (MessageListener lis : receivers){
+                        System.out.println((temp++) + " : " + lis.getName() + " : " + lis.isSocketAlive());
+                    }
+
+                    receivers.removeIf(lis -> !lis.isSocketAlive());
 
                     cSocket = sSocket.accept();
+                    server.addClientSocket(cSocket, socketCounter);
 
-                    System.out.println("Running... Client connected");
-
-                    System.out.println(cSocket.getInetAddress().toString() + ":" + cSocket.getPort());
-                    server.setClientSocket(cSocket);
-                    int len = server.noOfSockets();
-
-                    MessageListener receiver = new MessageListener("ServerClient" + len, server, listener, true, len);
+                    MessageListener receiver = new MessageListener("ServerClient" + socketCounter, server, listener, true, socketCounter);
                     receiver.start();
                     receivers.add(receiver);
-
-
+                    socketCounter++;
                 } catch (Exception e) {
-                    System.out.println("Error in setServerListening: " + Arrays.toString(e.getStackTrace()));
-                    System.out.println("Error in setServerListening: " + e.getLocalizedMessage());
-                    System.out.println("Error in setServerListening: " + e.getCause());
-
-
-                    break;
+                    System.out.println("Error in setServerListening: " + e.toString());
                 }
 
-                // receivers.removeIf(lis -> !lis.isClientRunning());
             }
         } catch (Exception e) {
             System.out.print("Error in setServerListening" + e.toString());

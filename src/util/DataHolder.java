@@ -21,8 +21,6 @@ public class DataHolder {
     private CryptManager manager;
     private boolean isServer;
 
-    public DataHolder() {
-    }
 
     public DataHolder(byte[] publicKey, byte[] privateKey) {
         manager = new CryptManager();
@@ -49,30 +47,19 @@ public class DataHolder {
         this.port = port;
     }
 
-    public void setClientSocket() {
+    public void addClientSocket() {
         try {
             Socket socket = new Socket(getIP(), getPort());
-            setClientSocket(socket);
+            addClientSocket(socket, 1);
         } catch (Exception e) {
             System.out.println(e.toString());
         }
     }
 
-    public void setClientSocket(String ip, int port) {
-        try {
-            setIP(ip);
-            setPort(port);
-
-            Socket socket = new Socket(getIP(), getPort());
-            setClientSocket(socket);
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-    }
-
-    public void setClientSocket(Socket socket) {
+    public void addClientSocket(Socket socket, int ID) {
         SocketHolder s = new SocketHolder();
         s.setClient(socket);
+        s.setSocketID(ID);
 
         sockets.add(s);
     }
@@ -82,12 +69,13 @@ public class DataHolder {
     }
 
     public Socket getClientSocket(int pos) {
+        int inPos = getInternalPos(pos);
 
-        if (sockets.isEmpty() || sockets.get(pos).getClient() == null) {
-            setClientSocket();
+        if (sockets.isEmpty() || sockets.get(inPos).getClient() == null) {
+            addClientSocket();
         }
 
-        return sockets.get(pos).getClient();
+        return sockets.get(inPos).getClient();
     }
 
     public Socket getClientSocket(byte[] userID) {
@@ -127,19 +115,32 @@ public class DataHolder {
     }
 
     public byte[] getUserID(int pos) {
-        return sockets.get(pos).getUserID();
+
+        int inPos = getInternalPos(pos);
+
+        return sockets.get(inPos).getUserID();
+    }
+
+    public byte[] getUserID(Socket s) {
+        return getUserID(findPosBySocket(s));
     }
 
     public boolean isUserHere(byte[] ID) {
         return findPosByUserID(ID) != null;
     }
 
-    public void setUserID(byte[] ID, int pos) {
-        sockets.get(pos).setUserID(ID);
+    public boolean isUserHere(Socket s) {
+        return findPosBySocket(s) != null;
     }
 
-    public void setUserID(byte[] ID, Socket socket) {
-        sockets.get(findPosBySocket(socket)).setUserID(ID);
+    public void setUserID(byte[] ID, int pos) {
+        int inPos = getInternalPos(pos);
+
+        sockets.get(inPos).setUserID(ID);
+    }
+
+    public void setUserID(byte[] ID, Socket s) {
+        sockets.get(findPosBySocket(s)).setUserID(ID);
     }
 
     private Integer findPosBySocket(Socket socket) {
@@ -223,17 +224,13 @@ public class DataHolder {
         isServer = server;
     }
 
-    public void removeSocket(Socket socket){
-        for (SocketHolder s : sockets){
-
-            Socket clientSocket = s.getClient();
-            if (clientSocket == null){
-                sockets.remove(s);
-                break;
-            }else if (clientSocket.equals(socket)){
-                sockets.remove(s);
-                break;
+    private int getInternalPos(int pos){
+        for (SocketHolder sock : sockets){
+            if (sock.getSocketID() == pos){
+                return sockets.indexOf(sock);
             }
         }
+
+        return 0;
     }
 }

@@ -15,19 +15,16 @@ public class MessageListener implements Runnable {
     private DataHolder data;
     private ResultHandler listener;
     private String name;
-    private boolean clientRunning;
+    private boolean clientRunning, socketAlive;
     private int pos;
 
     public MessageListener(String name, DataHolder data, ResultHandler listener, boolean clientRunning, int pos) {
         this.data = data;
         this.listener = listener;
-        this.setClientRunning(clientRunning);
+        this.clientRunning = clientRunning;
         this.name = name;
         this.pos = pos;
-    }
-
-    public Socket returnListenerSocket() {
-        return data.getClientSocket(pos);
+        this.socketAlive = true;
     }
 
     //REF https://www.tutorialspoint.com/java/java_multithreading.htm
@@ -39,9 +36,15 @@ public class MessageListener implements Runnable {
         }
     }
 
-    public void finish(String place) {
-        //clientRunning = false;
-        System.out.println("Listener finished: " + place);
+    public void finish(boolean killSocket) {
+        if (killSocket) {
+            finishSocket();
+        }
+        clientRunning = false;
+    }
+
+    public void finishSocket() {
+        socketAlive = false;
     }
 
     @Override
@@ -50,14 +53,13 @@ public class MessageListener implements Runnable {
 
         Socket socket = data.getClientSocket(pos);
 
-        System.out.println("Listener started: " + name);
-        boolean auth = false, user = false, toUser = false;
-
+        System.out.println("Listener started");
         try {
-            BufferedReader readIn;
+            BufferedReader readIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            do {
-                readIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            while (clientRunning) {
+
+                boolean auth = false, user = false;
                 message = readIn.readLine();
 
                 if (message != null) {
@@ -69,8 +71,13 @@ public class MessageListener implements Runnable {
                             data.setUserID(message.substring(5).getBytes(), pos);
                             System.out.println("User " + message.substring(5) + " has authenticated");
                             auth = true;
-                        } else if (message.substring(0, 5).equals("user:")) {
-                            String newUserID = message.substring(5);
+                            finish(true);
+                        }
+
+                        if (message.substring(0, 5).equals("user:")) {
+                            String newUserID = message.split(":")[1];
+                            String oldUserID = message.split(":")[2];
+
                             System.out.println("User " + newUserID + " searched for");
 
                             try {
@@ -79,25 +86,29 @@ public class MessageListener implements Runnable {
                                 user = false;
                             }
 
-                            Socket tempSocket = data.getClientSocket(pos), tempSocketCheck;
-
-                            try {
-                                tempSocketCheck = data.getClientSocket(newUserID.getBytes());
-                            } catch (Exception e) {
-                                tempSocketCheck = null;
-                            }
-
                             if (user) {
                                 System.out.println("User " + newUserID + " found");
-                                handler.sendMessage("user:found", tempSocket);
+                                handler.sendMessage("user:found", socket);
                             } else {
                                 System.out.println("User " + newUserID + " failed");
-                                handler.sendMessage("user:failed", tempSocket);
+                                handler.sendMessage("user:failed", socket);
                             }
 
                             user = true;
+
+                            //Find out if that user is connected to this server
+                            //if so we don't want to close their socket
+                            System.out.println("Checking if user is on server");
+                            boolean onServer;
+                            try {
+                                onServer = data.isUserHere(oldUserID.getBytes());
+                            } catch (Exception e) {
+                                onServer = false;
+                            }
+
+                            //if (!onServer) finish(true);
+
                             //tempSocket.close();
-                            if (tempSocketCheck == null) finish("Sent user message");
                         }
                     }
 
@@ -127,6 +138,7 @@ public class MessageListener implements Runnable {
                             } else {
 
                                 try {
+                                    boolean toUser = false;
                                     String spaceDel = "&space&";
                                     String type = msgStr.split(spaceDel)[0];
 
@@ -160,9 +172,8 @@ public class MessageListener implements Runnable {
 
                                     if (!toUser) {
                                         socketInternal.close();
-                                        finish("Sent to another server");
+                                        finish(true);
                                     }
-
                                 } catch (Exception e) {
                                     System.out.println(Arrays.toString(e.getStackTrace()));
                                 }
@@ -173,27 +184,24 @@ public class MessageListener implements Runnable {
 
                     }
 
-                } else {
-                    if (!auth) finish("Null message");
                 }
 
-                //System.out.println("Message Null? " + (message == null));
+            }
 
-            } while (clientRunning);
+            finish(false);
 
         } catch (Exception e) {
             System.out.println("Error in listen in MessageListener: " + e.toString());
             System.out.println(Arrays.toString(e.getStackTrace()));
+            finish(true);
         }
-
-        System.out.println("Thread closed");
     }
 
-    public boolean isClientRunning() {
-        return clientRunning;
+    public boolean isSocketAlive() {
+        return socketAlive;
     }
 
-    public void setClientRunning(boolean clientRunning) {
-        this.clientRunning = clientRunning;
+    public String getName() {
+        return name;
     }
 }
