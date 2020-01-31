@@ -56,6 +56,7 @@ public class MessageListener implements Runnable {
         System.out.println("Listener started");
         try {
             BufferedReader readIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            int loopCount = 0;
 
             while (clientRunning) {
 
@@ -184,6 +185,12 @@ public class MessageListener implements Runnable {
 
                     }
 
+                }
+
+                loopCount++;
+
+                if (loopCount > 50){
+                    finish(true);
                 }
 
             }

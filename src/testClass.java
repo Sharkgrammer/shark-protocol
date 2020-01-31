@@ -19,8 +19,8 @@ public class testClass {
         data.setPort(6000);
         data.setIP("localhost");
 
-        //new Server().run(data);
-        new Client().run(data);
+        new Server().run(data);
+        //new Client().run(data);
 
         //new CryptManager().run();
         //new ServerListHandler(data, 0).run();
