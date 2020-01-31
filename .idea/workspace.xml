@@ -7,23 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fae9563-e6c7-4e39-976b-466d181c9863" name="Default Changelist" comment="Threading fix">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/send/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/SocketHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/SocketHolder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DataHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/JSONDataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSONDataHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ServerListHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ServerListHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580246514533</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Threading fixes + user list issue">
+      <created>1580504363582</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1580504363582</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -328,9 +327,14 @@
     <MESSAGE value="Work in multiserver decryption and transport" />
     <MESSAGE value="Threading fix" />
     <MESSAGE value="User list bug fixed and threading fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="User list bug fixed and threading fixes" />
+    <MESSAGE value="Threading fixes + user list issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Threading fixes + user list issue" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="72" key="#Project_Structure" timestamp="1580504712430">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1580504712430" />
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578933148272">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -382,26 +386,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579358424189" />
-    <state width="1493" height="235" key="GridCell.Tab.0.bottom" timestamp="1580492910274">
+    <state width="1493" height="233" key="GridCell.Tab.0.bottom" timestamp="1580504697628">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="322" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="235" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580492910274" />
-    <state width="1493" height="235" key="GridCell.Tab.0.center" timestamp="1580492910274">
+    <state width="1493" height="233" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580504697628" />
+    <state width="1493" height="233" key="GridCell.Tab.0.center" timestamp="1580504697628">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="322" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="235" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580492910274" />
-    <state width="1493" height="235" key="GridCell.Tab.0.left" timestamp="1580492910274">
+    <state width="1493" height="233" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580504697628" />
+    <state width="1493" height="233" key="GridCell.Tab.0.left" timestamp="1580504697628">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="322" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="235" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580492910274" />
-    <state width="1493" height="235" key="GridCell.Tab.0.right" timestamp="1580492910274">
+    <state width="1493" height="233" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580504697628" />
+    <state width="1493" height="233" key="GridCell.Tab.0.right" timestamp="1580504697628">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="322" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="235" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580492910274" />
+    <state width="1493" height="233" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580504697628" />
     <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1579635676893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -418,6 +422,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="222" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579635676893" />
+    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1580504489855">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1580504489855" />
     <state x="326" y="0" key="SettingsEditor" timestamp="1579554554715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -439,6 +447,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="345" y="149" width="846" height="601" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1580408339382" />
+    <state x="0" y="126" key="git4idea.branch.GitSmartOperationDialog" timestamp="1580504470585">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="126" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1580504470585" />
     <state x="380" y="155" key="git4idea.merge.GitPullDialog" timestamp="1578932847299">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -462,7 +474,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/DataHolder.java</url>
-          <line>24</line>
+          <line>23</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
