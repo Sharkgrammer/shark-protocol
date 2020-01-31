@@ -8,6 +8,7 @@ public class SocketHolder {
     private Socket client = null;
     private ServerSocket server = null;
     private UserHolder user;
+    private int SocketID;
 
     public Socket getClient() {
         return client;
@@ -43,5 +44,13 @@ public class SocketHolder {
 
     public byte[] getUserID(){
         return user.getUserID();
+    }
+
+    public int getSocketID() {
+        return SocketID;
+    }
+
+    public void setSocketID(int socketID) {
+        SocketID = socketID;
     }
 }

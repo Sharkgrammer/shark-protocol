@@ -27,7 +27,7 @@ public class ConnectionHandler {
         System.out.println("Server stopped!");
         serverRunning = false;
         for (MessageListener lis : receivers) {
-            lis.finish();
+            lis.finish(true);
         }
     }
 
@@ -40,19 +40,27 @@ public class ConnectionHandler {
             ServerSocket sSocket = server.getServerSocket();
             System.out.println("Turning on server...");
             Socket cSocket;
+            int socketCounter = 1;
 
             while (serverRunning) {
                 try {
                     System.out.println("Running...");
 
-                    cSocket = sSocket.accept();
-                    server.setClientSocket(cSocket);
-                    int len = server.noOfSockets();
+                    System.out.println("OPEN THREADS: " + Thread.activeCount());
+                    int temp = 1;
+                    for (MessageListener lis : receivers){
+                        System.out.println((temp++) + " : " + lis.getName() + " : " + lis.isSocketAlive());
+                    }
 
-                    MessageListener receiver = new MessageListener("ServerClient" + len, server, listener, true, len);
+                    receivers.removeIf(lis -> !lis.isSocketAlive());
+
+                    cSocket = sSocket.accept();
+                    server.addClientSocket(cSocket, socketCounter);
+
+                    MessageListener receiver = new MessageListener("ServerClient" + socketCounter, server, listener, true, socketCounter);
                     receiver.start();
                     receivers.add(receiver);
-
+                    socketCounter++;
                 } catch (Exception e) {
                     System.out.println("Error in setServerListening: " + e.toString());
                 }

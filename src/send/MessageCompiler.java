@@ -39,7 +39,7 @@ public class MessageCompiler {
                 System.out.println("Searching: " + to);
                 sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketInternal.getOutputStream())), true);
 
-                sendOut.println("user:" + to);
+                sendOut.println("user:" + to + ":" + new String(this.data.getCurrentUser().getUserID()));
                 sendOut.flush();
 
                 System.out.println("search sent to " + data.getIp());

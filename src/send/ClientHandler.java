@@ -40,7 +40,7 @@ public class ClientHandler {
     public void stopClient() {
         clientAlive = false;
         System.out.println("Client stopped!");
-        receiver.finish();
+        receiver.finish(true);
     }
 
     public void sendMessage(String message, byte[] to) {
@@ -51,7 +51,7 @@ public class ClientHandler {
                 PrintWriter sendOut = compiler.returnWriter();
 
                 sendOut.println(finalMsg);
-                //sendOut.flush();
+                sendOut.flush();
 
                 System.out.println("Message sent");
             } catch (Exception e) {

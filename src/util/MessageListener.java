@@ -15,7 +15,7 @@ public class MessageListener implements Runnable {
     private DataHolder data;
     private ResultHandler listener;
     private String name;
-    private boolean clientRunning;
+    private boolean clientRunning, socketAlive;
     private int pos;
 
     public MessageListener(String name, DataHolder data, ResultHandler listener, boolean clientRunning, int pos) {
@@ -24,10 +24,7 @@ public class MessageListener implements Runnable {
         this.clientRunning = clientRunning;
         this.name = name;
         this.pos = pos;
-    }
-
-    public Socket returnListenerSocket() {
-        return data.getClientSocket(pos);
+        this.socketAlive = true;
     }
 
     //REF https://www.tutorialspoint.com/java/java_multithreading.htm
@@ -39,8 +36,15 @@ public class MessageListener implements Runnable {
         }
     }
 
-    public void finish() {
+    public void finish(boolean killSocket) {
+        if (killSocket) {
+            finishSocket();
+        }
         clientRunning = false;
+    }
+
+    public void finishSocket() {
+        socketAlive = false;
     }
 
     @Override
@@ -67,10 +71,13 @@ public class MessageListener implements Runnable {
                             data.setUserID(message.substring(5).getBytes(), pos);
                             System.out.println("User " + message.substring(5) + " has authenticated");
                             auth = true;
+                            finish(true);
                         }
 
                         if (message.substring(0, 5).equals("user:")) {
-                            String newUserID = message.substring(5);
+                            String newUserID = message.split(":")[1];
+                            String oldUserID = message.split(":")[2];
+
                             System.out.println("User " + newUserID + " searched for");
 
                             try {
@@ -79,17 +86,28 @@ public class MessageListener implements Runnable {
                                 user = false;
                             }
 
-                            Socket tempSocket = data.getClientSocket(pos);
-
                             if (user) {
                                 System.out.println("User " + newUserID + " found");
-                                handler.sendMessage("user:found", tempSocket);
+                                handler.sendMessage("user:found", socket);
                             } else {
                                 System.out.println("User " + newUserID + " failed");
-                                handler.sendMessage("user:failed", tempSocket);
+                                handler.sendMessage("user:failed", socket);
                             }
 
                             user = true;
+
+                            //Find out if that user is connected to this server
+                            //if so we don't want to close their socket
+                            System.out.println("Checking if user is on server");
+                            boolean onServer;
+                            try {
+                                onServer = data.isUserHere(oldUserID.getBytes());
+                            } catch (Exception e) {
+                                onServer = false;
+                            }
+
+                            //if (!onServer) finish(true);
+
                             //tempSocket.close();
                         }
                     }
@@ -152,7 +170,10 @@ public class MessageListener implements Runnable {
 
                                     handler.sendMessage(finalStr, socketInternal);
 
-                                    if (!toUser) socketInternal.close();
+                                    if (!toUser) {
+                                        socketInternal.close();
+                                        finish(true);
+                                    }
                                 } catch (Exception e) {
                                     System.out.println(Arrays.toString(e.getStackTrace()));
                                 }
@@ -167,10 +188,20 @@ public class MessageListener implements Runnable {
 
             }
 
+            finish(false);
+
         } catch (Exception e) {
             System.out.println("Error in listen in MessageListener: " + e.toString());
             System.out.println(Arrays.toString(e.getStackTrace()));
+            finish(true);
         }
     }
 
+    public boolean isSocketAlive() {
+        return socketAlive;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
