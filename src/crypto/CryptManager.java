@@ -198,6 +198,15 @@ public class CryptManager {
         return ((key.getModulus().bitLength() + 7) / 8) - (encrypt ? 11 : 0);
     }
 
+    public String getUserKey() {
+        return getUserKey(256);
+    }
+
+    public String getUserKey(int size){
+        CryptGenerate gen = new CryptGenerate();
+        return gen.getUserKey(size);
+    }
+
     public void run() {
         try {
             setKeys((PublicKey) null, null);
