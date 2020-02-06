@@ -16,11 +16,11 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6000);
+        data.setPort(6002);
         data.setIP("localhost");
 
-        new Server().run(data);
-        //new Client().run(data);
+        //new Server().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
         //new ServerListHandler(data, 0).run();
@@ -100,9 +100,9 @@ class Client implements ResultHandler{
 
         temp tempkey = new temp();
 
-        String ID = "d1";
+        String ID = "io8OnrlAIjTXpu6wBXWfXkQsqcBrhN2GwTdz716wqzgWLbwVK79i5lSaumzZBzPexs066dflclIBEVTPSboFk6zIt6ng4X5soFo2v0EGnswBLk0OKJXDTmT1i07cXmvIaLddm7zBxkn2UN3lYkQRJKoP4psbak2JBJSUtcqzgd92GtUwADgWiFoC5ABhntc4eCTQKVoZ5nwaxhW3WGp0suQSXdAACmPoPFPXGovZXijl1VVxKIskUR70nGtQiHxY";
         UserHolder user = new UserHolder(ID.getBytes(), tempkey.pukey1, tempkey.prkey1);
-        String ToID = "d2";
+        String ToID = "4adrEsJN7pq84cSNzvanQWoL1yPJxv9S9F2iMUzDm44m2iJfeeP82MHL1TeSHxWKuWLgF8d1mGcqz1Q5TtkWFCUo3yWnjjD2iZ7bY7Xyp1llE1Fo1a6fQ5nTIpBnUcekRGQmT3jdax5ml1kUT0qg9u9P5o69lLK3KJFkzWIs2NaVdIv4A7bGyqyLFb3FN4DPXaP1dLovrRcj97UA8N9z37UtfOwkGxotsm8YVDos0v8AVSKb2tAAmMq2Syz1uf1H";
 
         Base64Util b = new Base64Util();
         s.setBase64(b);
