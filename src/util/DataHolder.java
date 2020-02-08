@@ -19,6 +19,7 @@ public class DataHolder {
     private Base64Handler base64;
     private URLHandler url;
     private CryptManager manager;
+    private ServerListHandler ServerList;
     private boolean isServer;
 
 
@@ -232,5 +233,14 @@ public class DataHolder {
         }
 
         return 0;
+    }
+
+    public ServerListHandler getServerList() {
+
+        if (ServerList == null){
+            ServerList = new ServerListHandler(this, 0);
+        }
+
+        return ServerList;
     }
 }
