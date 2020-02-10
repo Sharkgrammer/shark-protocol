@@ -103,5 +103,9 @@ public class ConnectionHandler {
         }
     }
 
+    public boolean isServerRunning(){
+        return serverRunning;
+    }
+
 }
 

@@ -35,4 +35,8 @@ public class ServerHandler {
     public void sendMessage(String message, Socket socket){
         con.sendMessage(message, socket);
     }
+
+    public boolean isServerRunning(){
+        return con.isServerRunning();
+    }
 }

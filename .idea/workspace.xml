@@ -6,13 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fae9563-e6c7-4e39-976b-466d181c9863" name="Default Changelist" comment="">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="UserID generation code">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recieve/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DataHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ServerListHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ServerListHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +21,9 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="185" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="shark-protocol" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -65,8 +68,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/gson-2.8.6.jar!/" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -153,7 +156,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5fae9563-e6c7-4e39-976b-466d181c9863" name="Default Changelist" comment="" />
+      <changelist id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="" />
       <created>1572298601347</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -285,49 +288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579700621148</updated>
     </task>
-    <task id="LOCAL-00019" summary="Threading fix">
-      <created>1580243486455</created>
+    <task id="LOCAL-00019" summary="Removed redundant client decryption code">
+      <created>1580137341554</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1580243486455</updated>
+      <updated>1580137341554</updated>
     </task>
-    <task id="LOCAL-00020" summary="User list bug fixed and threading fixes">
-      <created>1580246514533</created>
+    <task id="LOCAL-00020" summary="UserID generation code">
+      <created>1580924874655</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1580246514533</updated>
+      <updated>1580924874655</updated>
     </task>
-    <task id="LOCAL-00021" summary="Threading fixes + user list issue">
-      <created>1580504363582</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1580504363582</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Merge with thread-fix branch">
-      <created>1580504735777</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1580504735777</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Added thread timeout code">
-      <created>1580506558760</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1580506558760</updated>
-    </task>
-    <task id="LOCAL-00024" summary="User Testing Ready">
-      <created>1581003012509</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1581003012509</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -343,19 +318,15 @@
     <MESSAGE value="Ready for multiserver testing" />
     <MESSAGE value="Package compiling code fixed" />
     <MESSAGE value="Work in multiserver decryption and transport" />
-    <MESSAGE value="Threading fix" />
-    <MESSAGE value="User list bug fixed and threading fixes" />
-    <MESSAGE value="Threading fixes + user list issue" />
-    <MESSAGE value="Merge with thread-fix branch" />
-    <MESSAGE value="Added thread timeout code" />
-    <MESSAGE value="User Testing Ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Testing Ready" />
+    <MESSAGE value="Removed redundant client decryption code" />
+    <MESSAGE value="UserID generation code" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserID generation code" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="72" key="#Project_Structure" timestamp="1580926456299">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1580926456299" />
+    <state x="275" y="22" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1580145643954" />
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578933148272">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -368,69 +339,62 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1579362633131" />
-    <state x="620" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1580239115944">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="413" y="147" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580145605306">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="620" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1580239115944" />
+    <state x="413" y="147" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145605306" />
+    <state x="531" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581350236268">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="531" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1581350236268" />
     <state x="623" y="51" width="599" height="613" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1579358405327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="623" y="51" width="599" height="613" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1579358405327" />
-    <state x="51" y="53" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1580407006162">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1579635453074">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1579635453074" />
-    <state x="51" y="53" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1536.824@0.0.1536.824" timestamp="1580407006162" />
-    <state x="539" y="281" width="408" height="240" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580307024591">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="479" y="248" width="408" height="240" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579700601117">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="479" y="248" width="408" height="240" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1579700601117" />
-    <state x="539" y="281" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1580307024591" />
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579529142668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1579529142668" />
-    <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1579358354009">
+    <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1580145415752">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1579358354009" />
-    <state x="494" y="16" width="697" height="708" key="CommitChangelistDialog2" timestamp="1581003010937">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1580924873613">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579700620146" />
-    <state x="494" y="16" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581003010937" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1580924873613" />
     <state x="417" y="125" key="EnvironmentVariablesDialog" timestamp="1578933113618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="417" y="125" key="EnvironmentVariablesDialog/0.0.1366.728@0.0.1366.728" timestamp="1578933113618" />
-    <state x="410" y="105" key="FileChooserDialogImpl" timestamp="1579358424189">
+    <state x="410" y="105" key="FileChooserDialogImpl" timestamp="1581342733143">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579358424189" />
-    <state width="1493" height="233" key="GridCell.Tab.0.bottom" timestamp="1581167218894">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581342733143" />
+    <state width="1323" height="316" key="GridCell.Tab.0.bottom" timestamp="1581004362878">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="233" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581167218894" />
-    <state width="1493" height="233" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581018861277" />
-    <state width="1493" height="233" key="GridCell.Tab.0.center" timestamp="1581167218894">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="316" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581004362878" />
+    <state width="1323" height="316" key="GridCell.Tab.0.center" timestamp="1581004362878">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="233" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581167218894" />
-    <state width="1493" height="233" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581018861277" />
-    <state width="1493" height="233" key="GridCell.Tab.0.left" timestamp="1581167218893">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="316" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581004362878" />
+    <state width="1323" height="316" key="GridCell.Tab.0.left" timestamp="1581004362878">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="233" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581167218893" />
-    <state width="1493" height="233" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581018861277" />
-    <state width="1493" height="233" key="GridCell.Tab.0.right" timestamp="1581167218894">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="316" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581004362878" />
+    <state width="1323" height="316" key="GridCell.Tab.0.right" timestamp="1581004362878">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580137217653" />
-    <state width="1493" height="233" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581167218894" />
-    <state width="1493" height="233" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581018861277" />
+    <state width="1323" height="316" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581004362878" />
     <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1579635676893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -447,39 +411,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="222" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579635676893" />
-    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1580926412108">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1580926412108" />
-    <state x="326" y="0" key="SettingsEditor" timestamp="1579554554715">
+    <state x="395" y="79" key="MultipleFileMergeDialog" timestamp="1581342813432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1579554554715" />
-    <state x="309" y="109" key="Vcs.Push.Dialog.v2" timestamp="1581003014606">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="395" y="79" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1581342813432" />
+    <state x="326" y="0" key="SettingsEditor" timestamp="1580505163096">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579700626737" />
-    <state x="309" y="109" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581003014606" />
+    <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580505163096" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1580924878874">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580924878874" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1575051428258">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1575051428258" />
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580926324734">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1580926324734" />
-    <state x="345" y="149" width="846" height="601" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1580408339382">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="345" y="149" width="846" height="601" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1580408339382" />
-    <state x="0" y="126" key="git4idea.branch.GitSmartOperationDialog" timestamp="1580504470585">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="0" y="126" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1580504470585" />
-    <state x="380" y="155" key="git4idea.merge.GitPullDialog" timestamp="1578932847299">
+    <state x="492" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581342793978">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="380" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1578932847299" />
+    <state x="492" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1581342793978" />
+    <state x="380" y="155" key="git4idea.merge.GitPullDialog" timestamp="1580243921919">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="380" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1580243921919" />
     <state x="65" y="0" key="new project wizard" timestamp="1579978892033">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -488,11 +443,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1579637397535" />
-    <state x="389" y="55" width="756" height="768" key="search.everywhere.popup" timestamp="1580417909824">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1579620884871">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1579620884871" />
-    <state x="389" y="55" width="756" height="768" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1580417909824" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shark_protocol$testClass.ic" NAME="testClass Coverage Results" MODIFIED="1579537078224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
