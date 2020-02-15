@@ -66,9 +66,10 @@ public class MessageListener implements Runnable {
                 if (message != null) {
                     ConnectionHandler handler = new ConnectionHandler(data, listener);
 
+                    System.out.println("Data received");
+
                     if (message.length() >= 5) {
                         if (message.substring(0, 5).equals("auth:")) {
-                            //TODO auth
                             data.setUserID(message.substring(5).getBytes(), pos);
                             System.out.println("User " + message.substring(5) + " has authenticated");
                             auth = true;
@@ -95,6 +96,8 @@ public class MessageListener implements Runnable {
                                 handler.sendMessage("user:failed", socket);
                             }
 
+                            System.out.println("Data sent");
+
                             user = true;
 
                             //Find out if that user is connected to this server
@@ -119,20 +122,26 @@ public class MessageListener implements Runnable {
 
                             CryptManager manager = data.getManager();
                             PrivateKey key = manager.getPrivateKey();
-                            System.out.println(message);
+                            //System.out.println(message);
 
                             Base64Handler base64 = data.getBase64();
                             byte[] base = base64.fromBase64(message);
 
-                            System.out.println(Arrays.toString(base));
-                            System.out.println(new String(base, StandardCharsets.UTF_8));
+                            //System.out.println(Arrays.toString(base));
+                            //System.out.println(new String(base, StandardCharsets.UTF_8));
 
+                            //REF (for nanoTime()) https://stackoverflow.com/a/180191/11480852
                             System.out.println("Message Decryption started");
+                            long startTime = System.nanoTime();
+
                             byte[] msg = manager.decryptMessagePriv(base, key);
                             String msgStr = new String(msg, StandardCharsets.UTF_8);
+
+                            long duration = System.nanoTime() - startTime / 100000;
+                            System.out.println("Message Deception took: " + duration + " milliseconds");
                             System.out.println("Message Decryption finished");
 
-                            System.out.println(msgStr);
+                            //System.out.println(msgStr);
 
                             if (!data.isServer()) {
                                 listener.messageReceived(msgStr, socket, data);
@@ -143,7 +152,7 @@ public class MessageListener implements Runnable {
                                     String spaceDel = "&space&";
                                     String type = msgStr.split(spaceDel)[0];
 
-                                    System.out.println(type);
+                                    //System.out.println(type);
 
                                     Socket socketInternal;
                                     try {
@@ -171,6 +180,7 @@ public class MessageListener implements Runnable {
 
                                     handler.sendMessage(finalStr, socketInternal);
 
+                                    System.out.println("Data sent");
                                     if (!toUser) {
                                         socketInternal.close();
                                         finish(true);

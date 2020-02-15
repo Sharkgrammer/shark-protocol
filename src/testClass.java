@@ -16,14 +16,14 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6002);
-        data.setIP("localhost");
+        data.setPort(6000);
+        data.setIP("34.77.0.99");
 
         //new Server().run(data);
-        //new Client().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
-        new ServerListHandler(data, 0).run();
+        //new ServerListHandler(data, 0).run();
 
         //base64test();
 
