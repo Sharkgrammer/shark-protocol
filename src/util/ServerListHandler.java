@@ -110,7 +110,7 @@ public class ServerListHandler {
             //System.out.println(Arrays.toString(JSONList.get(x).getKey(base64)));
         }*/
 
-        JSONDataHolder h = getSingleServer();
-        System.out.println(h.getIp());
+        //JSONDataHolder h = getSingleServer();
+        //System.out.println(h.getIp());
     }
 }

@@ -30,4 +30,11 @@ public class MessageHandler {
         con.sendMessage(message, toID);
     }
 
+    public String getRandomIP(){
+        return con.getRandomServerIP().split(":")[0];
+    }
+
+    public String getRandomPort(){
+        return con.getRandomServerIP().split(":")[1];
+    }
 }

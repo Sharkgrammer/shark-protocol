@@ -12,6 +12,8 @@ public class ClientHandler {
     private DataHolder data;
     private Socket socket;
     private MessageListener receiver;
+    private ServerListHandler serverListHandler;
+    private String randomServerIP;
     private boolean clientAlive = false;
 
     public ClientHandler(DataHolder data, ResultHandler listener) {
@@ -77,8 +79,16 @@ public class ClientHandler {
         }
     }
 
+    public void getRandomServer(){
+        if (serverListHandler == null) serverListHandler = new ServerListHandler(data, 0);
+        randomServerIP = serverListHandler.getSingleServer().getIp();
+    }
+
     private String byteToString(byte[] array) {
         return new String(array);
     }
 
+    public String getRandomServerIP() {
+        return randomServerIP;
+    }
 }
