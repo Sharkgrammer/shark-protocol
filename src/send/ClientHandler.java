@@ -64,12 +64,15 @@ public class ClientHandler {
 
     public void sendAuthMessage() {
         try {
-            String ID = byteToString(data.getCurrentUser().getUserID());
+            String authMessage;
+            byte[] ID = data.getCurrentUser().getUserID();
+            System.out.println("Sending auth:" + new String(ID));
 
-            System.out.println("Sending auth:" + ID);
+            MessageCompiler compiler = new MessageCompiler(ID, data, socket);
+            authMessage = compiler.returnAuthMessage();
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-            sendOut.println("auth:" + ID);
+            sendOut.println(authMessage);
             sendOut.flush();
 
             System.out.println("auth sent");

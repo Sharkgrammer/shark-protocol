@@ -6,11 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Reporting work">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Finished single random server choosing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recieve/MessageDecompiler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/send/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/send/MessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/send/MessageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/send/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/send/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/ServerListHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ServerListHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581792946345</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Finished single random server choosing">
+      <created>1581794986400</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1581794986400</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -335,7 +346,8 @@
     <MESSAGE value="UserID generation code" />
     <MESSAGE value="isServerRunning() added" />
     <MESSAGE value="Reporting work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reporting work" />
+    <MESSAGE value="Finished single random server choosing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished single random server choosing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
@@ -374,18 +386,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="479" y="248" width="408" height="240" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1579700601117" />
-    <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579529142668">
+    <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581796204524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1579529142668" />
+    <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1581796204524" />
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1580145415752">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1581792944136">
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1581794985025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581792944136" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581794985025" />
     <state x="417" y="125" key="EnvironmentVariablesDialog" timestamp="1578933113618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -434,10 +446,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580505163096" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1581792951146">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1581794988962">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581792951146" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581794988962" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1575051428258">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -454,14 +466,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1579978892033" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1579637397535">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1581798037564">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1579637397535" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1579620884871">
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1581798037564" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581798005669">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1579620884871" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581798005669" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shark_protocol$testClass.ic" NAME="testClass Coverage Results" MODIFIED="1579537078224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
