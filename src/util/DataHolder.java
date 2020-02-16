@@ -243,4 +243,12 @@ public class DataHolder {
 
         return ServerList;
     }
+
+    public String getRandomIP(){
+        return getServerList().getSingleServer().getIp().split(":")[0];
+    }
+
+    public int getRandomPort(){
+        return Integer.parseInt(getServerList().getSingleServer().getIp().split(":")[1]);
+    }
 }

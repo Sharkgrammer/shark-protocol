@@ -82,16 +82,7 @@ public class ClientHandler {
         }
     }
 
-    public void getRandomServer(){
-        if (serverListHandler == null) serverListHandler = new ServerListHandler(data, 0);
-        randomServerIP = serverListHandler.getSingleServer().getIp();
-    }
-
     private String byteToString(byte[] array) {
         return new String(array);
-    }
-
-    public String getRandomServerIP() {
-        return randomServerIP;
     }
 }
