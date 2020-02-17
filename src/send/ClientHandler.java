@@ -46,11 +46,17 @@ public class ClientHandler {
     }
 
     public void sendMessage(String message, byte[] to) {
+
+        System.out.println("Send message " + clientAlive);
+
         if (clientAlive) {
             try {
                 MessageCompiler compiler = new MessageCompiler(message, to, data, socket);
+                System.out.println("Compiler started");
+
                 String finalMsg = compiler.returnMessage();
                 PrintWriter sendOut = compiler.returnWriter();
+                System.out.println("Compiler finished");
 
                 sendOut.println(finalMsg);
                 sendOut.flush();
@@ -69,8 +75,13 @@ public class ClientHandler {
             System.out.println("Sending auth:" + new String(ID));
 
             MessageCompiler compiler = new MessageCompiler(ID, data, socket);
+
             authMessage = compiler.returnAuthMessage();
+
+
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+
+            System.out.println();
 
             System.out.println(authMessage);
 
