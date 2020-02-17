@@ -1,19 +1,15 @@
 package send;
 
-import crypto.CryptManager;
 import util.*;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Arrays;
 
 public class ClientHandler {
     private ResultHandler listener;
     private DataHolder data;
     private Socket socket;
     private MessageListener receiver;
-    private ServerListHandler serverListHandler;
-    private String randomServerIP;
     private boolean clientAlive = false;
 
     public ClientHandler(DataHolder data, ResultHandler listener) {
@@ -46,17 +42,11 @@ public class ClientHandler {
     }
 
     public void sendMessage(String message, byte[] to) {
-
-        System.out.println("Send message " + clientAlive);
-
         if (clientAlive) {
             try {
                 MessageCompiler compiler = new MessageCompiler(message, to, data, socket);
-                System.out.println("Compiler started");
-
                 String finalMsg = compiler.returnMessage();
                 PrintWriter sendOut = compiler.returnWriter();
-                System.out.println("Compiler finished");
 
                 sendOut.println(finalMsg);
                 sendOut.flush();
@@ -70,32 +60,25 @@ public class ClientHandler {
 
     public void sendAuthMessage() {
         try {
-            String authMessage;
-            byte[] ID = data.getCurrentUser().getUserID();
-            System.out.println("Sending auth:" + new String(ID));
+            String ID = byteToString(data.getCurrentUser().getUserID());
 
-            MessageCompiler compiler = new MessageCompiler(ID, data, socket);
+            System.out.println("Sending auth:" + ID);
 
-            authMessage = compiler.returnAuthMessage();
-
-
+            //REF  https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-            System.out.println();
-
-            System.out.println(authMessage);
-
-            sendOut.println(authMessage);
+            sendOut.println("auth:" + ID);
             sendOut.flush();
 
             System.out.println("auth sent");
 
         } catch (Exception e) {
-            System.out.println("Error in sendAuthMessage: " + e.toString() + " " + Arrays.toString(e.getStackTrace()));
+            System.out.println("Error in sendAuthMessage: " + e.toString());
         }
     }
 
     private String byteToString(byte[] array) {
         return new String(array);
     }
+
 }
