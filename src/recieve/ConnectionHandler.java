@@ -54,6 +54,7 @@ public class ConnectionHandler {
 
                     receivers.removeIf(lis -> !lis.isSocketAlive());
 
+                    //REF https://stackoverflow.com/a/40100207/11480852
                     cSocket = sSocket.accept();
                     server.addClientSocket(cSocket, socketCounter);
 

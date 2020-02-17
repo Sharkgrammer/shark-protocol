@@ -30,6 +30,7 @@ public class ServerListHandler {
         this.Server = null;
     }
 
+    // REF https://github.com/google/gson/blob/master/UserGuide.md#TOC-Collections-Examples
     private List<JSONDataHolder> readJSONFromURL() {
         StringBuilder JSONStr = fetcher.returnStringBuilder(URL);
 
