@@ -7,9 +7,6 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-//REF based on https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient for socket code
-//REF based on https://stackoverflow.com/a/40100207/11480852 as well
-
 public class testClass {
 
     public static void main(String[] args) {

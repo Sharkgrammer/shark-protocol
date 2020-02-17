@@ -1,11 +1,9 @@
 package send;
 
-import crypto.CryptManager;
 import util.*;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Arrays;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -65,6 +63,8 @@ public class ClientHandler {
             String ID = byteToString(data.getCurrentUser().getUserID());
 
             System.out.println("Sending auth:" + ID);
+
+            //REF  https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
             sendOut.println("auth:" + ID);

@@ -6,12 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Auth encryption fixes">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Iteration 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ServerListHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ServerListHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581961795136</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Iteration 5">
+      <created>1581974391015</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1581974391015</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -400,7 +408,8 @@
     <MESSAGE value="User and Auth Messages are properly encrypted now" />
     <MESSAGE value="Changes to single server selection" />
     <MESSAGE value="Auth encryption fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth encryption fixes" />
+    <MESSAGE value="Iteration 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iteration 5" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
@@ -447,10 +456,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1581961793245">
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1581974390116">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581961793245" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581974390116" />
     <state x="417" y="125" key="EnvironmentVariablesDialog" timestamp="1578933113618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -459,22 +468,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581882154696" />
-    <state width="1323" height="189" key="GridCell.Tab.0.bottom" timestamp="1581974166956">
+    <state width="1323" height="189" key="GridCell.Tab.0.bottom" timestamp="1581974523792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581974166956" />
-    <state width="1323" height="189" key="GridCell.Tab.0.center" timestamp="1581974166956">
+    <state width="1323" height="189" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581974523792" />
+    <state width="1323" height="189" key="GridCell.Tab.0.center" timestamp="1581974523792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581974166956" />
-    <state width="1323" height="189" key="GridCell.Tab.0.left" timestamp="1581974166956">
+    <state width="1323" height="189" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581974523792" />
+    <state width="1323" height="189" key="GridCell.Tab.0.left" timestamp="1581974523792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581974166956" />
-    <state width="1323" height="189" key="GridCell.Tab.0.right" timestamp="1581974166956">
+    <state width="1323" height="189" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581974523792" />
+    <state width="1323" height="189" key="GridCell.Tab.0.right" timestamp="1581974523792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581974166956" />
+    <state width="1323" height="189" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581974523792" />
     <state width="1323" height="221" key="GridCell.Tab.1.bottom" timestamp="1581971741832">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -499,10 +508,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580505163096" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1581957256897">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1581974473998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581957256897" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581974473998" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1575051428258">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

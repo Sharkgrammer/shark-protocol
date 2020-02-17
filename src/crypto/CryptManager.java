@@ -3,7 +3,6 @@ package crypto;
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.interfaces.RSAKey;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -13,6 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CryptManager {
+
+    //REF https://mkyong.com/java/java-asymmetric-cryptography-example/
 
     private String cipherInstance = "RSA/ECB/PKCS1Padding";
     private String keyInstance = "RSA";
@@ -194,6 +195,7 @@ public class CryptManager {
         return resultBytes;
     }
 
+    //REF https://stackoverflow.com/questions/2922622/how-to-get-the-size-of-a-rsa-key-in-java#2922641
     private int returnMaxBytes(RSAKey key, boolean encrypt){
         return ((key.getModulus().bitLength() + 7) / 8) - (encrypt ? 11 : 0);
     }
