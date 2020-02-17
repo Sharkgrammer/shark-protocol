@@ -107,7 +107,8 @@ public class ServerListHandler {
         List<JSONDataHolder> list = getServerListFull();
 
         for (JSONDataHolder d : list){
-            if (IP.contains(d.getIp())){
+            System.out.println(d.getIp() + " " + IP);
+            if (IP.equals(d.getIp())){
                 return d;
             }
         }

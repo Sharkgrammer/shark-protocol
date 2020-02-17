@@ -72,13 +72,15 @@ public class ClientHandler {
             authMessage = compiler.returnAuthMessage();
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
+            System.out.println(authMessage);
+
             sendOut.println(authMessage);
             sendOut.flush();
 
             System.out.println("auth sent");
 
         } catch (Exception e) {
-            System.out.println("Error in sendAuthMessage: " + e.toString());
+            System.out.println("Error in sendAuthMessage: " + e.toString() + " " + Arrays.toString(e.getStackTrace()));
         }
     }
 

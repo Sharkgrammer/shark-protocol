@@ -20,6 +20,7 @@ public class DataHolder {
     private URLHandler url;
     private CryptManager manager;
     private ServerListHandler ServerList;
+    private JSONDataHolder authServer;
     private boolean isServer;
 
 
@@ -225,9 +226,9 @@ public class DataHolder {
         isServer = server;
     }
 
-    private int getInternalPos(int pos){
-        for (SocketHolder sock : sockets){
-            if (sock.getSocketID() == pos){
+    private int getInternalPos(int pos) {
+        for (SocketHolder sock : sockets) {
+            if (sock.getSocketID() == pos) {
                 return sockets.indexOf(sock);
             }
         }
@@ -237,18 +238,27 @@ public class DataHolder {
 
     public ServerListHandler getServerList() {
 
-        if (ServerList == null){
+        if (ServerList == null) {
             ServerList = new ServerListHandler(this, 0);
         }
 
         return ServerList;
     }
 
-    public String getRandomIP(){
-        return getServerList().getSingleServer().getIp().split(":")[0];
+    public String getRandomIP() {
+        return getAuthServer().getIp().split(":")[0];
     }
 
-    public int getRandomPort(){
-        return Integer.parseInt(getServerList().getSingleServer().getIp().split(":")[1]);
+    public int getRandomPort() {
+        return Integer.parseInt(getAuthServer().getIp().split(":")[1]);
     }
+
+    public JSONDataHolder getAuthServer() {
+        if (authServer == null) {
+            authServer = getServerList().getSingleServer();
+        }
+
+        return authServer;
+    }
+
 }

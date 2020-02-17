@@ -138,16 +138,16 @@ public class MessageCompiler {
         return finalMsg;
     }
 
-    public String returnAuthMessage() throws Exception {
+    public String returnAuthMessage() {
         Base64Handler base64 = data.getBase64();
-        String IP = socket.getInetAddress() + ":" + socket.getPort();
 
-        JSONDataHolder serverData = serverHandler.findServerByIP(IP);
+        String IP = data.getIP() + ":" + data.getPort();
+        JSONDataHolder serverData = data.getServerList().findServerByIP(IP);
+
         String baseMessage = "auth:" + IDStr;
 
         byte[] msg = manager.encryptMessagePub(baseMessage.getBytes(), serverData.getKey(base64));
-        byte[] compiledMsg = compileDataPackage(msg);
-        byte[] encodedMsg = data.getBase64().toBase64(compiledMsg);
+        byte[] encodedMsg = data.getBase64().toBase64(msg);
 
         return new String(encodedMsg);
     }

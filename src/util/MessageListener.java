@@ -87,7 +87,7 @@ public class MessageListener implements Runnable {
                         byte[] msg = manager.decryptMessagePriv(base, key);
                         String msgStr = new String(msg, StandardCharsets.UTF_8);
 
-                        long duration = System.nanoTime() - startTime / 100000;
+                        long duration = (System.nanoTime() - startTime) / 100000;
                         System.out.println("Message Deception took: " + duration + " milliseconds");
                         System.out.println("Message Decryption finished");
 
