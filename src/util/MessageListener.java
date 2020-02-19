@@ -28,7 +28,6 @@ public class MessageListener implements Runnable {
     }
 
     //REF https://www.tutorialspoint.com/java/java_multithreading.htm
-
     public void start() {
         if (t == null) {
             t = new Thread(this, name);
