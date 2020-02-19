@@ -23,6 +23,7 @@ public class CryptManager {
         PrivateKey privateKey = null;
         PublicKey publicKey = null;
         try {
+            //REF https://stackoverflow.com/questions/2411096/how-to-recover-a-rsa-public-key-from-a-byte-array#2411199
             KeyFactory kf = KeyFactory.getInstance(keyInstance);
             if (priv != null) privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));
             if (pub != null) publicKey = kf.generatePublic(new X509EncodedKeySpec(pub));
@@ -233,31 +234,6 @@ public class CryptManager {
 
         } catch (Exception e) {
             System.err.println("Caught exception " + e.toString());
-        }
-    }
-
-    private void devSaveKey() {
-        byte[] key = keys.getPublic().getEncoded();
-        FileOutputStream keyfos = null;
-
-        try {
-            keyfos = new FileOutputStream("public");
-            keyfos.write(key);
-            keyfos.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        key = keys.getPrivate().getEncoded();
-
-        try {
-            keyfos = new FileOutputStream("private");
-            keyfos.write(key);
-            keyfos.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

@@ -137,6 +137,7 @@ public class MessageCompiler {
         return new String(array, StandardCharsets.UTF_8);
     }
 
+    //REF https://www.tutorialspoint.com/java/java_bytearrayoutputstream.htm
     private byte[] addByteArrays(byte[] one, byte[] two) {
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream(one.length + two.length);
 
