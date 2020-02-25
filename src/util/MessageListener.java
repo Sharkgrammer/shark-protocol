@@ -72,7 +72,7 @@ public class MessageListener implements Runnable {
                             data.setUserID(message.substring(5).getBytes(), pos);
                             System.out.println("User " + message.substring(5) + " has authenticated");
                             auth = true;
-                            finish(true);
+                            //finish(false);
                         }
 
                         if (message.substring(0, 5).equals("user:")) {
