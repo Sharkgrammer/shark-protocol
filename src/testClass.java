@@ -13,7 +13,7 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6000);
+        data.setPort(6002);
         data.setIP("localhost");
 
         new Server().run(data);
