@@ -17,6 +17,7 @@ public class MessageListener implements Runnable {
     private String name;
     private boolean clientRunning, socketAlive;
     private int pos;
+    private long dataStartTime;
 
     public MessageListener(String name, DataHolder data, ResultHandler listener, boolean clientRunning, int pos) {
         this.data = data;
@@ -40,6 +41,9 @@ public class MessageListener implements Runnable {
             finishSocket();
         }
         clientRunning = false;
+
+        long dataOverallTime = System.currentTimeMillis() - dataStartTime;
+        System.out.println("Data parsed in: " + dataOverallTime + " milliseconds");
     }
 
     public void finishSocket() {
@@ -58,6 +62,8 @@ public class MessageListener implements Runnable {
             int loopCount = 0;
 
             while (clientRunning) {
+
+                dataStartTime = System.currentTimeMillis();
 
                 boolean auth = false, user = false;
                 message = readIn.readLine();
@@ -131,12 +137,12 @@ public class MessageListener implements Runnable {
 
                             //REF (for nanoTime()) https://stackoverflow.com/a/180191/11480852
                             System.out.println("Message Decryption started");
-                            long startTime = System.nanoTime();
+                            long startTime = System.currentTimeMillis();
 
                             byte[] msg = manager.decryptMessagePriv(base, key);
                             String msgStr = new String(msg, StandardCharsets.UTF_8);
 
-                            long duration = System.nanoTime() - startTime / 100000;
+                            long duration = System.currentTimeMillis() - startTime;
                             System.out.println("Message Deception took: " + duration + " milliseconds");
                             System.out.println("Message Decryption finished");
 
