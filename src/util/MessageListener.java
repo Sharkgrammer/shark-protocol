@@ -84,14 +84,11 @@ public class MessageListener implements Runnable {
                         PrivateKey key = manager.getPrivateKey();
                         //System.out.println(message);
 
-                        System.out.println(message);
-
                         byte[] base = base64.fromBase64(message);
 
                         //System.out.println(Arrays.toString(base));
                         //System.out.println(new String(base, StandardCharsets.UTF_8));
 
-                        System.out.println("Message Decryption started");
                         long startTime = System.currentTimeMillis();
 
                         byte[] msg = manager.decryptMessagePriv(base, key);
@@ -99,7 +96,6 @@ public class MessageListener implements Runnable {
 
                         long duration = (System.currentTimeMillis() - startTime);
                         System.out.println("Message Deception took: " + duration + " milliseconds");
-                        System.out.println("Message Decryption finished");
 
                         if (!data.isServer()) {
                             listener.messageReceived(msgStr, socket, data);
@@ -144,7 +140,7 @@ public class MessageListener implements Runnable {
 
                                     //Find out if that user is connected to this server
                                     //if so we don't want to close their socket
-                                    System.out.println("Checking if user is on server");
+                                   // System.out.println("Checking if user is on server");
                                     boolean onServer;
                                     try {
                                         onServer = data.isUserHere(oldUserID.getBytes());
@@ -189,7 +185,7 @@ public class MessageListener implements Runnable {
 
                                     String finalStr = new String(base64.toBase64(reformattedBytes), StandardCharsets.UTF_8);
 
-                                    System.out.println("Sending " + finalStr);
+                                    //System.out.println("Sending " + finalStr);
 
                                     handler.sendMessage(finalStr, socketInternal);
 

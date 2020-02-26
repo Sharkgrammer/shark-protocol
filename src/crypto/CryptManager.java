@@ -123,8 +123,6 @@ public class CryptManager {
     public byte[] encryptMessagePub(byte[] msg, byte[] pub) {
         try {
 
-            System.out.println("encryptMessagePub/bytes: " + msg.length);
-
             KeyFactory kf = KeyFactory.getInstance(keyInstance);
             PublicKey pubKey = kf.generatePublic(new X509EncodedKeySpec(pub));
 
@@ -138,9 +136,6 @@ public class CryptManager {
 
     public byte[] encryptMessagePub(byte[] msg, PublicKey pub) {
         try {
-
-            System.out.println("encryptMessagePub/bytes: " + msg.length);
-
             int lenBytes = returnMaxBytes((RSAKey) pub, true);
 
             return encryptMessagePub(msg, pub, lenBytes);
@@ -164,8 +159,6 @@ public class CryptManager {
     public byte[] encryptMessagePriv(byte[] msg, byte[] priv) {
         try {
 
-            System.out.println("encryptMessagePriv/bytes: " + msg.length);
-
             KeyFactory kf = KeyFactory.getInstance(keyInstance);
             PrivateKey privKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));
 
@@ -180,10 +173,7 @@ public class CryptManager {
     public byte[] encryptMessagePriv(byte[] msg, PrivateKey priv) {
         try {
 
-            System.out.println("encryptMessagePriv/bytes: " + msg.length);
-
             int lenBytes = returnMaxBytes((RSAKey) priv, true);
-            System.out.println("lenBytes: " + lenBytes);
 
             return encryptMessagePriv(msg, priv, lenBytes);
 
@@ -216,8 +206,6 @@ public class CryptManager {
     private List<byte[]> getMsgList(byte[] msg, int len, int maxLen){
         List<byte[]> msgList = new ArrayList<>();
 
-        System.out.println("lenBytes: " + maxLen);
-
         int tempSize = 0;
 
         for (int lenCounter = 0; len > lenCounter; lenCounter += maxLen){
@@ -237,21 +225,16 @@ public class CryptManager {
     private byte[] passThroughCipher(List<byte[]> msgList, Key key, int len, int mode){
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream(len);
         for (byte[] inMsg : msgList){
-            System.out.println("inMsg/outputstream: " + inMsg.length);
             try {
                 Cipher cipher = Cipher.getInstance(cipherInstance);
                 cipher.init(mode, key);
-                System.out.println("CIPHER: " + cipher.doFinal(inMsg).length);
                 byteStream.write(cipher.doFinal(inMsg));
             } catch (Exception e) {
                 System.out.println(e.toString());
             }
         }
 
-        byte[] resultBytes = byteStream.toByteArray();
-        System.out.println("resultBytes: " + resultBytes.length);
-
-        return resultBytes;
+        return byteStream.toByteArray();
     }
 
 }

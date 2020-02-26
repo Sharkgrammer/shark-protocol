@@ -6,9 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Auth random server choosing merge">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="User merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
     </list>
@@ -377,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582726515167</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="User merge">
+      <created>1582728943206</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1582728943206</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -405,7 +413,8 @@
     <MESSAGE value="MessageDecompiler removed" />
     <MESSAGE value="Auth secure merge" />
     <MESSAGE value="Auth random server choosing merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth random server choosing merge" />
+    <MESSAGE value="User merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="User merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
@@ -453,10 +462,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
-    <state x="439" y="0" width="697" height="708" key="CommitChangelistDialog2" timestamp="1582726514292">
+    <state x="439" y="0" width="697" height="708" key="CommitChangelistDialog2" timestamp="1582728942347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="439" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582726514292" />
+    <state x="439" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582728942347" />
     <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581957252462" />
     <state x="1594" y="272" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1582728736194">
       <screen x="1366" y="0" width="1920" height="1040" />
@@ -470,25 +479,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581882154696" />
-    <state width="1323" height="256" key="GridCell.Tab.0.bottom" timestamp="1582728907574">
+    <state width="1323" height="255" key="GridCell.Tab.0.bottom" timestamp="1582729199341">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="256" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582728907574" />
+    <state width="1323" height="255" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
     <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
-    <state width="1323" height="256" key="GridCell.Tab.0.center" timestamp="1582728907574">
+    <state width="1323" height="255" key="GridCell.Tab.0.center" timestamp="1582729199341">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="256" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582728907574" />
+    <state width="1323" height="255" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
     <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
-    <state width="1323" height="256" key="GridCell.Tab.0.left" timestamp="1582728907574">
+    <state width="1323" height="255" key="GridCell.Tab.0.left" timestamp="1582729199341">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="256" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582728907574" />
+    <state width="1323" height="255" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
     <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
-    <state width="1323" height="256" key="GridCell.Tab.0.right" timestamp="1582728907574">
+    <state width="1323" height="255" key="GridCell.Tab.0.right" timestamp="1582729199341">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="256" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582728907574" />
+    <state width="1323" height="255" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
     <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
     <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1579635676893">
       <screen x="0" y="0" width="1366" height="728" />
@@ -543,9 +552,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1579978892033" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1581798037564">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1582729085825">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729085825" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1581798037564" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581798005669">
       <screen x="0" y="0" width="1366" height="728" />
