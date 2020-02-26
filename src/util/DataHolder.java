@@ -257,8 +257,10 @@ public class DataHolder {
 
         if (this.getIP() == null){
             authServer = getServerList().getSingleServer();
+            this.setPort(getRandomPort());
+            this.setIP(getRandomIP());
         }else{
-            authServer = getServerList().findServerByIP(this.getIP());
+            authServer = getServerList().findServerByIP(this.getIP() + ":" + this.getPort());
         }
 
     }
