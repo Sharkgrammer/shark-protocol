@@ -42,8 +42,13 @@ public class MessageListener implements Runnable {
         }
         clientRunning = false;
 
-        long dataOverallTime = System.currentTimeMillis() - dataStartTime;
-        System.out.println("Data parsed in: " + dataOverallTime + " milliseconds");
+        if (dataStartTime != 0){
+            long dataOverallTime = System.currentTimeMillis() - dataStartTime;
+            System.out.println("Data parsed in: " + dataOverallTime + " milliseconds");
+
+            dataStartTime = 0;
+        }
+
     }
 
     public void finishSocket() {
@@ -79,18 +84,20 @@ public class MessageListener implements Runnable {
                         PrivateKey key = manager.getPrivateKey();
                         //System.out.println(message);
 
+                        System.out.println(message);
+
                         byte[] base = base64.fromBase64(message);
 
                         //System.out.println(Arrays.toString(base));
                         //System.out.println(new String(base, StandardCharsets.UTF_8));
 
                         System.out.println("Message Decryption started");
-                        long startTime = System.nanoTime();
+                        long startTime = System.currentTimeMillis();
 
                         byte[] msg = manager.decryptMessagePriv(base, key);
                         String msgStr = new String(msg, StandardCharsets.UTF_8);
 
-                        long duration = (System.nanoTime() - startTime) / 100000;
+                        long duration = (System.currentTimeMillis() - startTime);
                         System.out.println("Message Deception took: " + duration + " milliseconds");
                         System.out.println("Message Decryption finished");
 
@@ -103,7 +110,7 @@ public class MessageListener implements Runnable {
                                     data.setUserID(msgStr.substring(5).getBytes(), pos);
                                     System.out.println("User " + msgStr.substring(5) + " has authenticated");
                                     auth = true;
-                                    //finish(false);
+                                    finish(false);
 
                                 } else if (msgStr.substring(0, 5).equals("user:")) {
 
