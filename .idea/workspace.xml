@@ -6,10 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="User merge">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="User merge x2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypto/CryptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypto/CryptManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/recieve/ConnectionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recieve/ConnectionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
     </list>
@@ -385,11 +387,17 @@
       <option name="project" value="LOCAL" />
       <updated>1582728943206</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="User merge x2">
+      <created>1582729360994</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1582729360994</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update" />
     <MESSAGE value="Ref Added" />
     <MESSAGE value="Crypto Work" />
     <MESSAGE value="Fix to user ID" />
@@ -414,7 +422,8 @@
     <MESSAGE value="Auth secure merge" />
     <MESSAGE value="Auth random server choosing merge" />
     <MESSAGE value="User merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="User merge" />
+    <MESSAGE value="User merge x2" />
+    <option name="LAST_COMMIT_MESSAGE" value="User merge x2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
@@ -462,10 +471,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
-    <state x="439" y="0" width="697" height="708" key="CommitChangelistDialog2" timestamp="1582728942347">
+    <state x="439" y="0" width="697" height="708" key="CommitChangelistDialog2" timestamp="1582729360072">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="439" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582728942347" />
+    <state x="439" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729360072" />
     <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581957252462" />
     <state x="1594" y="272" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1582728736194">
       <screen x="1366" y="0" width="1920" height="1040" />
@@ -479,25 +488,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581882154696" />
-    <state width="1323" height="255" key="GridCell.Tab.0.bottom" timestamp="1582729199341">
+    <state width="1323" height="255" key="GridCell.Tab.0.bottom" timestamp="1582736575073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="255" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
+    <state width="1323" height="255" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736575073" />
     <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
-    <state width="1323" height="255" key="GridCell.Tab.0.center" timestamp="1582729199341">
+    <state width="1323" height="255" key="GridCell.Tab.0.center" timestamp="1582736575073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="255" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
+    <state width="1323" height="255" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736575073" />
     <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
-    <state width="1323" height="255" key="GridCell.Tab.0.left" timestamp="1582729199341">
+    <state width="1323" height="255" key="GridCell.Tab.0.left" timestamp="1582736575073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="255" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
+    <state width="1323" height="255" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736575073" />
     <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
-    <state width="1323" height="255" key="GridCell.Tab.0.right" timestamp="1582729199341">
+    <state width="1323" height="255" key="GridCell.Tab.0.right" timestamp="1582736575073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="255" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729199341" />
+    <state width="1323" height="255" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736575073" />
     <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581961759263" />
     <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1579635676893">
       <screen x="0" y="0" width="1366" height="728" />
@@ -523,10 +532,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580505163096" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1582726521738">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1582729363087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582726521738" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582729363087" />
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581957256897" />
     <state x="1757" y="-13" width="1182" height="544" maximized="true" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1582723084837">
       <screen x="1366" y="0" width="1920" height="1040" />

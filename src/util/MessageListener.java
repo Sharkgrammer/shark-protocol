@@ -106,7 +106,7 @@ public class MessageListener implements Runnable {
                                     data.setUserID(msgStr.substring(5).getBytes(), pos);
                                     System.out.println("User " + msgStr.substring(5) + " has authenticated");
                                     auth = true;
-                                    finish(false);
+                                    //finish(false);
 
                                 } else if (msgStr.substring(0, 5).equals("user:")) {
 
@@ -219,6 +219,7 @@ public class MessageListener implements Runnable {
         } catch (Exception e) {
             System.out.println("Error in listen in MessageListener: " + e.toString());
             System.out.println(Arrays.toString(e.getStackTrace()));
+            dataStartTime = 0;
             finish(true);
         }
     }
