@@ -48,13 +48,22 @@ public class MessageCompiler {
 
                 sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketInternal.getOutputStream())), true);
 
-                sendOut.println("user:" + IDStr + ":" + new String(this.data.getCurrentUser().getUserID()));
+                String message = "user:" + IDStr + ":" + new String(this.data.getCurrentUser().getUserID());
+                Base64Handler base64 = data.getBase64();
+                byte[] msgBytes = manager.encryptMessagePub(message.getBytes(), JSONData.getKey(base64));
+
+                sendOut.println(new String(base64.toBase64(msgBytes)));
                 sendOut.flush();
 
                 System.out.println("search sent to " + JSONData.getIp());
 
                 readIn = new BufferedReader(new InputStreamReader(socketInternal.getInputStream()));
                 String serverResponse = readIn.readLine();
+
+                msgBytes = base64.fromBase64(serverResponse);
+                byte[] decryptedMsgBytes = manager.decryptMessagePub(msgBytes, JSONData.getKey(base64));
+                serverResponse = new String(decryptedMsgBytes);
+
                 if (serverResponse.equals("user:found")) {
                     result = JSONData;
 
