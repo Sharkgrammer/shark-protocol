@@ -4,6 +4,7 @@ import util.*;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class ClientHandler {
     private ResultHandler listener;
@@ -45,8 +46,11 @@ public class ClientHandler {
         if (clientAlive) {
             try {
                 MessageCompiler compiler = new MessageCompiler(message, to, data, socket);
+                System.out.println("Compiler started");
+
                 String finalMsg = compiler.returnMessage();
                 PrintWriter sendOut = compiler.returnWriter();
+                System.out.println("Compiler finished");
 
                 sendOut.println(finalMsg);
                 sendOut.flush();
@@ -60,20 +64,23 @@ public class ClientHandler {
 
     public void sendAuthMessage() {
         try {
-            String ID = byteToString(data.getCurrentUser().getUserID());
+            String authMessage;
+            byte[] ID = data.getCurrentUser().getUserID();
+            System.out.println("Sending auth:" + new String(ID));
 
-            System.out.println("Sending auth:" + ID);
+            MessageCompiler compiler = new MessageCompiler(ID, data);
+            authMessage = compiler.returnAuthMessage();
 
             //REF  https://guides.codepath.com/android/Sending-and-Receiving-Data-with-Sockets#tcpclient
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-            sendOut.println("auth:" + ID);
+            sendOut.println(authMessage);
             sendOut.flush();
 
             System.out.println("auth sent");
 
         } catch (Exception e) {
-            System.out.println("Error in sendAuthMessage: " + e.toString());
+            System.out.println("Error in sendAuthMessage: " + e.toString() + " " + Arrays.toString(e.getStackTrace()));
         }
     }
 
