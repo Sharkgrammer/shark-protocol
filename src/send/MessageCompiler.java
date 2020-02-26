@@ -18,19 +18,18 @@ public class MessageCompiler {
     private String spaceDel = "&space&";
     private ServerListHandler serverHandler;
 
-    public MessageCompiler(String message, byte[] ID, DataHolder data, Socket socket) {
+    public MessageCompiler(String message, byte[] IDStr, DataHolder data, Socket socket) {
         this.message = message;
-        this.IDStr = byteToString(ID);
+        this.IDStr = byteToString(IDStr);
         this.data = data;
         this.socket = socket;
-        manager = data.getCurrentUser().getManager();
+        this.manager = data.getCurrentUser().getManager();
     }
 
-    public MessageCompiler(byte[] ID, DataHolder data, Socket socket) {
+    public MessageCompiler(byte[] ID, DataHolder data) {
         this.IDStr = byteToString(ID);
         this.data = data;
-        this.socket = socket;
-        manager = data.getCurrentUser().getManager();
+        this.manager = data.getCurrentUser().getManager();
     }
 
     private JSONDataHolder findUserOnNetwork() {
@@ -49,22 +48,13 @@ public class MessageCompiler {
 
                 sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketInternal.getOutputStream())), true);
 
-                String message = "user:" + IDStr + ":" + new String(this.data.getCurrentUser().getUserID());
-                Base64Handler base64 = data.getBase64();
-                byte[] msgBytes = manager.encryptMessagePub(message.getBytes(), JSONData.getKey(base64));
-
-                sendOut.println(new String(base64.toBase64(msgBytes)));
+                sendOut.println("user:" + IDStr + ":" + new String(this.data.getCurrentUser().getUserID()));
                 sendOut.flush();
 
                 System.out.println("search sent to " + JSONData.getIp());
 
                 readIn = new BufferedReader(new InputStreamReader(socketInternal.getInputStream()));
                 String serverResponse = readIn.readLine();
-
-                msgBytes = base64.fromBase64(serverResponse);
-                byte[] decryptedMsgBytes = manager.decryptMessagePub(msgBytes, JSONData.getKey(base64));
-                serverResponse = new String(decryptedMsgBytes);
-
                 if (serverResponse.equals("user:found")) {
                     result = JSONData;
 
@@ -122,9 +112,10 @@ public class MessageCompiler {
         String fromID = byteToString(data.getCurrentUser().getUserID());
         String baseMessage = fromID + spaceDel + message;
 
-        System.out.println("Base message string: " + baseMessage.getBytes().length);
+        System.out.println("Base message sting: " + baseMessage.getBytes().length);
 
-        byte[] msg = manager.encryptMessagePub(baseMessage.getBytes(), manager.getPublicKey());
+        temp keys = new temp();
+        byte[] msg = manager.encryptMessagePub(baseMessage.getBytes(), keys.pukey1);
 
         //msg = baseMessage.getBytes();
 
@@ -141,8 +132,7 @@ public class MessageCompiler {
     public String returnAuthMessage() {
         Base64Handler base64 = data.getBase64();
 
-        String IP = data.getIP() + ":" + data.getPort();
-        JSONDataHolder serverData = data.getServerList().findServerByIP(IP);
+        JSONDataHolder serverData = data.getAuthServer();
 
         String baseMessage = "auth:" + IDStr;
 
@@ -168,7 +158,6 @@ public class MessageCompiler {
 
     //REF https://www.tutorialspoint.com/java/java_bytearrayoutputstream.htm
     private byte[] addByteArrays(byte[] one, byte[] two) {
-        //REF https://www.tutorialspoint.com/java/java_bytearrayoutputstream.htm
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream(one.length + two.length);
 
         try {

@@ -53,6 +53,7 @@ public class MessageListener implements Runnable {
     @Override
     public void run() {
         String message;
+        Base64Handler base64 = data.getBase64();
 
         Socket socket = data.getClientSocket(pos);
 
@@ -64,7 +65,6 @@ public class MessageListener implements Runnable {
             while (clientRunning) {
 
                 dataStartTime = System.currentTimeMillis();
-
                 boolean auth = false, user = false;
                 message = readIn.readLine();
 
@@ -73,84 +73,80 @@ public class MessageListener implements Runnable {
 
                     System.out.println("Data received");
 
-                    if (message.length() >= 5) {
-                        if (message.substring(0, 5).equals("auth:")) {
-                            data.setUserID(message.substring(5).getBytes(), pos);
-                            System.out.println("User " + message.substring(5) + " has authenticated");
-                            auth = true;
-                            //finish(false);
-                        }
+                    if (!message.equals("") && message.length() > 0) {
 
-                        if (message.substring(0, 5).equals("user:")) {
-                            String newUserID = message.split(":")[1];
-                            String oldUserID = message.split(":")[2];
+                        CryptManager manager = data.getManager();
+                        PrivateKey key = manager.getPrivateKey();
+                        //System.out.println(message);
 
-                            System.out.println("User " + newUserID + " searched for");
+                        byte[] base = base64.fromBase64(message);
 
-                            try {
-                                user = data.isUserHere(newUserID.getBytes());
-                            } catch (Exception e) {
-                                user = false;
+                        //System.out.println(Arrays.toString(base));
+                        //System.out.println(new String(base, StandardCharsets.UTF_8));
+
+                        System.out.println("Message Decryption started");
+                        long startTime = System.nanoTime();
+
+                        byte[] msg = manager.decryptMessagePriv(base, key);
+                        String msgStr = new String(msg, StandardCharsets.UTF_8);
+
+                        long duration = (System.nanoTime() - startTime) / 100000;
+                        System.out.println("Message Deception took: " + duration + " milliseconds");
+                        System.out.println("Message Decryption finished");
+
+                        if (!data.isServer()) {
+                            listener.messageReceived(msgStr, socket, data);
+                        } else {
+
+                            if (msgStr.length() >= 5) {
+                                if (msgStr.substring(0, 5).equals("auth:")) {
+                                    data.setUserID(msgStr.substring(5).getBytes(), pos);
+                                    System.out.println("User " + msgStr.substring(5) + " has authenticated");
+                                    auth = true;
+                                    //finish(false);
+
+                                } else if (msgStr.substring(0, 5).equals("user:")) {
+
+                                    String newUserID = msgStr.split(":")[1];
+                                    String oldUserID = msgStr.split(":")[2];
+
+                                    System.out.println("User " + newUserID + " searched for");
+
+                                    try {
+                                        user = data.isUserHere(newUserID.getBytes());
+                                    } catch (Exception e) {
+                                        user = false;
+                                    }
+
+                                    if (user) {
+                                        System.out.println("User " + newUserID + " found");
+                                        handler.sendMessage("user:found", socket);
+                                    } else {
+                                        System.out.println("User " + newUserID + " failed");
+                                        handler.sendMessage("user:failed", socket);
+                                    }
+
+                                    System.out.println("Data sent");
+
+                                    user = true;
+
+                                    //Find out if that user is connected to this server
+                                    //if so we don't want to close their socket
+                                    System.out.println("Checking if user is on server");
+                                    boolean onServer;
+                                    try {
+                                        onServer = data.isUserHere(oldUserID.getBytes());
+                                    } catch (Exception e) {
+                                        onServer = false;
+                                    }
+
+                                    //if (!onServer) finish(true);
+
+                                    //tempSocket.close();
+                                }
                             }
 
-                            if (user) {
-                                System.out.println("User " + newUserID + " found");
-                                handler.sendMessage("user:found", socket);
-                            } else {
-                                System.out.println("User " + newUserID + " failed");
-                                handler.sendMessage("user:failed", socket);
-                            }
-
-                            System.out.println("Data sent");
-
-                            user = true;
-
-                            //Find out if that user is connected to this server
-                            //if so we don't want to close their socket
-                            System.out.println("Checking if user is on server");
-                            boolean onServer;
-                            try {
-                                onServer = data.isUserHere(oldUserID.getBytes());
-                            } catch (Exception e) {
-                                onServer = false;
-                            }
-
-                            //if (!onServer) finish(true);
-
-                            //tempSocket.close();
-                        }
-                    }
-
-                    if (!auth && !user) {
-
-                        if (!message.equals("") && message.length() > 0) {
-
-                            CryptManager manager = data.getManager();
-                            PrivateKey key = manager.getPrivateKey();
-                            //System.out.println(message);
-
-                            Base64Handler base64 = data.getBase64();
-                            byte[] base = base64.fromBase64(message);
-
-                            //System.out.println(Arrays.toString(base));
-                            //System.out.println(new String(base, StandardCharsets.UTF_8));
-
-                            //REF (for nanoTime()) https://stackoverflow.com/a/180191/11480852
-                            System.out.println("Message Decryption started");
-                            long startTime = System.currentTimeMillis();
-
-                            byte[] msg = manager.decryptMessagePriv(base, key);
-                            String msgStr = new String(msg, StandardCharsets.UTF_8);
-
-                            long duration = System.currentTimeMillis() - startTime;
-                            System.out.println("Message Deception took: " + duration + " milliseconds");
-                            System.out.println("Message Decryption finished");
-
-                            //System.out.println(msgStr);
-
-                            if (!data.isServer()) {
-                                listener.messageReceived(msgStr, socket, data);
-                            } else {
+                            if (!auth && !user) {
 
                                 try {
                                     boolean toUser = false;
@@ -177,9 +173,9 @@ public class MessageListener implements Runnable {
                                     byte[] tempBytes = (type + spaceDel).getBytes();
                                     int tempBytesLen = tempBytes.length;
 
-                                    byte[] reformatedBytes = Arrays.copyOfRange(msg, tempBytesLen, msg.length);
+                                    byte[] reformattedBytes = Arrays.copyOfRange(msg, tempBytesLen, msg.length);
 
-                                    String finalStr = new String(base64.toBase64(reformatedBytes), StandardCharsets.UTF_8);
+                                    String finalStr = new String(base64.toBase64(reformattedBytes), StandardCharsets.UTF_8);
 
                                     System.out.println("Sending " + finalStr);
 
@@ -204,7 +200,7 @@ public class MessageListener implements Runnable {
 
                 loopCount++;
 
-                if (loopCount > 50){
+                if (loopCount > 50) {
                     finish(true);
                 }
 

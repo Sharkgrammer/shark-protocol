@@ -49,7 +49,9 @@ public class ConnectionHandler {
                     System.out.println("OPEN THREADS: " + Thread.activeCount());
                     int temp = 1;
                     for (MessageListener lis : receivers){
-                        System.out.println((temp++) + " : " + lis.getName() + " : " + lis.isSocketAlive());
+                        if (lis.isSocketAlive()){
+                            System.out.println((temp++) + " : " + lis.getName());
+                        }
                     }
 
                     receivers.removeIf(lis -> !lis.isSocketAlive());
