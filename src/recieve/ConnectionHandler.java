@@ -17,7 +17,6 @@ public class ConnectionHandler {
     private boolean serverRunning;
     private List<MessageListener> receivers;
 
-
     public ConnectionHandler(DataHolder server, ResultHandler listener) {
         this.listener = listener;
         this.server = server;
@@ -93,7 +92,6 @@ public class ConnectionHandler {
 
     public void sendMessage(String message, Socket socket) {
         try {
-            System.out.println("Sending message " + message);
             PrintWriter sendOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
             sendOut.println(message);
