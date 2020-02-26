@@ -125,13 +125,18 @@ public class MessageListener implements Runnable {
                                         user = false;
                                     }
 
+                                    String userMessage = "";
                                     if (user) {
                                         System.out.println("User " + newUserID + " found");
-                                        handler.sendMessage("user:found", socket);
+                                        userMessage = "user:found";
                                     } else {
                                         System.out.println("User " + newUserID + " failed");
-                                        handler.sendMessage("user:failed", socket);
+                                        userMessage = "user:failed";
                                     }
+
+                                    byte[] userBytes = manager.encryptMessagePriv(userMessage.getBytes(), key);
+                                    String userFinal = new String(base64.toBase64(userBytes));
+                                    handler.sendMessage(userFinal, socket);
 
                                     System.out.println("Data sent");
 
