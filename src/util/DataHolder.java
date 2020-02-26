@@ -253,9 +253,19 @@ public class DataHolder {
         return Integer.parseInt(getAuthServer().getIp().split(":")[1]);
     }
 
+    public void setAuthServer(){
+
+        if (this.getIP() == null){
+            authServer = getServerList().getSingleServer();
+        }else{
+            authServer = getServerList().findServerByIP(this.getIP());
+        }
+
+    }
+
     public JSONDataHolder getAuthServer() {
         if (authServer == null) {
-            authServer = getServerList().getSingleServer();
+            setAuthServer();
         }
 
         return authServer;
