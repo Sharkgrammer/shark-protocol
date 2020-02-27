@@ -3,6 +3,7 @@ package recieve;
 import util.MessageListener;
 import util.ResultHandler;
 import util.DataHolder;
+import util.SocketHolder;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -53,16 +54,21 @@ public class ConnectionHandler {
                         }
                     }
 
-                    receivers.removeIf(lis -> !lis.isSocketAlive());
-
                     //REF https://stackoverflow.com/a/40100207/11480852
                     cSocket = sSocket.accept();
+                    final Socket finalCSocket = cSocket;
+
+
+                    receivers.removeIf(lis -> !lis.isSocketAlive());
+                    //receivers.removeIf(lis -> (lis.getSocketInet().equals(finalCSocket.getInetAddress())) && lis.isAuth());
+
                     server.addClientSocket(cSocket, socketCounter);
 
                     MessageListener receiver = new MessageListener("ServerClient" + socketCounter, server, listener, true, socketCounter);
                     receiver.start();
                     receivers.add(receiver);
                     socketCounter++;
+
                 } catch (Exception e) {
                     System.out.println("Error in setServerListening: " + e.toString());
                 }

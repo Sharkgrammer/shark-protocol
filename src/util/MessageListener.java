@@ -5,6 +5,7 @@ import recieve.ConnectionHandler;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
@@ -18,6 +19,8 @@ public class MessageListener implements Runnable {
     private boolean clientRunning, socketAlive;
     private int pos;
     private long dataStartTime;
+    private Socket socket;
+    boolean auth = false, user = false;
 
     public MessageListener(String name, DataHolder data, ResultHandler listener, boolean clientRunning, int pos) {
         this.data = data;
@@ -60,7 +63,7 @@ public class MessageListener implements Runnable {
         String message;
         Base64Handler base64 = data.getBase64();
 
-        Socket socket = data.getClientSocket(pos);
+        socket = data.getClientSocket(pos);
 
         System.out.println("Listener started");
         try {
@@ -70,8 +73,16 @@ public class MessageListener implements Runnable {
             while (clientRunning) {
 
                 dataStartTime = System.currentTimeMillis();
-                boolean auth = false, user = false;
-                message = readIn.readLine();
+                message = null;
+
+
+                if (auth){
+                    //if (!socket.getInetAddress().isReachable(250)){
+                        //finish(true);
+                   // }
+                }else{
+                    message = readIn.readLine();
+                }
 
                 if (message != null) {
                     ConnectionHandler handler = new ConnectionHandler(data, listener);
@@ -106,7 +117,7 @@ public class MessageListener implements Runnable {
                                     data.setUserID(msgStr.substring(5).getBytes(), pos);
                                     System.out.println("User " + msgStr.substring(5) + " has authenticated");
                                     auth = true;
-                                    //finish(false);
+                                    finish(false);
 
                                 } else if (msgStr.substring(0, 5).equals("user:")) {
 
@@ -206,7 +217,7 @@ public class MessageListener implements Runnable {
 
                 }
 
-                loopCount++;
+                if (!auth) loopCount++;
 
                 if (loopCount > 50) {
                     finish(true);
@@ -230,5 +241,13 @@ public class MessageListener implements Runnable {
 
     public String getName() {
         return name;
+    }
+
+    public InetAddress getSocketInet(){
+        return socket.getInetAddress();
+    }
+
+    public boolean isAuth() {
+        return auth;
     }
 }
