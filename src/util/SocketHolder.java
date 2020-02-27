@@ -43,6 +43,11 @@ public class SocketHolder {
     }
 
     public byte[] getUserID(){
+
+        if (user == null){
+            return new byte[0];
+        }
+
         return user.getUserID();
     }
 
