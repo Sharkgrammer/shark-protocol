@@ -164,7 +164,7 @@ public class DataHolder {
 
     private Integer findPosByUserID(byte[] ID) {
 
-        for (int x = 1; x < sockets.size(); x++) {
+        for (int x = sockets.size() - 1; x > 0; x--) {
 
             byte[] user = sockets.get(x).getUserID();
 
