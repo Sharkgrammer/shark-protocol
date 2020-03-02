@@ -45,6 +45,7 @@ public class MessageListener implements Runnable {
         if (dataStartTime != 0){
             long dataOverallTime = System.currentTimeMillis() - dataStartTime;
             System.out.println("Data parsed in: " + dataOverallTime + " milliseconds");
+            System.out.println("dp:" + dataOverallTime);
 
             dataStartTime = 0;
         }
@@ -95,7 +96,8 @@ public class MessageListener implements Runnable {
                         String msgStr = new String(msg, StandardCharsets.UTF_8);
 
                         long duration = (System.currentTimeMillis() - startTime);
-                        System.out.println("Message Deception took: " + duration + " milliseconds");
+                        System.out.println("Message Decryption took: " + duration + " milliseconds");
+                        System.out.println("md:" + duration);
 
                         if (!data.isServer()) {
                             listener.messageReceived(msgStr, socket, data);
