@@ -6,11 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Work towards auth fixes">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Fixed spelling mistake">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/shark_protocol_jar/shark-protocol.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/shark_protocol_jar/shark-protocol.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/send/MessageCompiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/send/MessageCompiler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/temp.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/MessageListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/temp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/temp.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582809015695</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fixed spelling mistake">
+      <created>1583168628755</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1583168628755</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -423,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix to user ID" />
     <MESSAGE value="Fix to auth" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Work towards multiserver and proper key support" />
@@ -448,7 +465,8 @@
     <MESSAGE value="User merge x2" />
     <MESSAGE value="User merge x3" />
     <MESSAGE value="Work towards auth fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work towards auth fixes" />
+    <MESSAGE value="Fixed spelling mistake" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed spelling mistake" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
@@ -479,10 +497,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="623" y="51" width="599" height="613" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1579358405327" />
-    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1579635453074">
+    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1583506304668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1579635453074" />
+    <state x="45" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583506304668" />
     <state x="479" y="248" width="408" height="240" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579700601117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -492,16 +510,20 @@
     </state>
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582724107437" />
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1581796204524" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583506042034">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1583506042034" />
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1580145415752">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
-    <state x="1983" y="0" width="697" height="708" key="CommitChangelistDialog2" timestamp="1582809014008">
-      <screen x="1366" y="0" width="1920" height="1040" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1583168626520">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="439" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736595445" />
     <state x="1983" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582809014008" />
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581957252462" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583168626520" />
     <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1582839249836">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -515,30 +537,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581882154696" />
-    <state width="1323" height="288" key="GridCell.Tab.0.bottom" timestamp="1583165160273">
+    <state width="1323" height="286" key="GridCell.Tab.0.bottom" timestamp="1583507212186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="288" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583165160273" />
-    <state width="1323" height="288" key="GridCell.Tab.0.center" timestamp="1583165160273">
+    <state width="1323" height="286" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
+    <state width="1323" height="286" key="GridCell.Tab.0.center" timestamp="1583507212186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="288" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583165160273" />
-    <state width="1323" height="288" key="GridCell.Tab.0.left" timestamp="1583165160273">
+    <state width="1323" height="286" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
+    <state width="1323" height="286" key="GridCell.Tab.0.left" timestamp="1583507212186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="288" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583165160273" />
-    <state width="1323" height="288" key="GridCell.Tab.0.right" timestamp="1583165160273">
+    <state width="1323" height="286" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
+    <state width="1323" height="286" key="GridCell.Tab.0.right" timestamp="1583507212186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="288" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583165160273" />
+    <state width="1323" height="286" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
     <state width="1877" height="345" key="GridCell.Tab.1.bottom" timestamp="1582804233939">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -567,12 +589,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580505163096" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1582993042045">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1583168632633">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736602008" />
     <state x="1753" y="137" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582810048531" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1582993042045" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1583168632633" />
     <state x="1757" y="-13" width="1182" height="544" maximized="true" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1582839222558">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

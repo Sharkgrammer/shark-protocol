@@ -123,8 +123,8 @@ public class MessageCompiler {
 
         System.out.println("Base message sting: " + baseMessage.getBytes().length);
 
-        temp keys = new temp();
-        byte[] msg = manager.encryptMessagePub(baseMessage.getBytes(), keys.pukey1);
+        //temp keys = new temp();
+        byte[] msg = manager.encryptMessagePub(baseMessage.getBytes(), data.getUserTo().getManager().getPublicKey());
 
         //msg = baseMessage.getBytes();
 

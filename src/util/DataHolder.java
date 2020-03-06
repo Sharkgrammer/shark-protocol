@@ -16,6 +16,7 @@ public class DataHolder {
     private int port;
     private List<SocketHolder> sockets = new ArrayList<>();
     private UserHolder currentUser;
+    private UserHolder userTo;
     private Base64Handler base64;
     private URLHandler url;
     private CryptManager manager;
@@ -273,4 +274,11 @@ public class DataHolder {
         return authServer;
     }
 
+    public UserHolder getUserTo() {
+        return userTo;
+    }
+
+    public void setUserTo(UserHolder userTo) {
+        this.userTo = userTo;
+    }
 }
