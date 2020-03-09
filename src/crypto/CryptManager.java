@@ -24,8 +24,10 @@ public class CryptManager {
         try {
             //REF https://stackoverflow.com/questions/2411096/how-to-recover-a-rsa-public-key-from-a-byte-array#2411199
             KeyFactory kf = KeyFactory.getInstance(keyInstance);
-            if (priv != null) privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));
+
             if (pub != null) publicKey = kf.generatePublic(new X509EncodedKeySpec(pub));
+
+            if (priv != null) privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(priv));
 
         } catch (Exception e) {
             System.out.println(e.toString());
