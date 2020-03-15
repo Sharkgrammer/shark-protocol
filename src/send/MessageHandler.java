@@ -29,4 +29,9 @@ public class MessageHandler {
     public void send(String message, byte[] toID){
         con.sendMessage(message, toID);
     }
+
+    public boolean isUserOnline(byte[] ID){
+        return con.isUserOnline(ID);
+    }
+
 }

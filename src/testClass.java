@@ -14,11 +14,11 @@ public class testClass {
         System.out.println("shark test start");
 
         DataHolder data = new DataHolder(null, null);
-        data.setPort(6000);
-        data.setIP("localhost");
+        data.setPort(0);
+        data.setIP(null);
 
-        new Server().run(data);
-        //new Client().run(data);
+        //new Server().run(data);
+        new Client().run(data);
 
         //new CryptManager().run();
         //new ServerListHandler(data, 0).run();
@@ -97,7 +97,7 @@ class Client implements ResultHandler{
 
         client.auth();
 
-        client.send("pizza boops?", ToID.getBytes());
+        //client.send("pizza boops?", ToID.getBytes());
 
         //client.stop();
 

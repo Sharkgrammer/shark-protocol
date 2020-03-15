@@ -88,4 +88,12 @@ public class ClientHandler {
         return new String(array);
     }
 
+    public boolean isUserOnline(byte[] ID){
+        MessageCompiler tempCompiler = new MessageCompiler(ID, data);
+
+        JSONDataHolder dataObj = tempCompiler.findUserOnNetwork();
+
+        return (dataObj != null);
+    }
+
 }

@@ -6,8 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Final Fixes">
+    <list default="true" id="06eb0bcc-4cc1-42c8-88b2-2b2a78cb454f" name="Default" comment="Removed DataContainer.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/shark_protocol_jar/shark-protocol.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/shark_protocol_jar/shark-protocol.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/android/DataContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/testClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shark-protocol/util/DataHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/MessageCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/send/MessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DataHolder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -417,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583785382751</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Removed DataContainer.java">
+      <created>1584138276346</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1584138276346</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -434,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixes" />
     <MESSAGE value="Work towards multiserver and proper key support" />
     <MESSAGE value="Data package compilation and encryption finished" />
     <MESSAGE value="User searching code complete" />
@@ -459,7 +475,8 @@
     <MESSAGE value="Work towards auth fixes" />
     <MESSAGE value="Fixed spelling mistake" />
     <MESSAGE value="Final Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Fixes" />
+    <MESSAGE value="Removed DataContainer.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed DataContainer.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1580145643954">
@@ -511,12 +528,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="576" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580145415752" />
-    <state x="1983" y="0" width="697" height="708" key="CommitChangelistDialog2" timestamp="1583785380861">
-      <screen x="1366" y="0" width="1920" height="1040" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2" timestamp="1584138274033">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="439" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736595445" />
     <state x="1983" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1583785380861" />
-    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583168626520" />
+    <state x="439" y="14" width="697" height="708" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584138274033" />
     <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1582839249836">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -531,30 +548,30 @@
     </state>
     <state x="1942" y="150" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1583783966935" />
     <state x="410" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581882154696" />
-    <state width="1323" height="286" key="GridCell.Tab.0.bottom" timestamp="1583507212186">
+    <state width="1323" height="231" key="GridCell.Tab.0.bottom" timestamp="1584140012931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="286" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
-    <state width="1323" height="286" key="GridCell.Tab.0.center" timestamp="1583507212186">
+    <state width="1323" height="231" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584140012931" />
+    <state width="1323" height="231" key="GridCell.Tab.0.center" timestamp="1584140012931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="286" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
-    <state width="1323" height="286" key="GridCell.Tab.0.left" timestamp="1583507212186">
+    <state width="1323" height="231" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584140012931" />
+    <state width="1323" height="231" key="GridCell.Tab.0.left" timestamp="1584140012931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="286" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
-    <state width="1323" height="286" key="GridCell.Tab.0.right" timestamp="1583507212186">
+    <state width="1323" height="231" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584140012931" />
+    <state width="1323" height="231" key="GridCell.Tab.0.right" timestamp="1584140012931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="200" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582910064956" />
     <state width="1877" height="710" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1582920628729" />
-    <state width="1323" height="286" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583507212186" />
+    <state width="1323" height="231" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584140012931" />
     <state width="1877" height="345" key="GridCell.Tab.1.bottom" timestamp="1582804233939">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -583,12 +600,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580505163096" />
-    <state x="1753" y="137" key="Vcs.Push.Dialog.v2" timestamp="1583785385361">
-      <screen x="1366" y="0" width="1920" height="1040" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1584138278689">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1582736602008" />
     <state x="1753" y="137" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1583785385361" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1583168632633" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584138278689" />
     <state x="1757" y="-13" width="1182" height="544" maximized="true" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1582839222558">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -32,7 +32,7 @@ public class MessageCompiler {
         this.manager = data.getCurrentUser().getManager();
     }
 
-    private JSONDataHolder findUserOnNetwork() {
+    public JSONDataHolder findUserOnNetwork() {
         List<JSONDataHolder> list = serverHandler.getServerListFull();
         JSONDataHolder result = null;
         PrintWriter sendOut;

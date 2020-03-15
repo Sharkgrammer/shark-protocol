@@ -24,7 +24,6 @@ public class DataHolder {
     private JSONDataHolder authServer;
     private boolean isServer;
 
-
     public DataHolder(byte[] publicKey, byte[] privateKey) {
         manager = new CryptManager();
         if (publicKey == null) {
