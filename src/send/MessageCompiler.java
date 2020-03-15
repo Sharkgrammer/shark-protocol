@@ -24,12 +24,14 @@ public class MessageCompiler {
         this.data = data;
         this.socket = socket;
         this.manager = data.getCurrentUser().getManager();
+        this.serverHandler = new ServerListHandler(data, 0);
     }
 
     public MessageCompiler(byte[] ID, DataHolder data) {
         this.IDStr = byteToString(ID);
         this.data = data;
         this.manager = data.getCurrentUser().getManager();
+        this.serverHandler = new ServerListHandler(data, 0);
     }
 
     public JSONDataHolder findUserOnNetwork() {
@@ -86,7 +88,6 @@ public class MessageCompiler {
         System.out.println("encryptedMsg: " + encryptedMsg.length);
 
         Base64Handler base64 = data.getBase64();
-        serverHandler = new ServerListHandler(data, 0);
         List<JSONDataHolder> list = serverHandler.getServerList();
 
         JSONDataHolder userServer = findUserOnNetwork();
